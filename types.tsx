@@ -20,3 +20,8 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+export type IProps ={
+  row: number;
+  col: number;
+}

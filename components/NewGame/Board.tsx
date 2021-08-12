@@ -1,64 +1,94 @@
-<<<<<<< HEAD
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import SubBox from "./SubBox";
 export default function NewGame() {
 
   return (
     <View style={styles.container}>
-      <Text>
-        Board
-      </Text>
+      <View style={styles.row}>
+        <SubBox
+          row = {0}
+          col = {0}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {0}
+          col = {3}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {0}
+          col = {6}
+        />
+      </View>
+      <View>
+        <View style={styles.horizontalLine} />
+      </View>
+      <View style={styles.row}>
+        <SubBox
+          row = {3}
+          col = {0}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {3}
+          col = {3}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {3}
+          col = {6}
+        />
+      </View>
+      <View>
+        <View style={styles.horizontalLine} />
+      </View>
+      <View style={styles.row}>
+        <SubBox
+          row = {6}
+          col = {0}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {6}
+          col = {3}
+        />
+        <View>
+          <View style = {styles.verticalLine}/>
+        </View>
+        <SubBox
+          row = {6}
+          col = {6}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+  },
+  row: {
+    flexDirection:'row',
+  },
+  horizontalLine: {
+    height: 10, 
+    backgroundColor:'black'
+  },
+  verticalLine:{
     flex:1,
-    alignItems: 'center',
-    justifyContent:'center'
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color:'black'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-=======
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-
-export default function NewGame() {
-
-  return (
-    <View style={styles.container}>
-      <Text>
-        Board
-      </Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent:'center'
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color:'black'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
->>>>>>> dd8916c4d3a9d8e0d5116fed050df98163d32a45
+    width: 10, 
+    backgroundColor:'black'
+  }
 });
