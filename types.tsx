@@ -22,6 +22,8 @@ export type TabTwoParamList = {
 };
 
 export type IProps ={
+  key?:string;
   row: number;
   col: number;
+  number?:number;
 }

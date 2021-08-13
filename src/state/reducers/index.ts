@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 import boardReducer from './boardReducer';
-import gridSquareReducer from './gridSqureReducer';
+import colorReducer from './colorReducer';
+import selectionReducer from './selectionReducer';
 
 const reducers = combineReducers({
   board: boardReducer,
-  position: gridSquareReducer
+  colors: colorReducer,
+  selection:selectionReducer
 });
 
 export default reducers;

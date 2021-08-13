@@ -58,7 +58,7 @@ function generateBoard(data:(number|null)[][]):(number|null)[][] {
   return data;
 }
 
-function isSolvable(data:(number|null)[][]):boolean {
+export function isSolvable(data:(number|null)[][]):boolean {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
     //Iterate through column of respective row.
