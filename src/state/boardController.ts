@@ -1,4 +1,4 @@
-function shuffle(array: number[]):number[] {
+export function shuffle(array: number[]):number[] {
   var currentIndex = array.length,  randomIndex;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -12,7 +12,7 @@ function shuffle(array: number[]):number[] {
   return array;
 }
 
-function isValid(board:(number|null)[][], row:number, col:number, k:number) {
+export function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   //Determine if the current value k exists with in the respective positions:
     //row
     //column
@@ -28,7 +28,7 @@ function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   return true;
 }
 
-function generateBoard(data:(number|null)[][]):(number|null)[][] {
+export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
     //Iterate through column of respective row.
@@ -117,7 +117,7 @@ export function isSolvable(data:(number|null)[][]):boolean {
   return true;
 }
 
-var initBoard = (curBoard: (number|null)[][], difficulty:number):(number|null)[][] =>{
+export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number;
   switch(difficulty){
     case 0:
@@ -152,9 +152,3 @@ var initBoard = (curBoard: (number|null)[][], difficulty:number):(number|null)[]
   }
   return curBoard;
 }
-const initArr:number[] = shuffle([1,2,3,4,5,6,7,8,9]);
-const board:(number | null)[][] = [initArr,[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null]];
-generateBoard(board);
-const difficulty:number = 0
-const gameBoard:(number | null)[][] = initBoard(board,3)
-export default gameBoard;

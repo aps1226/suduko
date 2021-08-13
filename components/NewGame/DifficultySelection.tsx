@@ -6,18 +6,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index'; 
 import {RootState} from '../../src/state/reducers/index';
+import {generateBoard,initBoard} from '../../src/state/boardController'
 export default function DifficultySelection({history}:RouteComponentProps) {
   //Redux difficulty state.
-  const {difficulty} = useSelector((state:RootState) => state);
+  const {board,difficulty} = useSelector((state:RootState) => state);
   //Redux dispatcher.
   const dispatch = useDispatch();
-  //Redux action to set difficulty level..
-  const { setDifficulty } = bindActionCreators(actionCreators,dispatch);
+  //Redux action to set difficulty level.
+  const { setBoard,setDifficulty } = bindActionCreators(actionCreators,dispatch);
   //Handle selection of difficulty.
     //Set difficulty level based on selection.
     //Route to new game.
   const handlePress = (val:number):void =>{
+    //Set difficulty state.
     setDifficulty(val);
+    //Initialize game board.
+    generateBoard(board);
+    const gameBoard:(number|null)[][] = initBoard(board.map((arr:(number|null)[]) => [...arr]),val);
+    setBoard(gameBoard);
+    //Route to board display
     history.push('/NewGame');
   }
   return (

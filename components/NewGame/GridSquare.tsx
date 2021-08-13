@@ -3,7 +3,7 @@ import { Alert,StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
-import {isValidSudoku} from '../../src/state/initializeBoard'
+import {isValidSudoku} from '../../src/state/boardController'
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
 export default function GridSquare(props:IProps) {
