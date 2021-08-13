@@ -1,11 +1,9 @@
-import {ADD_FOOD,DELETE_FOOD} from '../actions/types';
+import { SET_BOARD } from '../actions/types';
 import board from '../initializeBoard';
 const boardReducer = (state = board, action: any) =>{
   switch(action.type){
-    case ADD_FOOD:
-      return;
-    case DELETE_FOOD:
-      return;
+    case SET_BOARD:
+      return action.payload;
     default:
       return state;
   }

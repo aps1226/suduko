@@ -1,8 +1,24 @@
-export const incrementPosition = (position:any) =>{
+export const setBoard = (board:(number|null)[][]) =>{
   return (dispatch:any) =>{
     dispatch({
-      type:"INCREMENT",
-      payload:position
+      type:"SET_BOARD",
+      payload:board
+    })
+  }
+}
+export const changeColor = (number:string) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"CHANGE_COLOR",
+      payload:number
+    })
+  }
+}
+export const setSelection = (number?:number) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_SELECTION",
+      payload:number
     })
   }
 }

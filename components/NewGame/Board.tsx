@@ -1,8 +1,9 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import SubBox from "./SubBox";
-export default function NewGame() {
+import { useSelector, useDispatch } from "react-redux"; 
+export default function Board() {
 
   return (
     <View style={styles.container}>
