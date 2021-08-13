@@ -1,4 +1,4 @@
-function shuffle(array: number[]):number[] {
+export function shuffle(array: number[]):number[] {
   var currentIndex = array.length,  randomIndex;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -12,7 +12,7 @@ function shuffle(array: number[]):number[] {
   return array;
 }
 
-function isValid(board:(number|null)[][], row:number, col:number, k:number) {
+export function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   //Determine if the current value k exists with in the respective positions:
     //row
     //column
@@ -28,7 +28,7 @@ function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   return true;
 }
 
-function generateBoard(data:(number|null)[][]):(number|null)[][] {
+export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
     //Iterate through column of respective row.
@@ -57,6 +57,35 @@ function generateBoard(data:(number|null)[][]):(number|null)[][] {
   }
   return data;
 }
+
+export function isValidSudoku(board:(number|null)[][]):boolean {
+  for (let i = 0; i < 9; i++) {
+    let row = new Set(),
+        col = new Set(),
+        box = new Set();
+
+    for (let j = 0; j < 9; j++) {
+      let _row = board[i][j];
+      let _col = board[j][i];
+      let _box = board[3*Math.floor(i/3)+Math.floor(j/3)][3*(i%3)+(j%3)]
+      
+      if (_row !== null) {
+        if (row.has(_row)) return false;
+        row.add(_row);
+      }
+      if (_col !== null) {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+      
+      if (_box !== null) {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      } 
+    }
+  }
+  return true
+};
 
 export function isSolvable(data:(number|null)[][]):boolean {
   //Iterate through each row of board.
@@ -88,7 +117,7 @@ export function isSolvable(data:(number|null)[][]):boolean {
   return true;
 }
 
-var initBoard = (curBoard: (number|null)[][], difficulty:number):(number|null)[][] =>{
+export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number;
   switch(difficulty){
     case 0:
@@ -123,9 +152,10 @@ var initBoard = (curBoard: (number|null)[][], difficulty:number):(number|null)[]
   }
   return curBoard;
 }
-const initArr:number[] = shuffle([1,2,3,4,5,6,7,8,9]);
-const board:(number | null)[][] = [initArr,[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null]];
-generateBoard(board);
-const difficulty:number = 0
-const gameBoard:(number | null)[][] = initBoard(board,3)
-export default gameBoard;
+
+export function isCompleted(board:(number|null)[][]):boolean{
+  for(let i = 0; i < board.length; i++){
+    if(board[i].includes(null)) return false;
+  }
+  return true;
+}

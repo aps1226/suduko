@@ -6,17 +6,19 @@ import SelectionSquare from './SelectionSquare';
 
 import {IProps} from '../../types';
 
-export default function SelectionBar(props:IProps) {
+export default function SelectionBar() {
 
-  const onRender = () =>{
-    const elements:any = [];
+  const onRender = ():JSX.Element[] =>{
+    const elements:JSX.Element[] = [];
     for(let i = 1; i <= 9;i++){
       elements.push(
         <View
-          key = {String(i)}
+          key = {`SelectionSquare_${i}`}
         >
           <SelectionSquare
             number = {i}
+            row = {0}
+            col = {0}
           />
         </View>
       )
