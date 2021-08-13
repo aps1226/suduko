@@ -30,3 +30,11 @@ export const setDifficulty = (difficulty?:number) =>{
     })
   }
 }
+export const setTime = (time:number) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_TIME",
+      payload:time
+    })
+  }
+}
