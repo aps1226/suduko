@@ -1,3 +1,5 @@
+import {Colors} from '../../../types'
+
 export const setBoard = (board:(number|null)[][]) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -11,6 +13,14 @@ export const changeColor = (number:string) =>{
     dispatch({
       type:"CHANGE_COLOR",
       payload:number
+    })
+  }
+}
+export const defaultColors = (defaultColors:Colors) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"DEFAULT_COLORS",
+      payload:defaultColors
     })
   }
 }

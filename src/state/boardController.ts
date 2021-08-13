@@ -152,3 +152,10 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
   }
   return curBoard;
 }
+
+export function isCompleted(board:(number|null)[][]):boolean{
+  for(let i = 0; i < board.length; i++){
+    if(board[i].includes(null)) return false;
+  }
+  return true;
+}

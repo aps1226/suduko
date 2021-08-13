@@ -1,16 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button,StyleSheet, Text, View } from "react-native";
+import { RouteComponentProps } from 'react-router-native';
 
 import Board from './Board';
 import SelectionBar from './SelectionBar';
 import Timer from './Timer';
 
 
-export default function NewGame() {
+export default function NewGame({history}:RouteComponentProps) {
 
   return (
     <View style={styles.container}>
-      <Timer/>
+      <View style={styles.topBar}>
+        <Button
+          title = 'Main Menu'
+          onPress = {() => history.push('/')}
+        />
+        <Timer/>
+      </View>
       <Board/>
       <SelectionBar/>
     </View>
@@ -22,5 +29,13 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent:'center'
+  },
+  topBar: {
+    position:'absolute',
+    top:50,
+    left:0,
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent:'space-evenly'
   },
 });

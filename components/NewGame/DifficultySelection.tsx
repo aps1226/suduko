@@ -7,13 +7,15 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index'; 
 import {RootState} from '../../src/state/reducers/index';
 import {generateBoard,initBoard} from '../../src/state/boardController'
+
+import {Colors} from '../../types'
 export default function DifficultySelection({history}:RouteComponentProps) {
   //Redux difficulty state.
-  const {board,difficulty} = useSelector((state:RootState) => state);
+  const {board,difficulty,time,colors} = useSelector((state:RootState) => state);
   //Redux dispatcher.
   const dispatch = useDispatch();
   //Redux action to set difficulty level.
-  const { setBoard,setDifficulty } = bindActionCreators(actionCreators,dispatch);
+  const { setBoard,setDifficulty,setTime, defaultColors} = bindActionCreators(actionCreators,dispatch);
   //Handle selection of difficulty.
     //Set difficulty level based on selection.
     //Route to new game.
@@ -24,6 +26,11 @@ export default function DifficultySelection({history}:RouteComponentProps) {
     generateBoard(board);
     const gameBoard:(number|null)[][] = initBoard(board.map((arr:(number|null)[]) => [...arr]),val);
     setBoard(gameBoard);
+    //Revert other properties of state to default.
+    setTime(0);
+    let defaultColor:any = {};
+    defaultColor = Object.keys(colors).map(key => defaultColor[key] = 'black')
+    defaultColors(defaultColor);
     //Route to board display
     history.push('/NewGame');
   }

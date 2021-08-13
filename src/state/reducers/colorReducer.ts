@@ -1,4 +1,4 @@
-import {CHANGE_COLOR} from '../actions/types';
+import {CHANGE_COLOR,DEFAULT_COLORS} from '../actions/types';
 
 import {Colors} from '../../../types'
 
@@ -49,6 +49,8 @@ const colorReducer = (state = initialState, action:any) =>{
       if(!action.payload.includes('Selection')) curState[action.payload] = '#32CD32';
       else curState[action.payload] = '#3297FD';
       return curState;
+    case DEFAULT_COLORS:
+      return action.payload;
     default:
       return state;
   }

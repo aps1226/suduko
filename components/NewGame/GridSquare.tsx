@@ -3,7 +3,7 @@ import { Alert,StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
-import {isValidSudoku} from '../../src/state/boardController'
+import {isValidSudoku,isCompleted} from '../../src/state/boardController'
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
 export default function GridSquare(props:IProps) {
@@ -17,7 +17,6 @@ export default function GridSquare(props:IProps) {
   //Color for respective square based on current value.
   const colorIndex:string = String(board[row][col]);
   const color:string = colors[colorIndex];
-
   const handleOnPress = () =>{
     //If value of board selection is not null
     //change the color of the respective value to green for 
@@ -32,12 +31,30 @@ export default function GridSquare(props:IProps) {
       if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))) setBoard(newBoard);
     }
   }
+
+  useEffect(() =>{
+    if(isCompleted(board)){
+      console.log('completed');
+    }
+  },[board])
   return (
     <View style={styles.container}>
       <TouchableHighlight
           onPress = {handleOnPress}
       >
-        <View style={styles.gridSquare}>
+        <View 
+          style={{
+            borderStyle:'solid',
+            width: 35,
+            height: 35,
+            borderWidth: 5,
+            borderLeftColor: 'rgba(255, 255, 255, 0.20)',
+            borderTopColor: 'rgba(255, 255, 255, 0.33)',
+            borderRightColor: 'rgba(0, 0, 0, 0.15)',
+            borderBottomColor: 'rgba(0, 0, 0, 0.5)',
+            alignItems:'center'
+          }}
+        >
             <Text
               style = {{color:color}}
             >
@@ -51,16 +68,5 @@ export default function GridSquare(props:IProps) {
 
 const styles = StyleSheet.create({
   container: {
-  },
-  gridSquare:{
-    borderStyle:'solid',
-    width: 35,
-    height: 35,
-    borderWidth: 5,
-    borderLeftColor: 'rgba(255, 255, 255, 0.20)',
-    borderTopColor: 'rgba(255, 255, 255, 0.33)',
-    borderRightColor: 'rgba(0, 0, 0, 0.15)',
-    borderBottomColor: 'rgba(0, 0, 0, 0.5)',
-    alignItems:'center'
   }
 });
