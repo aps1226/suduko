@@ -20,10 +20,21 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
-
+//State property types.
 export type IProps ={
   key?:string;
   row: number;
   col: number;
   number?:number;
 }
+
+export interface Colors {
+  [key: string]: string
+}
+
+// //Reducer property types:
+// export interface IReducers {
+//   board:(number|null)[][];
+//   colors:Colors;
+//   selection:number;
+// }

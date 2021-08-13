@@ -22,3 +22,11 @@ export const setSelection = (number?:number) =>{
     })
   }
 }
+export const setDifficulty = (difficulty?:number) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_DIFFICULTY",
+      payload:difficulty
+    })
+  }
+}

@@ -5,6 +5,8 @@ import { NativeRouter, Switch, Route  } from "react-router-native";
 import Home from './components/Home';
 import NewGame from './components/NewGame/NewGame';
 import LoadGame from './components/LoadGame';
+import DifficultySelection from "./components/NewGame/DifficultySelection";
+
 import { Provider } from 'react-redux'
 import { store } from './src/state/store';
 export default function App() {
@@ -15,6 +17,7 @@ export default function App() {
         <View style={styles.container}>
           <Switch>
             <Route exact path = "/" component={Home}/>
+            <Route exact path = "/DifficultySelection" component={DifficultySelection}/>
             <Route exact path = "/NewGame" component={NewGame}/>
             <Route exact path = "/LoadGame" component={LoadGame}/>
           </Switch>

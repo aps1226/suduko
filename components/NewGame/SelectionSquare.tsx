@@ -5,21 +5,27 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
 
 import {IProps} from '../../types';
-export default function GridSquare(props:IProps) {
+import {RootState} from '../../src/state/reducers/index';
+export default function SelectionSquare(props:IProps) {
   
   const {number} = props;
 
-  const selection = useSelector((state) => state.selection);
+  const {selection,colors} = useSelector((state:RootState) => state);
+  const color:string = colors[`Selection_${number}`];
   const dispatch = useDispatch();
-  const { setSelection } = bindActionCreators(actionCreators,dispatch);
+  const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
 
   const handleOnPress = () =>{
     setSelection(number);
+    changeColor(`Selection_${number}`);
   }
   return (
-    <View style={styles.container}>
+    <View style={{
+      backgroundColor: color
+    }}
+    >
       <TouchableHighlight
-          onPress = {handleOnPress}
+        onPress = {handleOnPress}
       >
         <View style={styles.gridSquare}>
             <Text>

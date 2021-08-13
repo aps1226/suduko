@@ -58,6 +58,35 @@ function generateBoard(data:(number|null)[][]):(number|null)[][] {
   return data;
 }
 
+export function isValidSudoku(board:(number|null)[][]):boolean {
+  for (let i = 0; i < 9; i++) {
+    let row = new Set(),
+        col = new Set(),
+        box = new Set();
+
+    for (let j = 0; j < 9; j++) {
+      let _row = board[i][j];
+      let _col = board[j][i];
+      let _box = board[3*Math.floor(i/3)+Math.floor(j/3)][3*(i%3)+(j%3)]
+      
+      if (_row !== null) {
+        if (row.has(_row)) return false;
+        row.add(_row);
+      }
+      if (_col !== null) {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+      
+      if (_box !== null) {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      } 
+    }
+  }
+  return true
+};
+
 export function isSolvable(data:(number|null)[][]):boolean {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
