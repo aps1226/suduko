@@ -6,6 +6,7 @@ import * as actionCreators from '../../src/state/index';
 
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
+        
 export default function SelectionSquare(props:IProps) {
   
   const {number} = props;
