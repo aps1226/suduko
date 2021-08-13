@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
 
 import {IProps} from '../../types';
-export default function GridSquare(props:IProps) {
+export default function SelectionSquare(props:IProps) {
   
   const {number} = props;
 
@@ -16,6 +16,7 @@ export default function GridSquare(props:IProps) {
   const handleOnPress = () =>{
     setSelection(number);
   }
+  
   return (
     <View style={styles.container}>
       <TouchableHighlight
