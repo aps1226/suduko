@@ -10,7 +10,7 @@ import {generateBoard,initBoard} from '../../src/state/boardController'
 
 import {Colors} from '../../types'
 export default function DifficultySelection({history}:RouteComponentProps) {
-  //Redux difficulty state.
+  //Redux state.
   const {board,difficulty,time,colors} = useSelector((state:RootState) => state);
   //Redux dispatcher.
   const dispatch = useDispatch();
