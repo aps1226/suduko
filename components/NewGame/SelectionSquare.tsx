@@ -9,6 +9,7 @@ import { useFonts } from '@use-expo/font';
 
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
+        
 export default function SelectionSquare(props:IProps) {
   
   const {number} = props;
