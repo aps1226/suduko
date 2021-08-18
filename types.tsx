@@ -32,9 +32,7 @@ export interface Colors {
   [key: string]: string
 }
 
-// //Reducer property types:
-// export interface IReducers {
-//   board:(number|null)[][];
-//   colors:Colors;
-//   selection:number;
-// }
+export interface Notes {
+  [key: string]: number[]
+}
+

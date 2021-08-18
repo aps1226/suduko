@@ -1,4 +1,4 @@
-import {Colors} from '../../../types'
+import {Colors,Notes} from '../../../types'
 
 export const setBoard = (board:(number|null)[][]) =>{
   return (dispatch:any) =>{
@@ -45,6 +45,29 @@ export const setTime = (time:number) =>{
     dispatch({
       type:"SET_TIME",
       payload:time
+    })
+  }
+}
+export const setEntryMode = (entryMode:boolean) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_ENTRY_MODE",
+      payload:entryMode
+    })
+  }
+}
+export const setNotes = (notes:Notes) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_NOTES",
+      payload:notes
+    })
+  }
+}
+export const defaultNotes = () =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"DEFAULT_NOTES",
     })
   }
 }

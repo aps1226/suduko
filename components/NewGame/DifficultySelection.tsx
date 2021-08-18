@@ -1,5 +1,5 @@
 import React,{ useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import SubBox from "./SubBox";
 import { useSelector, useDispatch } from "react-redux"; 
@@ -10,12 +10,12 @@ import {generateBoard,initBoard} from '../../src/state/boardController'
 
 import {Colors} from '../../types'
 export default function DifficultySelection({history}:RouteComponentProps) {
-  //Redux difficulty state.
+  //Redux state.
   const {board,difficulty,time,colors} = useSelector((state:RootState) => state);
   //Redux dispatcher.
   const dispatch = useDispatch();
   //Redux action to set difficulty level.
-  const { setBoard,setDifficulty,setTime, defaultColors} = bindActionCreators(actionCreators,dispatch);
+  const { setBoard, setDifficulty, setTime, defaultColors, defaultNotes} = bindActionCreators(actionCreators,dispatch);
   //Handle selection of difficulty.
     //Set difficulty level based on selection.
     //Route to new game.
@@ -31,31 +31,36 @@ export default function DifficultySelection({history}:RouteComponentProps) {
     let defaultColor:any = {};
     defaultColor = Object.keys(colors).map(key => defaultColor[key] = 'black')
     defaultColors(defaultColor);
+    defaultNotes();
     //Route to board display
     history.push('/NewGame');
   }
   return (
     <View style={styles.container}>
-      <Button
-        title = 'Easy'
+      <Pressable
+        style = {styles.button}
         onPress = {()=> handlePress(0)}
       >
-      </Button>
-      <Button
-        title = 'Medium'
+        <Text style = {styles.text}>Easy</Text>
+      </Pressable>
+      <Pressable
+        style = {styles.button}
         onPress = {()=> handlePress(1)}
       >
-      </Button>
-      <Button
-        title = 'Hard'
+        <Text style = {styles.text}>Medium</Text>
+      </Pressable>
+      <Pressable
+        style = {styles.button}
         onPress = {()=> handlePress(2)}
       >
-      </Button>
-      <Button
-        title = 'Extreme'
+        <Text style = {styles.text}>Hard</Text>
+      </Pressable>
+      <Pressable
+        style = {styles.button}
         onPress = {()=> handlePress(3)}
       >
-      </Button>
+        <Text style = {styles.text}>Extreme</Text>
+      </Pressable>
     </View>
   );
 }
@@ -65,5 +70,26 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent:'center'
+  },
+  button: {
+    alignItems: 'center',
+    marginTop:30,
+    justifyContent: 'center',
+    paddingVertical: 12,
+    width:150,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: '#1E90FF',
+    shadowColor:'rgba(0,0,0,0.35)',
+    shadowOffset:{width:-2,height:-2},
+    shadowOpacity:0.75,
+    shadowRadius:2
+  },
+  text:{
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   }
 });

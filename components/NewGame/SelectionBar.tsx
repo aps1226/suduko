@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Board from './Board';
 import SelectionSquare from './SelectionSquare';
+import Toggle from './Toggle'
 
 import {IProps} from '../../types';
 
@@ -27,15 +28,23 @@ export default function SelectionBar() {
   }
 
   return (
-    <View style={styles.container}>
-      {onRender()}
+    <View style ={styles.container}>
+      <View style={styles.selectionContainer}>
+        {onRender()}
+      </View>
+      <Toggle/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection:'row',
+    flexDirection:'column',
+    alignItems:'center',
     marginTop:25
+  },
+  selectionContainer: {
+    flexDirection:'row',
+    marginBottom:10
   },
 });

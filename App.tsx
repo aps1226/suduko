@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { NativeRouter, Switch, Route  } from "react-router-native";
 
 import Home from './components/Home';
@@ -15,12 +15,17 @@ export default function App() {
     <Provider store = {store}>
       <NativeRouter>
         <View style={styles.container}>
-          <Switch>
-            <Route exact path = "/" component={Home}/>
-            <Route exact path = "/DifficultySelection" component={DifficultySelection}/>
-            <Route exact path = "/NewGame" component={NewGame}/>
-            <Route exact path = "/LoadGame" component={LoadGame}/>
-          </Switch>
+          <ImageBackground 
+            source = {require('./assets/images/desk.png')}
+            style={styles.backgroundImage}
+          >
+            <Switch>
+              <Route exact path = "/" component={Home}/>
+              <Route exact path = "/DifficultySelection" component={DifficultySelection}/>
+              <Route exact path = "/NewGame" component={NewGame}/>
+              <Route exact path = "/LoadGame" component={LoadGame}/>
+            </Switch>
+          </ImageBackground>
         </View>
       </NativeRouter>
     </Provider>
@@ -32,14 +37,8 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center'
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color:'black'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  backgroundImage:{
+    flex: 1,
+    width:'100%'
+  }
 });

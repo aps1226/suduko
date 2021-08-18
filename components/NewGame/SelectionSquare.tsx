@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
 
+import AppLoading from 'expo-app-loading';
+import { useFonts } from '@use-expo/font';
+
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
         
@@ -11,7 +14,7 @@ export default function SelectionSquare(props:IProps) {
   
   const {number} = props;
 
-  const {selection,colors} = useSelector((state:RootState) => state);
+  const {selection,colors,entryMode} = useSelector((state:RootState) => state);
   const color:string = colors[`Selection_${number}`];
   const dispatch = useDispatch();
   const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
@@ -20,22 +23,37 @@ export default function SelectionSquare(props:IProps) {
     setSelection(number);
     changeColor(`Selection_${number}`);
   }
-  return (
-    <View style={{
-      backgroundColor: color
-    }}
-    >
-      <TouchableHighlight
-        onPress = {handleOnPress}
+  const [isLoaded] = useFonts({
+    "JustAnotherHand":require("../../assets/fonts/JustAnotherHand-Regular.ttf"),
+    "SpaceMono":require("../../assets/fonts/SpaceMono-Regular.ttf")
+  })
+  if(!isLoaded){
+    return(<AppLoading/>);
+  }else{
+    let fontFamily:string = entryMode ? "SpaceMono":"JustAnotherHand";
+    let marginTop:number = entryMode ? 0:5;
+    return (
+      <View style={{
+        backgroundColor: color
+      }}
       >
-        <View style={styles.gridSquare}>
-            <Text>
-              {number}
-            </Text>
-        </View>
-      </TouchableHighlight>
-    </View>
-  );
+        <TouchableHighlight
+          onPress = {handleOnPress}
+        >
+          <View style={styles.gridSquare}>
+              <Text
+                style = {{
+                  marginTop:marginTop,
+                  fontFamily:fontFamily
+                }}
+              >
+                {number}
+              </Text>
+          </View>
+        </TouchableHighlight>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
