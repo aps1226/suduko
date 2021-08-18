@@ -64,3 +64,10 @@ export const setNotes = (notes:Notes) =>{
     })
   }
 }
+export const defaultNotes = () =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"DEFAULT_NOTES",
+    })
+  }
+}

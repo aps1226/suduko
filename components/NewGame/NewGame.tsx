@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router-native';
 import Board from './Board';
 import SelectionBar from './SelectionBar';
 import Timer from './Timer';
+import Watch from './Watch';
 
 
 export default function NewGame({history}:RouteComponentProps) {
@@ -20,6 +21,7 @@ export default function NewGame({history}:RouteComponentProps) {
       </View>
       <Board/>
       <SelectionBar/>
+      <Watch/>
     </View>
   );
 }

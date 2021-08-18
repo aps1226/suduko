@@ -79,7 +79,10 @@ export default function GridSquare(props:IProps) {
       //Create 3x3 grid of notes within square.
       if(pointer % 3 === 0 && pointer > 0){
         noteRows = (
-          <View style = {styles.noteRow}>
+          <View
+            key = {String(`NoteRow_${pointer}`)} 
+            style = {styles.noteRow}
+          >
             {curRow}
           </View>
         )
