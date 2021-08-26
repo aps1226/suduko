@@ -4,14 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
 
+import Timer from './Timer';
 import {IProps} from '../../types';
 import {RootState} from '../../src/state/reducers/index';
 
 export default function Watch() {
 
-  const {time} = useSelector((state:RootState) => state);
-  const dispatch = useDispatch();
-  const { setTime } = bindActionCreators(actionCreators,dispatch);
+  // const {time} = useSelector((state:RootState) => state);
+  // const dispatch = useDispatch();
+  // const { setTime } = bindActionCreators(actionCreators,dispatch);
 
   return (
     <View style = {styles.container}>
@@ -19,13 +20,9 @@ export default function Watch() {
         <View style = {styles.Strap}></View>
         <View style = {styles.Crown}></View>
           <View style = {styles.Screen}>
-          <View style = {styles.Button}></View>
-          <View style = {styles.Clock}>
-            <View style = {styles.Chrono}></View>
-            <View style = {styles.Hand}></View>
-            <View style = {styles.Hand}></View>
+            <Timer/>
+            <View style = {styles.Button}></View>
           </View>
-        </View>
         <View style = {styles.Strap}></View>
       </View>
     </View>
@@ -80,19 +77,14 @@ const styles = StyleSheet.create({
     width:110,
     borderWidth:10,
     borderRadius: 20,
-    /* Crown reflection */
-
   },
   Button:{
-
-  },
-  Clock:{
-
-  },
-  Chrono:{
-
-  },
-  Hand:{
-
-  },
+    width: 10,
+    height: '35%',
+    position:'absolute',
+    top:5,
+    left: 100,
+    bottom:'20%',
+    backgroundColor:`linear-gradient(to bottom,hsl(${lightDimmed}) 5%, hsl(${lightDark}) 10% 15%,hsl(${light}) / 60%) 20% 70%,hsl(${lightDark}) 85% 90%, hsl(${lightDimmed}))`
+  }
 });

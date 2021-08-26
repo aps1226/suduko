@@ -1,11 +1,10 @@
 import React from "react";
-import { Button,StyleSheet, Text, View } from "react-native";
+import { Button,Pressable,StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 
 import Board from './Board';
 import SelectionBar from './SelectionBar';
 import Timer from './Timer';
-import Watch from './Watch';
 
 
 export default function NewGame({history}:RouteComponentProps) {
@@ -13,15 +12,22 @@ export default function NewGame({history}:RouteComponentProps) {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <Button
-          title = 'Main Menu'
+        <Pressable
+          style = {styles.button}
           onPress = {() => history.push('/')}
-        />
-        <Timer/>
+        >
+          <Text style = {styles.text}>
+            Main Menu
+          </Text>
+        </Pressable>
+        <View style = {styles.timerContainer}>
+          <Pressable style = {styles.button}>
+            <Timer/>
+          </Pressable>
+        </View>
       </View>
       <Board/>
       <SelectionBar/>
-      <Watch/>
     </View>
   );
 }
@@ -37,7 +43,31 @@ const styles = StyleSheet.create({
     top:50,
     left:0,
     flexDirection:'row',
-    alignItems: 'center',
-    justifyContent:'space-evenly'
+    justifyContent:'space-evenly',
   },
+  timerContainer:{
+    flex:1,
+    alignItems:'flex-end'
+  },
+  button: {
+    alignItems: 'center',
+    marginTop:30,
+    justifyContent: 'center',
+    paddingVertical: 12,
+    width:125,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: '#1E90FF',
+    shadowColor:'rgba(0,0,0,0.35)',
+    shadowOffset:{width:-2,height:-2},
+    shadowOpacity:0.75,
+    shadowRadius:2
+  },
+  text:{
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  }
 });

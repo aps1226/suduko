@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Alert,StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { Alert, ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../../src/state/index';
@@ -118,17 +118,26 @@ export default function GridSquare(props:IProps) {
             alignItems:'center'
           }}
         >
-          {/* Render values based on ternary conditional respective of 
-              if value is null or not. */}
-          {board[row][col] === null? 
-            renderNotes()
-          :
-            <Text
-              style = {{color:color}}
-            >
-              {String(board[row][col])}
-            </Text>
-          }
+          <ImageBackground
+            source = {require('../../assets/images/square.jpg')}
+            style = {styles.backgroundImage}
+          >
+            {/* Render values based on ternary conditional respective of 
+                if value is null or not. */}
+            {board[row][col] === null? 
+              renderNotes()
+            :
+              <Text
+                style = {{
+                  color:color,
+                  textAlign:'center',
+                  marginTop:'20%',
+                }}
+              >
+                {String(board[row][col])}
+              </Text>
+            }
+          </ImageBackground>
         </View>
       </TouchableHighlight>
     </View>
@@ -148,5 +157,9 @@ const styles = StyleSheet.create({
   noteText:{
     fontSize:9,
     fontFamily:'JustAnotherHand'
+  },
+  backgroundImage:{
+    width:'100%',
+    height:'100%'
   }
 });

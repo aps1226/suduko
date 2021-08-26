@@ -42,7 +42,7 @@ export default function Timer() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.time}>
+      <Text style={styles.text}>
         {onRender()}
       </Text>
     </View>
@@ -51,8 +51,15 @@ export default function Timer() {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
+    alignItems: 'center',
+    justifyContent:'center'
   },
-  time: {
-    fontSize:20
-  },
+  text:{
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  }
 });
