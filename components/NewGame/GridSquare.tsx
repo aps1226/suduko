@@ -150,13 +150,16 @@ const styles = StyleSheet.create({
   noteContainer:{
     flex:1,
     flexDirection:'column',
+    alignItems:'center'
   },
   noteRow:{
+    flex:1,
     flexDirection:'row',
+    alignItems:'flex-start'
   },
   noteText:{
     fontSize:9,
-    fontFamily:'JustAnotherHand'
+    fontFamily:'JustAnotherHand',
   },
   backgroundImage:{
     width:'100%',

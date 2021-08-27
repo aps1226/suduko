@@ -46,7 +46,7 @@ const colorReducer = (state = initialState, action:any) =>{
         'Selection_8':'transparent',
         'Selection_9':'transparent',
       };
-      if(!action.payload.includes('Selection')) curState[action.payload] = '#32CD32';
+      if(!action.payload.includes('Selection')) curState[action.payload] = '#008000';
       else curState[action.payload] = '#3297FD';
       return curState;
     case DEFAULT_COLORS:

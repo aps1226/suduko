@@ -10,11 +10,11 @@ import {IProps} from '../../types';
 
 export default function SelectionBar() {
 
-  const woodPalate:String[] = ["#ffb366", "#f19d4a","#cc853e","#ed9742", "#d1853a","#eb953e","#c47c34","#eb943d","#c77d34"];
-  const gradient:String[] = Array(9).fill(woodPalate).reduce((acc,curVal) =>{
-    return acc.concat(curVal)
-  },[]);
-
+  const woodPalate:String[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","aa8563"];
+  const gradient:String[] = [];
+  for(let i = 0; i < 100; i++){
+    gradient.push(woodPalate[Math.round(Math.random()*10)])
+  }
   const onRender = ():JSX.Element[] =>{
     const elements:JSX.Element[] = [];
     for(let i = 1; i <= 9;i++){
@@ -34,17 +34,17 @@ export default function SelectionBar() {
   }
 
   return (
-    <LinearGradient
-      colors={gradient}
-      start={[0, 0]}
-      end = {[1,1]}
-      style ={styles.container}
-    > 
-        <View style={styles.selectionContainer}>
-          {onRender()}
-        </View>
-        <Toggle/>
-    </LinearGradient>
+      <LinearGradient
+        colors={gradient}
+        start={[0, 0.5]}
+        end = {[1,0.5]}
+        style = {styles.container}
+      > 
+          <View style={styles.selectionContainer}>
+            {onRender()}
+          </View>
+          <Toggle/>
+      </LinearGradient>
   );
 }
 
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     elevation: 3,
     shadowColor:'rgba(0,0,0,0.35)',
     shadowOffset:{width:-4,height:-4},
-    shadowOpacity:0.75,
-    shadowRadius:2
+    shadowOpacity:0.5,
+    shadowRadius:4
   },
   selectionContainer: {
     flexDirection:'row',
