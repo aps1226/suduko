@@ -38,7 +38,7 @@ export default function Timer() {
       setTime(newTime);
     }, 1000);
     return () => clearTimeout(timer);
-  });
+  },[time]);
 
   return (
     <View style={styles.container}>

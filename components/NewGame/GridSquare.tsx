@@ -17,7 +17,8 @@ export default function GridSquare(props:IProps) {
   const {row,col} = props;
   //Color for respective square based on current value.
   const colorIndex:string = String(board[row][col]);
-  const color:string = colors[colorIndex];
+  const color:string[] = colors[colorIndex] ? colors[colorIndex]: ['transparent','black'];
+  
   const handleOnPress = () =>{
     //If value of board selection is not null
     //change the color of the respective value to green for 
@@ -33,7 +34,7 @@ export default function GridSquare(props:IProps) {
     //Else if a number is selected and entryMode is set to 'notes'.
     } else if(selection && !entryMode){
       //Clone notes state. 
-      const newNotes:Notes = notes;
+      const newNotes:Notes = Object.assign({},notes);
       //Create variable for note index based on current row and column position.
       const newNotesIndex:string = `${row}${col}`;
       //If current square has existing notes within the note object:
@@ -47,6 +48,7 @@ export default function GridSquare(props:IProps) {
       setNotes(newNotes);
     }
   }
+
   //Function renders note for squares with null values on the board.
   const renderNotes = ():JSX.Element =>{
     //Return empty text element if notes or note[index] do not exist.
@@ -91,6 +93,7 @@ export default function GridSquare(props:IProps) {
       }
       pointer ++;
     }
+
     //Return JSX.
     return(
       <View
@@ -100,6 +103,7 @@ export default function GridSquare(props:IProps) {
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <TouchableHighlight
@@ -108,6 +112,7 @@ export default function GridSquare(props:IProps) {
         <View 
           style={{
             borderStyle:'solid',
+            backgroundColor:color[0],
             width: 38,
             height: 38,
             borderWidth: 5,
@@ -129,7 +134,7 @@ export default function GridSquare(props:IProps) {
             :
               <Text
                 style = {{
-                  color:color,
+                  color:color[1],
                   textAlign:'center',
                   marginTop:'20%',
                 }}
@@ -150,13 +155,16 @@ const styles = StyleSheet.create({
   noteContainer:{
     flex:1,
     flexDirection:'column',
+    alignItems:'center'
   },
   noteRow:{
+    flex:1,
     flexDirection:'row',
+    alignItems:'flex-start'
   },
   noteText:{
     fontSize:9,
-    fontFamily:'JustAnotherHand'
+    fontFamily:'JustAnotherHand',
   },
   backgroundImage:{
     width:'100%',

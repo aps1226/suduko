@@ -29,7 +29,7 @@ export type IProps ={
 }
 
 export interface Colors {
-  [key: string]: string
+  [key: string]: string | string[]
 }
 
 export interface Notes {
