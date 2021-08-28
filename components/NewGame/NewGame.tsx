@@ -8,7 +8,6 @@ import Timer from './Timer';
 
 
 export default function NewGame({history}:RouteComponentProps) {
-
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>

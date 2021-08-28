@@ -1,3 +1,4 @@
+//Function shuffles array.
 export function shuffle(array: number[]):number[] {
   var currentIndex = array.length,  randomIndex;
   // While there remain elements to shuffle...
@@ -12,6 +13,7 @@ export function shuffle(array: number[]):number[] {
   return array;
 }
 
+//Helper function for generateBoard function to determine if respective row and column are valid inputs.
 export function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   //Determine if the current value k exists with in the respective positions:
     //row
@@ -28,6 +30,7 @@ export function isValid(board:(number|null)[][], row:number, col:number, k:numbe
   return true;
 }
 
+//Function to generate game board.
 export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
@@ -58,6 +61,7 @@ export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   return data;
 }
 
+//Function determines if the current game board is valid.
 export function isValidSudoku(board:(number|null)[][]):boolean {
   for (let i = 0; i < 9; i++) {
     let row = new Set(),
@@ -87,6 +91,7 @@ export function isValidSudoku(board:(number|null)[][]):boolean {
   return true
 };
 
+//Function determines if the current game board is solvable.
 export function isSolvable(data:(number|null)[][]):boolean {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
@@ -117,6 +122,7 @@ export function isSolvable(data:(number|null)[][]):boolean {
   return true;
 }
 
+//Function initializes game board based on difficulty input.
 export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number;
   switch(difficulty){
@@ -153,6 +159,7 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
   return curBoard;
 }
 
+//Function determines if the board has been solved.
 export function isCompleted(board:(number|null)[][]):boolean{
   for(let i = 0; i < board.length; i++){
     if(board[i].includes(null)) return false;

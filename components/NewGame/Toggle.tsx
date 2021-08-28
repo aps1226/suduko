@@ -14,7 +14,7 @@ export default function Toggle(){
   const { setEntryMode} = bindActionCreators(actionCreators,dispatch);
   //React hook to set toggle state. 
   //(*needed for react-native-paper component).
-  const [isSwitchOn, setIsSwitchOn] = React.useState(true);
+  const [isSwitchOn, setIsSwitchOn] = React.useState(entryMode);
   //Set entry mode to toggle state.
   const onToggleSwitch = () =>{
     setIsSwitchOn(!isSwitchOn);
