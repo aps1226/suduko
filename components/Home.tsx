@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert, Pressable , StyleSheet, Text, View } from "react-native";
-
-export default function Home({history}:any) {
+import { RouteComponentProps } from 'react-router-native';
+export default function Home({history}:RouteComponentProps) {
 
   const handlePress = (route:string) =>{
     history.push(route);

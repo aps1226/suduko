@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import GridSquare from "./GridSquare";
 
-import {IProps} from '../../types';
+import {IProps} from '../types';
 export default function SubBox(props:IProps) {
 
   const { row, col } = props;

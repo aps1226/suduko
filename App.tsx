@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { NativeRouter, Switch, Route  } from "react-router-native";
 
 import Home from './components/Home';
-import NewGame from './components/NewGame/NewGame';
+import NewGame from './components/NewGame';
 import LoadGame from './components/LoadGame';
-import DifficultySelection from "./components/NewGame/DifficultySelection";
+import DifficultySelection from "./components/DifficultySelection";
 
 import { Provider } from 'react-redux'
 import { store } from './src/state/store';

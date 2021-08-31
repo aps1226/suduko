@@ -1,20 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Board from './Board';
 import SelectionSquare from './SelectionSquare';
 import Toggle from './Toggle'
-
-import {IProps} from '../../types';
+import { useSelector, useDispatch } from "react-redux";
+import {IProps} from '../types';
+import {RootState} from '../src/state/reducers/index';
 
 export default function SelectionBar() {
 
-  const woodPalate:String[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","aa8563"];
-  const gradient:String[] = [];
-  for(let i = 0; i < 100; i++){
-    gradient.push(woodPalate[Math.round(Math.random()*10)])
-  }
+  //Redux-state.
+    //Get color gradient for selection bar container.
+  const {colors} = useSelector((state:RootState) => state);
+  const dispatch = useDispatch();
+
   const onRender = ():JSX.Element[] =>{
     const elements:JSX.Element[] = [];
     for(let i = 1; i <= 9;i++){
@@ -35,7 +36,7 @@ export default function SelectionBar() {
 
   return (
       <LinearGradient
-        colors={gradient}
+        colors={colors['gradient']}
         start={[0, 0.5]}
         end = {[1,0.5]}
         style = {styles.container}

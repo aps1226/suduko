@@ -71,3 +71,12 @@ export const defaultNotes = () =>{
     })
   }
 }
+
+export const setGameState = (gameState:boolean) =>{
+  return (dispatch:any) =>{
+    dispatch({
+      type:"SET_GAME_STATE",
+      payload:gameState
+    })
+  }
+}

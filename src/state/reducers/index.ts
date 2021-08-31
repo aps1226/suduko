@@ -6,6 +6,7 @@ import selectionReducer from './selectionReducer';
 import timeReducer from './timeReducer';
 import entryModeReducer from './entryModeReducer';
 import notesReducer from './notesReducer';
+import gameStateReducer from './gameStateReducer';
 
 const reducers = combineReducers({
   board: boardReducer,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   difficulty:difficultyReducer,
   time:timeReducer,
   entryMode: entryModeReducer,
-  notes:notesReducer
+  notes:notesReducer,
+  gameState: gameStateReducer
 });
 
 export type RootState = ReturnType<typeof reducers>;
