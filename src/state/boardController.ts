@@ -127,7 +127,7 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
   let blank:number;
   switch(difficulty){
     case 0:
-      blank = 81 - (37 + Math.floor(37 * Math.random()));
+      blank = 1;//81 - (37 + Math.floor(37 * Math.random()));
       break;
     case 1:
       blank = 81 - (27 + Math.floor(9 * Math.random()));

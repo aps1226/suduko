@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { Switch } from 'react-native-paper';
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import {RootState} from '../../src/state/reducers/index';
-import * as actionCreators from '../../src/state/index'; 
+import {RootState} from '../src/state/reducers/index';
+import * as actionCreators from '../src/state/index'; 
 export default function Toggle(){
   //Redux state.
   const {entryMode} = useSelector((state:RootState) => state);

@@ -13,3 +13,5 @@ export const SET_ENTRY_MODE: string = 'SET_ENTRY_MODE';
 
 export const SET_NOTES: string = 'SET_NOTES';
 export const DEFAULT_NOTES: string = 'DEFAULT_NOTES';
+
+export const SET_GAME_STATE: string = 'SET_GAME_STATE';

@@ -2,17 +2,17 @@ import React, {useEffect} from "react";
 import { Alert, ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../../src/state/index';
-import {isValidSudoku,isCompleted} from '../../src/state/boardController'
-import {IProps,Notes} from '../../types';
-import {RootState} from '../../src/state/reducers/index';
+import * as actionCreators from '../src/state/index';
+import {isValidSudoku,isCompleted} from '../src/state/boardController'
+import {IProps,Notes} from '../types';
+import {RootState} from '../src/state/reducers/index';
 
 export default function GridSquare(props:IProps) {
   //Redux-state.
   const {board,colors,selection, entryMode,notes} = useSelector((state:RootState) => state);
   const dispatch = useDispatch();
   //Redux action creators.
-  const { changeColor, setSelection, setBoard,setNotes } = bindActionCreators(actionCreators,dispatch);
+  const { changeColor, setSelection, setBoard, setNotes, setGameState } = bindActionCreators(actionCreators,dispatch);
   //Passed row and column props for respective square.
   const {row,col} = props;
   //Color for respective square based on current value.
@@ -31,6 +31,8 @@ export default function GridSquare(props:IProps) {
       newBoard[row][col] = Number(selection);
       //If board would be valid, modify board state.
       if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))) setBoard(newBoard);
+      //Check if board is completed.
+      if(isCompleted(newBoard.map((arr:(number|null)[])=> [...arr]))) setGameState(true);
     //Else if a number is selected and entryMode is set to 'notes'.
     } else if(selection && !entryMode){
       //Clone notes state. 
@@ -124,7 +126,7 @@ export default function GridSquare(props:IProps) {
           }}
         >
           <ImageBackground
-            source = {require('../../assets/images/square.jpg')}
+            source = {require('../assets/images/square.jpg')}
             style = {styles.backgroundImage}
           >
             {/* Render values based on ternary conditional respective of 

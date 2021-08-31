@@ -1,13 +1,39 @@
 import React from "react";
 import { Button,Pressable,StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
+import { useSelector, useDispatch } from "react-redux"; 
+import {IProps,Notes} from '../types';
+import {RootState} from '../src/state/reducers/index';
 
 import Board from './Board';
 import SelectionBar from './SelectionBar';
 import Timer from './Timer';
+import Winner from './Winner';
 
 
 export default function NewGame({history}:RouteComponentProps) {
+  
+  //Redux-state.
+  const {gameState} = useSelector((state:RootState) => state);
+  const dispatch = useDispatch();
+  //Function checks gameState state prop to determine if the board
+  //has been completed.
+    //If it has, render Winner component.
+  const boardCompleted = () =>{
+    if(gameState){
+
+      return (
+        <View style = {styles.winnerContainer}>
+          <Pressable
+            onPress = {() => history.push('/')}
+          >
+            <Winner/>
+          </Pressable>
+        </View>
+      );
+    }else return;
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -27,6 +53,7 @@ export default function NewGame({history}:RouteComponentProps) {
       </View>
       <Board/>
       <SelectionBar/>
+      {boardCompleted()}
     </View>
   );
 }
@@ -68,5 +95,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
+  },
+  winnerContainer:{
+    position:'absolute',
+    bottom:0,
+    width:'100%',
+    height:'100%'
   }
 });

@@ -2,13 +2,13 @@ import React, {useEffect} from "react";
 import { Alert, ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../../src/state/index';
+import * as actionCreators from '../src/state/index';
 
 import AppLoading from 'expo-app-loading';
 import { useFonts } from '@use-expo/font';
 
-import {IProps} from '../../types';
-import {RootState} from '../../src/state/reducers/index';
+import {IProps} from '../types';
+import {RootState} from '../src/state/reducers/index';
         
 export default function SelectionSquare(props:IProps) {
   
@@ -24,8 +24,8 @@ export default function SelectionSquare(props:IProps) {
     changeColor(`Selection_${number}`);
   }
   const [isLoaded] = useFonts({
-    "JustAnotherHand":require("../../assets/fonts/JustAnotherHand-Regular.ttf"),
-    "SpaceMono":require("../../assets/fonts/SpaceMono-Regular.ttf")
+    "JustAnotherHand":require("../assets/fonts/JustAnotherHand-Regular.ttf"),
+    "SpaceMono":require("../assets/fonts/SpaceMono-Regular.ttf")
   })
   
   if(!isLoaded){
@@ -39,7 +39,7 @@ export default function SelectionSquare(props:IProps) {
       >
         {color === 'transparent' || !color ?
           <ImageBackground
-            source = {require('../../assets/images/square.jpg')}
+            source = {require('../assets/images/square.jpg')}
             style = {{
               width:'100%',
             }}
