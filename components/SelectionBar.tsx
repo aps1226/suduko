@@ -35,33 +35,37 @@ export default function SelectionBar() {
   }
 
   return (
-      <LinearGradient
-        colors={colors['gradient']}
-        start={[0, 0.5]}
-        end = {[1,0.5]}
-        style = {styles.container}
-      > 
-          <View style={styles.selectionContainer}>
-            {onRender()}
-          </View>
-          <Toggle/>
-      </LinearGradient>
+      <View style = {styles.container}>
+        <LinearGradient
+          colors={colors['gradient']}
+          start={[0, 0.5]}
+          end = {[1,0.5]}
+          style = {styles.linearGradient}
+        > 
+            <View style={styles.selectionContainer}>
+              {onRender()}
+            </View>
+            <Toggle/>
+        </LinearGradient>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container:{
+    shadowColor:'rgba(0,0,0,0.35)',
+    shadowOffset:{width:-4,height:-4},
+    shadowOpacity:0.75,
+    shadowRadius:4,
+    elevation:5
+  },
+  linearGradient: {
     alignItems: 'center',
     marginTop:30,
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal:18,
-    borderRadius: 4,
-    elevation: 3,
-    shadowColor:'rgba(0,0,0,0.35)',
-    shadowOffset:{width:-4,height:-4},
-    shadowOpacity:0.5,
-    shadowRadius:4
+    borderRadius:10
   },
   selectionContainer: {
     flexDirection:'row',
