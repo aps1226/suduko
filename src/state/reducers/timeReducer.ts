@@ -1,8 +1,13 @@
-import { SET_TIME } from '../actions/types';
+import { SET_TIMER } from '../actions/types';
+import {Timer} from '../../../types'
 
-const timeReducer = (state = 0, action: any) =>{
+const initTimer:Timer = {
+  'time':0,
+  'decrementor':1
+}
+const timeReducer = (state = initTimer, action: any) =>{
   switch(action.type){
-    case SET_TIME:
+    case SET_TIMER:
       return action.payload;
     default:
       return state;

@@ -35,7 +35,8 @@ const initialState:Colors = {
   'gradient': initializedGradient
 }
 const colorReducer = (state = initialState, action:any) =>{
-  const curState:Colors = {
+
+  const initialState:Colors = {
     1:['transparent','black'],
     2:['transparent','black'],
     3:['transparent','black'],
@@ -56,13 +57,14 @@ const colorReducer = (state = initialState, action:any) =>{
     'Selection_9':'transparent',
     'gradient': initializedGradient
   }
+  
   switch(action.type){
     case CHANGE_COLOR:
-      if(!action.payload.includes('Selection')) curState[action.payload] = ['#008000','#008000'];
-      else curState[action.payload] = '#3297FD';
-      return curState;
+      if(!action.payload.includes('Selection')) initialState[action.payload] = ['#008000','#008000'];
+      else initialState[action.payload] = '#3297FD';
+      return initialState;
     case DEFAULT_COLORS:
-      return curState;
+      return initialState;
     default:
       return state;
   }

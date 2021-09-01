@@ -1,4 +1,4 @@
-import {Colors,Notes} from '../../../types'
+import {Colors, GameState ,Notes,Timer} from '../../../types'
 
 export const setBoard = (board:(number|null)[][]) =>{
   return (dispatch:any) =>{
@@ -16,11 +16,11 @@ export const changeColor = (number:string) =>{
     })
   }
 }
-export const defaultColors = (defaultColors:Colors) =>{
+
+export const defaultColors = () =>{
   return (dispatch:any) =>{
     dispatch({
-      type:"DEFAULT_COLORS",
-      payload:defaultColors
+      type:"DEFAULT_COLORS"
     })
   }
 }
@@ -40,11 +40,11 @@ export const setDifficulty = (difficulty?:number) =>{
     })
   }
 }
-export const setTime = (time:number) =>{
+export const setTimer = (timer:Timer) =>{
   return (dispatch:any) =>{
     dispatch({
-      type:"SET_TIME",
-      payload:time
+      type:"SET_TIMER",
+      payload:timer
     })
   }
 }
@@ -72,7 +72,7 @@ export const defaultNotes = () =>{
   }
 }
 
-export const setGameState = (gameState:boolean) =>{
+export const setGameState = (gameState:GameState) =>{
   return (dispatch:any) =>{
     dispatch({
       type:"SET_GAME_STATE",

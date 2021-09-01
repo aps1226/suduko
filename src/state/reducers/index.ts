@@ -13,7 +13,7 @@ const reducers = combineReducers({
   colors: colorReducer,
   selection:selectionReducer,
   difficulty:difficultyReducer,
-  time:timeReducer,
+  timer:timeReducer,
   entryMode: entryModeReducer,
   notes:notesReducer,
   gameState: gameStateReducer

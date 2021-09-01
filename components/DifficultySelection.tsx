@@ -6,16 +6,32 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index'; 
 import {RootState} from '../src/state/reducers/index';
-import {generateBoard,initBoard} from '../src/state/boardController'
+import {generateBoard,initBoard} from '../src/state/boardController';
 
-import {Colors} from '../types'
+import {Colors,Timer,GameState} from '../types';
 export default function DifficultySelection({history}:RouteComponentProps) {
+  
   //Redux state.
-  const {board,difficulty,time,colors,gameState} = useSelector((state:RootState) => state);
+  const {
+    board,
+    difficulty,
+    timer,
+    colors,
+    gameState
+  } = useSelector((state:RootState) => state);
+  const {isCompleted,gameExists} = gameState;
   //Redux dispatcher.
   const dispatch = useDispatch();
-  //Redux action to set difficulty level.
-  const { setBoard, setDifficulty, setTime, defaultColors, defaultNotes, setGameState} = bindActionCreators(actionCreators,dispatch);
+  //Redux actions.
+  const { 
+    setBoard, 
+    setDifficulty, 
+    setTimer, 
+    defaultColors, 
+    defaultNotes, 
+    setGameState
+  } = bindActionCreators(actionCreators,dispatch);
+  
   //Handle selection of difficulty.
     //Set difficulty level based on selection.
     //Route to new game.
@@ -27,17 +43,31 @@ export default function DifficultySelection({history}:RouteComponentProps) {
     const gameBoard:(number|null)[][] = initBoard(board.map((arr:(number|null)[]) => [...arr]),val);
     setBoard(gameBoard);
     //Revert other properties of state to default.
-    setTime(0);
-    let defaultColor:any = {};
-    defaultColor = Object.keys(colors).map(key => defaultColor[key] = 'black')
-    defaultColors(defaultColor);
+      //Default timer state prop.
+    const newTimerState:Timer = {'time':0,'decrementor':1};
+    setTimer(newTimerState);
+      //Default colors state prop.
+    defaultColors();
+      //Default notes state prop.
     defaultNotes();
-    setGameState(false);
+      //Set gameExists index of gameState prop to true to indicate that
+      //a current game exists.
+    setGameState({'isCompleted':false,'gameExists':true});
     //Route to board display
-    history.push('/NewGame');
+    history.push('/GameDisplay');
   }
   return (
     <View style={styles.container}>
+      <View style={styles.topBar}>
+        <Pressable
+          style = {styles.mainMenuButton}
+          onPress = {() => history.push('/')}
+        >
+          <Text style = {styles.text}>
+            Main Menu
+          </Text>
+        </Pressable>
+      </View>
       <Pressable
         style = {styles.button}
         onPress = {()=> handlePress(0)}
@@ -86,11 +116,32 @@ const styles = StyleSheet.create({
     shadowOpacity:0.75,
     shadowRadius:2
   },
+  mainMenuButton: {
+    alignItems: 'center',
+    marginTop:30,
+    justifyContent: 'center',
+    paddingVertical: 12,
+    width:125,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: '#1E90FF',
+    shadowColor:'rgba(0,0,0,0.35)',
+    shadowOffset:{width:-2,height:-2},
+    shadowOpacity:0.75,
+    shadowRadius:2
+  },
   text:{
     fontSize: 16,
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
-  }
+  },
+  topBar: {
+    position:'absolute',
+    top:50,
+    left:0,
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+  },
 });

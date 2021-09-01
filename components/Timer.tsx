@@ -4,14 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
 
-import {IProps} from '../types';
+import {IProps,Timer as TimerType} from '../types';
 import {RootState} from '../src/state/reducers/index';
 
 export default function Timer() {
 
-  const {time} = useSelector((state:RootState) => state);
+  //Redux state.
+  const {gameState, timer} = useSelector((state:RootState) => state);
+  const {time, decrementor} = timer;
+  const {isCompleted, gameExists} = gameState;
   const dispatch = useDispatch();
-  const { setTime } = bindActionCreators(actionCreators,dispatch);
+  const { setTimer } = bindActionCreators(actionCreators,dispatch);
 
   //Method to configure current time display.
   const onRender = ():string =>{
@@ -33,12 +36,19 @@ export default function Timer() {
 
   //Update time state property every second.
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const newTime:number = time + 1;
-      setTime(newTime);
-    }, 1000);
-    return () => clearTimeout(timer);
-  },[time]);
+    //Pause timer if game is over.
+    if(!isCompleted){
+      const countDown = setTimeout(() => {
+        const newTime:number = time + decrementor;
+        const newTimer:TimerType = {
+          'time':newTime,
+          'decrementor':1
+        }
+        setTimer(newTimer);
+      }, 1000);
+      return () => clearTimeout(countDown);
+    }
+  },[timer]);
 
   return (
     <View style={styles.container}>

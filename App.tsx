@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { NativeRouter, Switch, Route  } from "react-router-native";
 
 import Home from './components/Home';
-import NewGame from './components/NewGame';
-import LoadGame from './components/LoadGame';
+import GameDisplay from './components/GameDisplay';
 import DifficultySelection from "./components/DifficultySelection";
 
 import { Provider } from 'react-redux'
@@ -22,8 +21,7 @@ export default function App() {
             <Switch>
               <Route exact path = "/" component={Home}/>
               <Route exact path = "/DifficultySelection" component={DifficultySelection}/>
-              <Route exact path = "/NewGame" component={NewGame}/>
-              <Route exact path = "/LoadGame" component={LoadGame}/>
+              <Route exact path = "/GameDisplay" component={GameDisplay}/>
             </Switch>
           </ImageBackground>
         </View>
