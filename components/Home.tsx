@@ -7,6 +7,8 @@ import * as actionCreators from '../src/state/index';
 import Modal from "react-native-modal";
 import {RootState} from '../src/state/reducers/index';
 
+import Title from './Title';
+
 export default function Home({history}:RouteComponentProps) {
   
   //React state for load game pop-up menu (use case is for when a game does not exist).
@@ -26,6 +28,7 @@ export default function Home({history}:RouteComponentProps) {
 
   return (
     <View style={styles.container}>
+      <Title/>
       <Pressable
         style = {styles.button}
         onPress = {() =>{
@@ -56,7 +59,7 @@ export default function Home({history}:RouteComponentProps) {
             onPress={() => setLoadGamePopUp(false)}
           >
             <View style = {styles.loadGamePopUpPrompt}>
-              <Text style = {styles.text}>
+              <Text style = {styles.loadGamePopUpPromptText}>
                 No current games to load.
               </Text>
             </View>
@@ -66,7 +69,7 @@ export default function Home({history}:RouteComponentProps) {
       <View>
         <Modal isVisible={newGamePopUp}>
             <View style = {styles.newGamePopUpPrompt}>
-              <Text style = {styles.text}>
+              <Text style = {styles.newGamePopUpPromptText}>
                 Are you sure you would like to abandon your current game?
               </Text>
             </View>
@@ -77,7 +80,7 @@ export default function Home({history}:RouteComponentProps) {
                 style = {styles.popUpYesNoButton}
                 onPress = {()=>handlePress('DifficultySelection')}
               >
-                <Text style = {styles.text}>
+                <Text style = {styles.newGamePopUpPromptText}>
                   Yes
                 </Text>
               </Pressable>
@@ -85,7 +88,7 @@ export default function Home({history}:RouteComponentProps) {
                 style = {styles.popUpYesNoButton}
                 onPress = {()=>setNewGamePopUp(false)}
               >
-                <Text style = {styles.text}>
+                <Text style = {styles.newGamePopUpPromptText}>
                   No
                 </Text>
               </Pressable>
@@ -123,11 +126,18 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: 'white',
   },
+  loadGamePopUpPromptText:{
+    fontSize: 20,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
   loadGamePopUpPrompt:{
     alignItems: 'center',
     justifyContent: 'center',
     top:'30%',
-    paddingVertical: 12,
+    paddingVertical: 26,
     width:300,
     borderRadius: 4,
     elevation: 3,
@@ -137,13 +147,20 @@ const styles = StyleSheet.create({
     shadowOpacity:0.75,
     shadowRadius:2
   },
+  newGamePopUpPromptText:{
+    fontSize: 18,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
   newGamePopUpPrompt:{
     position:'absolute',
     top:'30%',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft:'5%',
-    paddingVertical: 12,
+    paddingVertical: 18,
     width:300,
     borderRadius: 4,
     elevation: 3,
