@@ -44,13 +44,14 @@ const styles = StyleSheet.create({
   },
   textContainer:{
     marginTop:'75%',
-    alignItems:'center'
+    alignItems:'center',
+    elevation:3,
+    zIndex:1
   },
   winnerText:{
     fontSize:80,
     color:'#1E90FF',
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    elevation:3,
   }
 });
