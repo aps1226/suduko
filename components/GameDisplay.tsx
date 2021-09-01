@@ -1,8 +1,10 @@
-import React from "react";
-import { Button,Pressable,StyleSheet, Text, View } from "react-native";
+import React,{useEffect} from "react";
+import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import { useSelector, useDispatch } from "react-redux"; 
-import {IProps,Notes} from '../types';
+import { bindActionCreators } from "redux";
+import * as actionCreators from '../src/state/index'; 
+import {IProps,Notes,Timer as TimerType} from '../types';
 import {RootState} from '../src/state/reducers/index';
 
 import Board from './Board';
@@ -10,18 +12,18 @@ import SelectionBar from './SelectionBar';
 import Timer from './Timer';
 import Winner from './Winner';
 
-
-export default function NewGame({history}:RouteComponentProps) {
+export default function GameDisplay({history}:RouteComponentProps) {
   
   //Redux-state.
   const {gameState} = useSelector((state:RootState) => state);
+  const {isCompleted,gameExists} = gameState;
   const dispatch = useDispatch();
   //Function checks gameState state prop to determine if the board
   //has been completed.
     //If it has, render Winner component.
-  const boardCompleted = () =>{
-    if(gameState){
-
+  const boardCompleted = ():JSX.Element|void =>{
+    if(isCompleted){
+      //Return winner animation.
       return (
         <View style = {styles.winnerContainer}>
           <Pressable
@@ -33,6 +35,14 @@ export default function NewGame({history}:RouteComponentProps) {
       );
     }else return;
   }
+
+  //If game board is completed, return to home page after 7 seconds.
+  useEffect(() =>{
+    if(isCompleted){
+      //Return to main menu after 7 seconds.
+      setTimeout(() => history.push('/'),7000);
+    }
+  },[gameState]);
   
   return (
     <View style={styles.container}>

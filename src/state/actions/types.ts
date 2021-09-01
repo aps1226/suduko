@@ -7,7 +7,7 @@ export const SET_SELECTION: string = 'SET_SELECTION';
 
 export const SET_DIFFICULTY: string = 'SET_DIFFICULTY';
 
-export const SET_TIME: string = 'SET_TIME';
+export const SET_TIMER: string = 'SET_TIMER';
 
 export const SET_ENTRY_MODE: string = 'SET_ENTRY_MODE';
 

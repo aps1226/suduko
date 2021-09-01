@@ -32,7 +32,7 @@ export default function GridSquare(props:IProps) {
       //If board would be valid, modify board state.
       if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))) setBoard(newBoard);
       //Check if board is completed.
-      if(isCompleted(newBoard.map((arr:(number|null)[])=> [...arr]))) setGameState(true);
+      if(isCompleted(newBoard.map((arr:(number|null)[])=> [...arr]))) setGameState({'isCompleted':true,'gameExists':false});
     //Else if a number is selected and entryMode is set to 'notes'.
     } else if(selection && !entryMode){
       //Clone notes state. 

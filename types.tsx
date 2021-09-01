@@ -36,3 +36,11 @@ export interface Notes {
   [key: string]: number[]
 }
 
+export interface Timer {
+  [key: string]: number
+}
+
+export interface GameState {
+  [key: string]: boolean
+}
+
