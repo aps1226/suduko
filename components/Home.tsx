@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Alert, Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Alert, Button, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
@@ -74,7 +74,7 @@ export default function Home({history}:RouteComponentProps) {
               </Text>
             </View>
             <View
-              style = {{alignItems:'center'}}
+              style = {styles.popUpYesNoButtonsContainer}
             >
               <Pressable 
                 style = {styles.popUpYesNoButton}
@@ -136,7 +136,14 @@ const styles = StyleSheet.create({
   loadGamePopUpPrompt:{
     alignItems: 'center',
     justifyContent: 'center',
-    top:'30%',
+    ...Platform.select({
+      ios:{
+        top:'30%'
+      },
+      android:{
+        top:'25%'
+      }
+    }),
     paddingVertical: 26,
     width:300,
     borderRadius: 4,
@@ -153,14 +160,35 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
+    ...Platform.select({
+      ios:{
+      },
+      android:{
+        textAlign:'center'
+      }
+    })
   },
   newGamePopUpPrompt:{
     position:'absolute',
-    top:'30%',
+    ...Platform.select({
+      ios:{
+        top:'30%'
+      },
+      android:{
+        top:'25%',
+      }
+    }),
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft:'5%',
-    paddingVertical: 18,
+    ...Platform.select({
+      ios:{
+        paddingVertical: 18
+      },
+      android:{
+        paddingVertical: 13
+      }
+    }),
     width:300,
     borderRadius: 4,
     elevation: 3,
@@ -170,11 +198,28 @@ const styles = StyleSheet.create({
     shadowOpacity:0.75,
     shadowRadius:2
   },
+  popUpYesNoButtonsContainer:{
+    alignItems:'center',
+    ...Platform.select({
+      ios:{
+      },
+      android:{
+        top:'-5%',
+      }
+    }),
+  },
   popUpYesNoButton:{
     alignItems: 'center',
     justifyContent: 'center',
     marginTop:25,
-    paddingVertical: 14,
+    ...Platform.select({
+      ios:{
+        paddingVertical: 14
+      },
+      android:{
+        paddingVertical: 16
+      }
+    }),
     width:150,
     borderRadius: 4,
     elevation: 3,

@@ -1,12 +1,21 @@
 import {CHANGE_COLOR,DEFAULT_COLORS} from '../actions/types';
-
+import {Platform, PlatformIOSStatic,PlatformAndroidStatic} from "react-native";
 import {Colors} from '../../../types'
 
 const initGradient = ():string[] =>{
   const woodPalate:string[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","aa8563"];
   const gradient:string[] = [];
-  for(let i = 0; i < 100; i++){
-    gradient.push(woodPalate[Math.round(Math.random()*10)])
+  const ios:string = 'ios';
+  const android:string = 'android';
+  switch(Platform.OS){
+    case ios:
+      for(let i = 0; i < 100; i++){
+        gradient.push(woodPalate[Math.round(Math.random()*10)])
+      }
+    case android:
+      for(let i = 0; i < 10; i++){
+        gradient.push(woodPalate[Math.round(Math.random()*10)])
+      }
   }
   return gradient;
 }
@@ -23,7 +32,7 @@ const initialState:Colors = {
   7:['transparent','black'],
   8:['transparent','black'],
   9:['transparent','black'],
-  'Selection_1':'transparent',
+  'Selection_1':'#3297FD',
   'Selection_2':'transparent',
   'Selection_3':'transparent',
   'Selection_4':'transparent',
@@ -60,10 +69,13 @@ const colorReducer = (state = initialState, action:any) =>{
   
   switch(action.type){
     case CHANGE_COLOR:
-      if(!action.payload.includes('Selection')) initialState[action.payload] = ['#008000','#008000'];
-      else initialState[action.payload] = '#3297FD';
+      if(!action.payload.includes('Selection')){
+        initialState[action.payload] = ['#008000','#008000'];
+        initialState[`Selection_${action.payload}`] = '#3297FD';
+      }else initialState[action.payload] = '#3297FD';
       return initialState;
     case DEFAULT_COLORS:
+      initialState['Selection_1'] = '#3297FD';
       return initialState;
     default:
       return state;

@@ -1,6 +1,6 @@
 //Function shuffles array.
 export function shuffle(array: number[]):number[] {
-  var currentIndex = array.length,  randomIndex;
+  var currentIndex:number = array.length,  randomIndex:number;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
     // Pick a remaining element...
@@ -127,7 +127,7 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
   let blank:number;
   switch(difficulty){
     case 0:
-      blank = 1;//81 - (37 + Math.floor(37 * Math.random()));
+      blank = 1//81 - (37 + Math.floor(37 * Math.random()));
       break;
     case 1:
       blank = 81 - (27 + Math.floor(9 * Math.random()));

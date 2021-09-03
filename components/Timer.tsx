@@ -34,7 +34,7 @@ export default function Timer() {
     return curTime;
   }
 
-  //Update time state property every second.
+  //Update timer state property every second.
   useEffect(() => {
     //Pause timer if game is over.
     if(!isCompleted){
