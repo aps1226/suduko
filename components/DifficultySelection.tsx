@@ -1,5 +1,5 @@
 import React,{ useEffect } from "react";
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import SubBox from "./SubBox";
 import { useSelector, useDispatch } from "react-redux"; 
@@ -109,7 +109,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     width:150,
     borderRadius: 4,
-    elevation: 3,
+    ...Platform.select({
+      ios:{
+        elevation:3,
+      },
+      android:{
+        elevation:20,
+      }
+    }),
     backgroundColor: '#1E90FF',
     shadowColor:'rgba(0,0,0,0.35)',
     shadowOffset:{width:-2,height:-2},
@@ -123,7 +130,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     width:125,
     borderRadius: 4,
-    elevation: 3,
+    ...Platform.select({
+      ios:{
+        elevation:3,
+      },
+      android:{
+        elevation:20,
+      }
+    }),
     backgroundColor: '#1E90FF',
     shadowColor:'rgba(0,0,0,0.35)',
     shadowOffset:{width:-2,height:-2},

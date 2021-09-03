@@ -3,19 +3,10 @@ import {Platform, PlatformIOSStatic,PlatformAndroidStatic} from "react-native";
 import {Colors} from '../../../types'
 
 const initGradient = ():string[] =>{
-  const woodPalate:string[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","aa8563"];
+  const woodPalate:string[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","#aa8563"];
   const gradient:string[] = [];
-  const ios:string = 'ios';
-  const android:string = 'android';
-  switch(Platform.OS){
-    case ios:
-      for(let i = 0; i < 100; i++){
-        gradient.push(woodPalate[Math.round(Math.random()*10)])
-      }
-    case android:
-      for(let i = 0; i < 10; i++){
-        gradient.push(woodPalate[Math.round(Math.random()*10)])
-      }
+  for(let i = 0; i < 50; i++){
+    gradient.push(woodPalate[Math.round(Math.random()*9)])
   }
   return gradient;
 }

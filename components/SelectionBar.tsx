@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Board from './Board';
@@ -57,7 +57,14 @@ const styles = StyleSheet.create({
     shadowOffset:{width:-4,height:-4},
     shadowOpacity:0.75,
     shadowRadius:4,
-    elevation:5
+    ...Platform.select({
+      ios:{
+        elevation:5
+      },
+      android:{
+        elevation:20
+      }
+    })
   },
   linearGradient: {
     alignItems: 'center',
