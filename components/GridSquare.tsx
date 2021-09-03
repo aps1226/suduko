@@ -19,20 +19,29 @@ export default function GridSquare(props:IProps) {
   const colorIndex:string = String(board[row][col]);
   const color:string[] = colors[colorIndex] ? colors[colorIndex]: ['transparent','black'];
   
-  const handleOnPress = () =>{
+  const handleOnPress = ():void =>{
     //If value of board selection is not null
-    //change the color of the respective value to green for 
-    //all displayed values on the board.
-    if(board[row][col])changeColor(String(board[row][col]));
+      //Change the color of the respective value to green for 
+      //all displayed values on the board.
+      //Set selection prop equal to value.
+    if(board[row][col]){
+      changeColor(String(board[row][col]));
+      setSelection(board[row][col]);
+    }
     //Else, determine if current selection placed at the respective
     //location creates a valid board.
     else if(selection && entryMode){
       const newBoard:(number|null)[][] = board.map((arr:(number|null)[])=> [...arr]);
       newBoard[row][col] = Number(selection);
       //If board would be valid, modify board state.
-      if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))) setBoard(newBoard);
-      //Check if board is completed.
-      if(isCompleted(newBoard.map((arr:(number|null)[])=> [...arr]))) setGameState({'isCompleted':true,'gameExists':false});
+      if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))){
+        setBoard(newBoard);
+        //Check if board is completed.
+          //If complete, modify gameState property to where 'isComplete' index is true.
+        if(isCompleted(newBoard.map((arr:(number|null)[])=> [...arr]))){
+          setGameState({'isCompleted':true,'gameExists':false});
+        }
+      }
     //Else if a number is selected and entryMode is set to 'notes'.
     } else if(selection && !entryMode){
       //Clone notes state. 

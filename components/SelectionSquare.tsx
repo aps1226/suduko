@@ -19,7 +19,7 @@ export default function SelectionSquare(props:IProps) {
   const dispatch = useDispatch();
   const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
 
-  const handleOnPress = () =>{
+  const handleOnPress = ():void =>{
     setSelection(number);
     changeColor(`Selection_${number}`);
   }

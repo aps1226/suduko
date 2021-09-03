@@ -21,7 +21,13 @@ export default function Toggle(){
     setEntryMode(!entryMode);
   }
 
-  return <Switch value={!isSwitchOn} onValueChange={onToggleSwitch} />;
+  return (
+    <Switch 
+      color='#3297FD'
+      value={!isSwitchOn} 
+      onValueChange={onToggleSwitch} 
+    />
+  );
 };
 
   
