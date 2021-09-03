@@ -26,9 +26,10 @@ export default function Winner() {
           </Text>
         </TextStroke>
       </View>
+
       <ConfettiCannon 
-        count={500} 
-        origin={{x:0, y:0}} 
+        count={400} 
+        origin={{x:-50, y:0}} 
         fadeOut = {true}
         explosionSpeed = {0}
         fallSpeed = {5000}
