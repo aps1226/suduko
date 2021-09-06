@@ -1,0 +1,15 @@
+6e88e3487af1ffdd037a1c8f02e0166a
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = getStyleValues;var _flattenStyle = _interopRequireDefault(require("./flattenStyle"));
+var _getDefaultStyleValue = _interopRequireDefault(require("./getDefaultStyleValue"));
+
+
+function getStyleValues(keys, style) {
+  var values = {};
+  var flatStyle = (0, _flattenStyle.default)(style);
+
+  (typeof keys === 'string' ? [keys] : keys).forEach(function (key) {
+    values[key] =
+    key in flatStyle ? flatStyle[key] : (0, _getDefaultStyleValue.default)(key, flatStyle);
+  });
+  return values;
+}

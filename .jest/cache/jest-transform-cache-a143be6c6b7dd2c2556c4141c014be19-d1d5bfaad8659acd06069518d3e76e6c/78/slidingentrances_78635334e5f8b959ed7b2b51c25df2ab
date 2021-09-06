@@ -1,0 +1,19 @@
+9a3091c63ef3af1c3a6a769508a94607
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.slideInRight = exports.slideInLeft = exports.slideInUp = exports.slideInDown = void 0;var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));function makeSlideInTranslation(translationType, fromValue) {
+  return {
+    from: (0, _defineProperty2.default)({},
+    translationType, fromValue),
+
+    to: (0, _defineProperty2.default)({},
+    translationType, 0) };
+
+
+}
+
+var slideInDown = makeSlideInTranslation('translateY', -100);exports.slideInDown = slideInDown;
+
+var slideInUp = makeSlideInTranslation('translateY', 100);exports.slideInUp = slideInUp;
+
+var slideInLeft = makeSlideInTranslation('translateX', -100);exports.slideInLeft = slideInLeft;
+
+var slideInRight = makeSlideInTranslation('translateX', 100);exports.slideInRight = slideInRight;

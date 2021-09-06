@@ -1,0 +1,24 @@
+91b990e709c14c218a9b50013f0f5e66
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _types = require("../actions/types");
+
+var difficultyReducer = function difficultyReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _types.SET_DIFFICULTY:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+var _default = difficultyReducer;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcZGlmZmljdWx0eVJlZHVjZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQTs7QUFDQSxJQUFNLGlCQUFpQixHQUFHLFNBQXBCLGlCQUFvQixHQUE4QjtBQUFBLE1BQTdCLEtBQTZCLHVFQUFyQixJQUFxQjtBQUFBLE1BQWYsTUFBZTs7QUFDdEQsVUFBTyxNQUFNLENBQUMsSUFBZDtBQUNFLFNBQUsscUJBQUw7QUFDRSxhQUFPLE1BQU0sQ0FBQyxPQUFkOztBQUNGO0FBQ0UsYUFBTyxLQUFQO0FBSko7QUFNRCxDQVBEOztlQVNlLGlCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU0VUX0RJRkZJQ1VMVFkgfSBmcm9tICcuLi9hY3Rpb25zL3R5cGVzJztcclxuY29uc3QgZGlmZmljdWx0eVJlZHVjZXIgPSAoc3RhdGUgPSBudWxsLCBhY3Rpb246IGFueSkgPT57XHJcbiAgc3dpdGNoKGFjdGlvbi50eXBlKXtcclxuICAgIGNhc2UgU0VUX0RJRkZJQ1VMVFk6XHJcbiAgICAgIHJldHVybiBhY3Rpb24ucGF5bG9hZDtcclxuICAgIGRlZmF1bHQ6XHJcbiAgICAgIHJldHVybiBzdGF0ZTtcclxuICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGRpZmZpY3VsdHlSZWR1Y2VyOyJdfQ==

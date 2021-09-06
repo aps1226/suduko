@@ -1,0 +1,63 @@
+34746ce7f942fff9597a0d2902899c30
+
+
+
+
+
+
+
+
+
+'use strict';function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = require("@babel/runtime/helpers/getPrototypeOf")(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = require("@babel/runtime/helpers/getPrototypeOf")(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return require("@babel/runtime/helpers/possibleConstructorReturn")(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}
+
+module.exports = function (moduleName, instanceMethods) {var _class, _temp;
+  var RealComponent = jest.requireActual(moduleName);
+  var React = require('react');
+
+  var SuperClass =
+  typeof RealComponent === 'function' ? RealComponent : React.Component;
+
+  var Component = (_temp = _class = function (_SuperClass) {require("@babel/runtime/helpers/inherits")(Component, _SuperClass);var _super = _createSuper(Component);function Component() {require("@babel/runtime/helpers/classCallCheck")(this, Component);return _super.apply(this, arguments);}require("@babel/runtime/helpers/createClass")(Component, [{ key: "render", value:
+
+
+      function render() {var _this = this;
+        var name =
+        RealComponent.displayName ||
+        RealComponent.name || (
+        RealComponent.render ?
+        RealComponent.render.displayName || RealComponent.render.name :
+        'Unknown');
+
+        var props = require("@babel/runtime/helpers/extends")({}, RealComponent.defaultProps);
+
+        if (this.props) {
+          Object.keys(this.props).forEach(function (prop) {
+
+
+
+
+
+            if (_this.props[prop] !== undefined) {
+              props[prop] = _this.props[prop];
+            }
+          });
+        }
+
+        return React.createElement(
+        name.replace(/^(RCT|RK)/, ''),
+        props,
+        this.props.children);
+
+      } }]);return Component;}(SuperClass), _class.displayName = 'Component', _temp);
+
+
+  Object.keys(RealComponent).forEach(function (classStatic) {
+    Component[classStatic] = RealComponent[classStatic];
+  });
+
+  if (instanceMethods != null) {
+    require("@babel/runtime/helpers/extends")(Component.prototype, instanceMethods);
+  }
+
+  return Component;
+};
