@@ -1,0 +1,224 @@
+7773ee8393f0c3561f7151b3211f8082
+
+
+
+
+
+
+
+
+
+
+'use strict';var _jsxFileName = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\node_modules\\react-native\\Libraries\\Animated\\src\\createAnimatedComponent.js";function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = require("@babel/runtime/helpers/getPrototypeOf")(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = require("@babel/runtime/helpers/getPrototypeOf")(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return require("@babel/runtime/helpers/possibleConstructorReturn")(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createAnimatedComponent(
+Component)
+{
+  require('invariant')(
+  typeof Component !== 'function' ||
+  Component.prototype && Component.prototype.isReactComponent,
+  '`createAnimatedComponent` does not support stateless functional components; ' +
+  'use a class component instead.');var
+
+
+  AnimatedComponent = function (_React$Component) {require("@babel/runtime/helpers/inherits")(AnimatedComponent, _React$Component);var _super = _createSuper(AnimatedComponent);function AnimatedComponent() {var _this;require("@babel/runtime/helpers/classCallCheck")(this, AnimatedComponent);for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}_this = _super.call.apply(_super, [this].concat(args));_this.
+
+      _invokeAnimatedPropsCallbackOnMount = false;_this.
+
+
+      _eventDetachers = [];_this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      _animatedPropsCallback = function () {var _this$_component$_int, _this$_component$_int2, _this$_component$getN, _this$_component$getN2, _this$_component$getS, _this$_component$getS2;
+        if (_this._component == null) {
+
+
+
+
+
+          _this._invokeAnimatedPropsCallbackOnMount = true;
+        } else if (
+        process.env.NODE_ENV === 'test' ||
+
+        typeof _this._component.setNativeProps !== 'function' ||
+
+
+        ((_this$_component$_int = _this._component['_internalInstanceHandle']) == null ? void 0 : (_this$_component$_int2 = _this$_component$_int.stateNode) == null ? void 0 : _this$_component$_int2.canonical) !=
+        null ||
+
+
+
+
+
+
+
+
+        _this._component.getNativeScrollRef != null &&
+        _this._component.getNativeScrollRef() != null &&
+
+        ((_this$_component$getN = _this._component.getNativeScrollRef()['_internalInstanceHandle']) == null ? void 0 : (_this$_component$getN2 = _this$_component$getN.
+        stateNode) == null ? void 0 : _this$_component$getN2.canonical) != null ||
+        _this._component.getScrollResponder != null &&
+        _this._component.getScrollResponder().getNativeScrollRef != null &&
+        _this._component.getScrollResponder().getNativeScrollRef() != null &&
+        ((_this$_component$getS = _this._component.getScrollResponder().getNativeScrollRef()[
+
+        '_internalInstanceHandle']) == null ? void 0 : (_this$_component$getS2 = _this$_component$getS.
+        stateNode) == null ? void 0 : _this$_component$getS2.canonical) != null)
+        {
+          _this.forceUpdate();
+        } else if (!_this._propsAnimated.__isNative) {
+          _this._component.setNativeProps(
+          _this._propsAnimated.__getAnimatedValue());
+
+        } else {
+          throw new Error(
+          'Attempting to run JS driven animation on animated ' +
+          'node that has been moved to "native" earlier by starting an ' +
+          'animation with `useNativeDriver: true`');
+
+        }
+      };_this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      _setComponentRef = require("../../Utilities/setAndForwardRef")({
+        getForwardedRef: function getForwardedRef() {return _this.props.forwardedRef;},
+        setLocalRef: function setLocalRef(ref) {
+          _this._prevComponent = _this._component;
+          _this._component = ref;
+
+
+          if (ref != null && ref.getNode == null) {
+            ref.getNode = function () {var _ref$constructor$name;
+              console.warn(
+              '%s: Calling `getNode()` on the ref of an Animated component ' +
+              'is no longer necessary. You can now directly use the ref ' +
+              'instead. This method will be removed in a future release.', (_ref$constructor$name =
+              ref.constructor.name) != null ? _ref$constructor$name : '<<anonymous>>');
+
+              return ref;
+            };
+          }
+        } });return _this;}require("@babel/runtime/helpers/createClass")(AnimatedComponent, [{ key: "_attachNativeEvents", value: function _attachNativeEvents() {var _this$_component,_this2 = this;var scrollableNode = (_this$_component = this._component) != null && _this$_component.getScrollableNode ? this._component.getScrollableNode() : this._component;var _loop = function _loop(key) {var prop = _this2.props[key];if (prop instanceof require("./AnimatedEvent").AnimatedEvent && prop.__isNative) {prop.__attach(scrollableNode, key);_this2._eventDetachers.push(function () {return prop.__detach(scrollableNode, key);});}};for (var key in this.props) {_loop(key);}} }, { key: "_detachNativeEvents", value: function _detachNativeEvents() {this._eventDetachers.forEach(function (remove) {return remove();});this._eventDetachers = [];} }, { key: "_attachProps", value: function _attachProps(nextProps) {var oldPropsAnimated = this._propsAnimated;this._propsAnimated = new (require("./nodes/AnimatedProps"))(nextProps, this._animatedPropsCallback);if (oldPropsAnimated) {oldPropsAnimated.__restoreDefaultValues();oldPropsAnimated.__detach();}} }, { key: "render", value:
+
+
+      function render() {
+        var props = this._propsAnimated.__getValue();
+        return (
+          require('react').createElement(Component, require("@babel/runtime/helpers/extends")({},
+          props, {
+            ref: this._setComponentRef,
+
+
+
+
+            collapsable:
+            this._propsAnimated.__isNative ? false : props.collapsable, __self: this, __self: this, __source: { fileName: _jsxFileName, lineNumber: 165, columnNumber: 9 } })));
+
+
+
+      } }, { key: "UNSAFE_componentWillMount", value:
+
+      function UNSAFE_componentWillMount() {
+        this._attachProps(this.props);
+      } }, { key: "componentDidMount", value:
+
+      function componentDidMount() {
+        if (this._invokeAnimatedPropsCallbackOnMount) {
+          this._invokeAnimatedPropsCallbackOnMount = false;
+          this._animatedPropsCallback();
+        }
+
+        this._propsAnimated.setNativeView(this._component);
+        this._attachNativeEvents();
+      } }, { key: "UNSAFE_componentWillReceiveProps", value:
+
+      function UNSAFE_componentWillReceiveProps(newProps) {
+        this._attachProps(newProps);
+      } }, { key: "componentDidUpdate", value:
+
+      function componentDidUpdate(prevProps) {
+        if (this._component !== this._prevComponent) {
+          this._propsAnimated.setNativeView(this._component);
+        }
+        if (this._component !== this._prevComponent || prevProps !== this.props) {
+          this._detachNativeEvents();
+          this._attachNativeEvents();
+        }
+      } }, { key: "componentWillUnmount", value:
+
+      function componentWillUnmount() {
+        this._propsAnimated && this._propsAnimated.__detach();
+        this._detachNativeEvents();
+      } }]);return AnimatedComponent;}(require('react').Component);
+
+
+  return require('react').forwardRef(function AnimatedComponentWrapper(props, ref) {
+    return (
+      require('react').createElement(AnimatedComponent, require("@babel/runtime/helpers/extends")({},
+      props,
+      ref == null ? null : { forwardedRef: ref }, { __self: this, __self: this, __source: { fileName: _jsxFileName, lineNumber: 215, columnNumber: 7 } })));
+
+
+  });
+}
+
+module.exports = createAnimatedComponent;

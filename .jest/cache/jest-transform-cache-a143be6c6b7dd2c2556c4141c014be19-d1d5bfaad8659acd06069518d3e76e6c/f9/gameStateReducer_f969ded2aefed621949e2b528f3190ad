@@ -1,0 +1,29 @@
+526af5e5f48d4c8d8b96ac6b7a3414e7
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _types = require("../actions/types");
+
+var initGameState = {
+  'isCompleted': false,
+  'gameExists': false
+};
+
+var gameStateReducer = function gameStateReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initGameState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _types.SET_GAME_STATE:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+var _default = gameStateReducer;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcZ2FtZVN0YXRlUmVkdWNlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBOztBQUdBLElBQU0sYUFBYSxHQUFhO0FBQzlCLGlCQUFjLEtBRGdCO0FBRTlCLGdCQUFhO0FBRmlCLENBQWhDOztBQUtBLElBQU0sZ0JBQWdCLEdBQUcsU0FBbkIsZ0JBQW1CLEdBQXVDO0FBQUEsTUFBdEMsS0FBc0MsdUVBQTlCLGFBQThCO0FBQUEsTUFBZixNQUFlOztBQUM5RCxVQUFPLE1BQU0sQ0FBQyxJQUFkO0FBQ0UsU0FBSyxxQkFBTDtBQUNFLGFBQU8sTUFBTSxDQUFDLE9BQWQ7O0FBQ0Y7QUFDRSxhQUFPLEtBQVA7QUFKSjtBQU1ELENBUEQ7O2VBU2UsZ0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1NFVF9HQU1FX1NUQVRFfSBmcm9tICcuLi9hY3Rpb25zL3R5cGVzJztcclxuaW1wb3J0IHtHYW1lU3RhdGV9IGZyb20gJy4uLy4uLy4uL3R5cGVzJztcclxuXHJcbmNvbnN0IGluaXRHYW1lU3RhdGU6R2FtZVN0YXRlID0ge1xyXG4gICdpc0NvbXBsZXRlZCc6ZmFsc2UsXHJcbiAgJ2dhbWVFeGlzdHMnOmZhbHNlXHJcbn1cclxuXHJcbmNvbnN0IGdhbWVTdGF0ZVJlZHVjZXIgPSAoc3RhdGUgPSBpbml0R2FtZVN0YXRlLCBhY3Rpb246IGFueSkgPT57XHJcbiAgc3dpdGNoKGFjdGlvbi50eXBlKXtcclxuICAgIGNhc2UgU0VUX0dBTUVfU1RBVEU6XHJcbiAgICAgIHJldHVybiBhY3Rpb24ucGF5bG9hZDtcclxuICAgIGRlZmF1bHQ6XHJcbiAgICAgIHJldHVybiBzdGF0ZTtcclxuICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGdhbWVTdGF0ZVJlZHVjZXI7Il19

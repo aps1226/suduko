@@ -1,0 +1,23 @@
+7a2f54b1a7302df351562923eee89a0e
+
+
+
+
+
+
+
+
+
+
+'use strict';var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _NativeSoundManager = _interopRequireDefault(require("./NativeSoundManager"));
+
+var SoundManager = {
+  playTouchSound: function playTouchSound() {
+    if (_NativeSoundManager.default) {
+      _NativeSoundManager.default.playTouchSound();
+    }
+  } };
+
+
+module.exports = SoundManager;

@@ -1,0 +1,128 @@
+113a603b399ca1d93242fc561fded829
+
+
+
+
+
+
+
+
+
+
+'use strict';function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = require("@babel/runtime/helpers/getPrototypeOf")(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = require("@babel/runtime/helpers/getPrototypeOf")(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return require("@babel/runtime/helpers/possibleConstructorReturn")(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}var
+
+
+
+
+
+
+
+
+AnimatedStyle = function (_AnimatedWithChildren) {require("@babel/runtime/helpers/inherits")(AnimatedStyle, _AnimatedWithChildren);var _super = _createSuper(AnimatedStyle);
+
+
+  function AnimatedStyle(style) {var _this;require("@babel/runtime/helpers/classCallCheck")(this, AnimatedStyle);
+    _this = _super.call(this);
+    style = require("../../../StyleSheet/flattenStyle")(style) || {};
+    if (style.transform) {
+      style = _objectSpread(_objectSpread({},
+      style), {}, {
+        transform: new (require("./AnimatedTransform"))(style.transform) });
+
+    }
+    _this._style = style;return _this;
+  }require("@babel/runtime/helpers/createClass")(AnimatedStyle, [{ key: "_walkStyleAndGetValues", value:
+
+
+    function _walkStyleAndGetValues(style) {
+      var updatedStyle = {};
+      for (var key in style) {
+        var value = style[key];
+        if (value instanceof require("./AnimatedNode")) {
+          if (!value.__isNative) {
+
+
+            updatedStyle[key] = value.__getValue();
+          }
+        } else if (value && !Array.isArray(value) && typeof value === 'object') {
+
+          updatedStyle[key] = this._walkStyleAndGetValues(value);
+        } else {
+          updatedStyle[key] = value;
+        }
+      }
+      return updatedStyle;
+    } }, { key: "__getValue", value:
+
+    function __getValue() {
+      return this._walkStyleAndGetValues(this._style);
+    } }, { key: "_walkStyleAndGetAnimatedValues", value:
+
+
+    function _walkStyleAndGetAnimatedValues(style) {
+      var updatedStyle = {};
+      for (var key in style) {
+        var value = style[key];
+        if (value instanceof require("./AnimatedNode")) {
+          updatedStyle[key] = value.__getAnimatedValue();
+        } else if (value && !Array.isArray(value) && typeof value === 'object') {
+
+          updatedStyle[key] = this._walkStyleAndGetAnimatedValues(value);
+        }
+      }
+      return updatedStyle;
+    } }, { key: "__getAnimatedValue", value:
+
+    function __getAnimatedValue() {
+      return this._walkStyleAndGetAnimatedValues(this._style);
+    } }, { key: "__attach", value:
+
+    function __attach() {
+      for (var key in this._style) {
+        var value = this._style[key];
+        if (value instanceof require("./AnimatedNode")) {
+          value.__addChild(this);
+        }
+      }
+    } }, { key: "__detach", value:
+
+    function __detach() {
+      for (var key in this._style) {
+        var value = this._style[key];
+        if (value instanceof require("./AnimatedNode")) {
+          value.__removeChild(this);
+        }
+      }
+      require("@babel/runtime/helpers/get")(require("@babel/runtime/helpers/getPrototypeOf")(AnimatedStyle.prototype), "__detach", this).call(this);
+    } }, { key: "__makeNative", value:
+
+    function __makeNative() {
+      for (var key in this._style) {
+        var value = this._style[key];
+        if (value instanceof require("./AnimatedNode")) {
+          value.__makeNative();
+        }
+      }
+      require("@babel/runtime/helpers/get")(require("@babel/runtime/helpers/getPrototypeOf")(AnimatedStyle.prototype), "__makeNative", this).call(this);
+    } }, { key: "__getNativeConfig", value:
+
+    function __getNativeConfig() {
+      var styleConfig = {};
+      for (var styleKey in this._style) {
+        if (this._style[styleKey] instanceof require("./AnimatedNode")) {
+          var style = this._style[styleKey];
+          style.__makeNative();
+          styleConfig[styleKey] = style.__getNativeTag();
+        }
+
+
+      }
+      require("../NativeAnimatedHelper").validateStyles(styleConfig);
+      return {
+        type: 'style',
+        style: styleConfig };
+
+    } }]);return AnimatedStyle;}(require("./AnimatedWithChildren"));
+
+
+module.exports = AnimatedStyle;
