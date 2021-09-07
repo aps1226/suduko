@@ -308,6 +308,7 @@ exports[`Home component renders without crashing 1`] = `
         "width": 150,
       }
     }
+    testID="loadGameButton"
   >
     <Text
       style={
@@ -348,6 +349,7 @@ exports[`Home component renders without crashing 1`] = `
         ]
       }
       swipeThreshold={100}
+      testID="loadGamePopUp"
       transparent={true}
       visible={false}
     >
@@ -495,6 +497,7 @@ exports[`Home component renders without crashing 1`] = `
         ]
       }
       swipeThreshold={100}
+      testID="newGamePopUp"
       transparent={true}
       visible={false}
     >

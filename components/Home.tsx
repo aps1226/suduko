@@ -32,7 +32,7 @@ export default function Home({history}:RouteComponentProps) {
       <Pressable
         style = {styles.button}
         onPress = {() =>{
-          if(!gameExists) handlePress('DifficultySelection')
+          if(!gameExists) return handlePress('DifficultySelection')
           return setNewGamePopUp(true);
         }}
         testID = {'newGameButton'}
@@ -46,11 +46,15 @@ export default function Home({history}:RouteComponentProps) {
             return setLoadGamePopUp(true);
           }
         }
+        testID = {'loadGameButton'}
       >
         <Text style = {styles.text}>Load Game</Text>
       </Pressable>
       <View>
-        <Modal isVisible={loadGamePopUp}>
+        <Modal 
+          isVisible={loadGamePopUp}
+          testID = {'loadGamePopUp'}
+        >
           <Pressable 
             style = {{
               flex:1,
@@ -67,7 +71,10 @@ export default function Home({history}:RouteComponentProps) {
         </Modal>
       </View>
       <View>
-        <Modal isVisible={newGamePopUp}>
+        <Modal 
+          isVisible={newGamePopUp}
+          testID = {'newGamePopUp'}
+        >
             <View style = {styles.newGamePopUpPrompt}>
               <Text style = {styles.newGamePopUpPromptText}>
                 Are you sure you would like to abandon your current game?
