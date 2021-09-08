@@ -60,6 +60,7 @@ export default function Home({history}:RouteComponentProps) {
               flex:1,
               alignItems:'center'
             }} 
+            testID ='loadGamePopUpHide'
             onPress={() => setLoadGamePopUp(false)}
           >
             <View style = {styles.loadGamePopUpPrompt}>
@@ -86,6 +87,7 @@ export default function Home({history}:RouteComponentProps) {
               <Pressable 
                 style = {styles.popUpYesNoButton}
                 onPress = {()=>handlePress('DifficultySelection')}
+                testID = {'newGamePopUpYes'}
               >
                 <Text style = {styles.newGamePopUpPromptText}>
                   Yes
@@ -94,6 +96,7 @@ export default function Home({history}:RouteComponentProps) {
               <Pressable 
                 style = {styles.popUpYesNoButton}
                 onPress = {()=>setNewGamePopUp(false)}
+                testID = {'newGamePopUpNo'}
               >
                 <Text style = {styles.newGamePopUpPromptText}>
                   No

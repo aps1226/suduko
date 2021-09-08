@@ -1,0 +1,394 @@
+e43911ba19054b3d7ddb0e9621536114
+/* istanbul ignore next */
+function cov_a9u33a11a() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\selectionReducer.ts";
+  var hash = "691a007ad76a80ca8b3322948ae8f1a13af14304";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\selectionReducer.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 25
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 13
+        },
+        end: {
+          line: 6,
+          column: 40
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 23
+        },
+        end: {
+          line: 19,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 14
+        },
+        end: {
+          line: 9,
+          column: 83
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 15
+        },
+        end: {
+          line: 10,
+          column: 62
+        }
+      },
+      "6": {
+        start: {
+          line: 12,
+          column: 2
+        },
+        end: {
+          line: 18,
+          column: 3
+        }
+      },
+      "7": {
+        start: {
+          line: 14,
+          column: 6
+        },
+        end: {
+          line: 14,
+          column: 28
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 6
+        },
+        end: {
+          line: 17,
+          column: 19
+        }
+      },
+      "9": {
+        start: {
+          line: 21,
+          column: 15
+        },
+        end: {
+          line: 21,
+          column: 31
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 0
+        },
+        end: {
+          line: 22,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "selectionReducer",
+        decl: {
+          start: {
+            line: 8,
+            column: 32
+          },
+          end: {
+            line: 8,
+            column: 48
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 51
+          },
+          end: {
+            line: 19,
+            column: 1
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 83
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 9,
+            column: 67
+          },
+          end: {
+            line: 9,
+            column: 79
+          }
+        }, {
+          start: {
+            line: 9,
+            column: 82
+          },
+          end: {
+            line: 9,
+            column: 83
+          }
+        }],
+        line: 9
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 64
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 9,
+            column: 38
+          },
+          end: {
+            line: 9,
+            column: 64
+          }
+        }],
+        line: 9
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 10,
+            column: 15
+          },
+          end: {
+            line: 10,
+            column: 62
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 10,
+            column: 38
+          },
+          end: {
+            line: 10,
+            column: 50
+          }
+        }, {
+          start: {
+            line: 10,
+            column: 53
+          },
+          end: {
+            line: 10,
+            column: 62
+          }
+        }],
+        line: 10
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 12,
+            column: 2
+          },
+          end: {
+            line: 18,
+            column: 3
+          }
+        },
+        type: "switch",
+        locations: [{
+          start: {
+            line: 13,
+            column: 4
+          },
+          end: {
+            line: 14,
+            column: 28
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 4
+          },
+          end: {
+            line: 17,
+            column: 19
+          }
+        }],
+        line: 12
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\selectionReducer.ts"],
+      names: [],
+      mappings: ";;;;;AAAA;;AAEA,IAAM,gBAAgB,GAAG,SAAnB,gBAAmB,GAA2B;AAAA,MAA1B,KAA0B,uEAAlB,CAAkB;AAAA,MAAf,MAAe;;AAClD,UAAO,MAAM,CAAC,IAAd;AACE,SAAK,oBAAL;AACE,aAAO,MAAM,CAAC,OAAd;;AACF;AACE,aAAO,KAAP;AAJJ;AAMD,CAPD;;eASe,gB",
+      sourcesContent: ["import {SET_SELECTION} from '../actions/types';\r\n\r\nconst selectionReducer = (state = 1, action: any) =>{\r\n  switch(action.type){\r\n    case SET_SELECTION:\r\n      return action.payload;\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n\r\nexport default selectionReducer;"]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "691a007ad76a80ca8b3322948ae8f1a13af14304"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_a9u33a11a = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_a9u33a11a();
+cov_a9u33a11a().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_a9u33a11a().s[1]++;
+exports.default = void 0;
+
+var _types =
+/* istanbul ignore next */
+(cov_a9u33a11a().s[2]++, require("../actions/types"));
+
+/* istanbul ignore next */
+cov_a9u33a11a().s[3]++;
+
+var selectionReducer = function selectionReducer() {
+  /* istanbul ignore next */
+  cov_a9u33a11a().f[0]++;
+  var state =
+  /* istanbul ignore next */
+  (cov_a9u33a11a().s[4]++,
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[1][0]++, arguments.length > 0) &&
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[1][1]++, arguments[0] !== undefined) ?
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[0][0]++, arguments[0]) :
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[0][1]++, 1));
+  var action =
+  /* istanbul ignore next */
+  (cov_a9u33a11a().s[5]++, arguments.length > 1 ?
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[2][0]++, arguments[1]) :
+  /* istanbul ignore next */
+  (cov_a9u33a11a().b[2][1]++, undefined));
+
+  /* istanbul ignore next */
+  cov_a9u33a11a().s[6]++;
+
+  switch (action.type) {
+    case _types.SET_SELECTION:
+      /* istanbul ignore next */
+      cov_a9u33a11a().b[3][0]++;
+      cov_a9u33a11a().s[7]++;
+      return action.payload;
+
+    default:
+      /* istanbul ignore next */
+      cov_a9u33a11a().b[3][1]++;
+      cov_a9u33a11a().s[8]++;
+      return state;
+  }
+};
+
+var _default =
+/* istanbul ignore next */
+(cov_a9u33a11a().s[9]++, selectionReducer);
+
+/* istanbul ignore next */
+cov_a9u33a11a().s[10]++;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcc2VsZWN0aW9uUmVkdWNlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQU1JOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFOSixJQUFBLE1BQUE7QUFBQTtBQUFBLHlCQUFBLE9BQUEsQ0FBQSxrQkFBQSxDQUFBLENBQUE7Ozs7O0FBRUEsSUFBTSxnQkFBZ0IsR0FBRyxTQUFuQixnQkFBbUIsR0FBMkI7QUFBQTtBQUFBO0FBQUEsTUFBMUIsS0FBMEI7QUFBQTtBQUFBO0FBQUE7QUFBQSw4QkFBQSxTQUFBLENBQUEsTUFBQSxHQUFBLENBQUE7QUFBQTtBQUFBLDhCQUFBLFNBQUEsQ0FBQSxDQUFBLENBQUEsS0FBQSxTQUFBO0FBQUE7QUFBQSw4QkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBO0FBQUE7QUFBQSw4QkFBbEIsQ0FBa0IsQ0FBQSxDQUFBO0FBQUEsTUFBZixNQUFlO0FBQUE7QUFBQSwyQkFBQSxTQUFBLENBQUEsTUFBQSxHQUFBLENBQUE7QUFBQTtBQUFBLDhCQUFBLFNBQUEsQ0FBQSxDQUFBLENBQUE7QUFBQTtBQUFBLDhCQUFBLFNBQUEsQ0FBQSxDQUFBOztBQUFBO0FBQUE7O0FBQ2xELFVBQU8sTUFBTSxDQUFiLElBQUE7QUFDRSxTQUFLLE1BQUEsQ0FBTCxhQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ0UsYUFBTyxNQUFNLENBQWIsT0FBQTs7QUFDRjtBQUFBO0FBQUE7QUFBQTtBQUNFLGFBQUEsS0FBQTtBQUpKO0FBREYsQ0FBQTs7Ozt5QkFTZSxnQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7U0VUX1NFTEVDVElPTn0gZnJvbSAnLi4vYWN0aW9ucy90eXBlcyc7XHJcblxyXG5jb25zdCBzZWxlY3Rpb25SZWR1Y2VyID0gKHN0YXRlID0gMSwgYWN0aW9uOiBhbnkpID0+e1xyXG4gIHN3aXRjaChhY3Rpb24udHlwZSl7XHJcbiAgICBjYXNlIFNFVF9TRUxFQ1RJT046XHJcbiAgICAgIHJldHVybiBhY3Rpb24ucGF5bG9hZDtcclxuICAgIGRlZmF1bHQ6XHJcbiAgICAgIHJldHVybiBzdGF0ZTtcclxuICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IHNlbGVjdGlvblJlZHVjZXI7Il19
