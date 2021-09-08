@@ -1,0 +1,281 @@
+7984a47538d98bf65584c8bdad891373
+/* istanbul ignore next */
+function cov_1qh9kmja17() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\index.ts";
+  var hash = "9bd619823ee0f23eb555f5c7a2b08a3465286ad9";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\index.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 29
+        },
+        end: {
+          line: 1,
+          column: 84
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 6,
+          column: 25
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 13
+        },
+        end: {
+          line: 8,
+          column: 29
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 20
+        },
+        end: {
+          line: 10,
+          column: 69
+        }
+      },
+      "5": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 69
+        }
+      },
+      "6": {
+        start: {
+          line: 14,
+          column: 25
+        },
+        end: {
+          line: 14,
+          column: 79
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 24
+        },
+        end: {
+          line: 16,
+          column: 77
+        }
+      },
+      "8": {
+        start: {
+          line: 18,
+          column: 19
+        },
+        end: {
+          line: 18,
+          column: 67
+        }
+      },
+      "9": {
+        start: {
+          line: 20,
+          column: 24
+        },
+        end: {
+          line: 20,
+          column: 77
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 20
+        },
+        end: {
+          line: 22,
+          column: 69
+        }
+      },
+      "11": {
+        start: {
+          line: 24,
+          column: 24
+        },
+        end: {
+          line: 24,
+          column: 77
+        }
+      },
+      "12": {
+        start: {
+          line: 26,
+          column: 15
+        },
+        end: {
+          line: 35,
+          column: 2
+        }
+      },
+      "13": {
+        start: {
+          line: 36,
+          column: 15
+        },
+        end: {
+          line: 36,
+          column: 23
+        }
+      },
+      "14": {
+        start: {
+          line: 37,
+          column: 0
+        },
+        end: {
+          line: 37,
+          column: 27
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\index.ts"],
+      names: [],
+      mappings: ";;;;;;;AAAA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AAEA,IAAM,QAAQ,GAAG,4BAAgB;AAC/B,EAAA,KAAK,EAAE,qBADwB;AAE/B,EAAA,MAAM,EAAE,qBAFuB;AAG/B,EAAA,SAAS,EAAC,yBAHqB;AAI/B,EAAA,UAAU,EAAC,0BAJoB;AAK/B,EAAA,KAAK,EAAC,oBALyB;AAM/B,EAAA,SAAS,EAAE,yBANoB;AAO/B,EAAA,KAAK,EAAC,qBAPyB;AAQ/B,EAAA,SAAS,EAAE;AARoB,CAAhB,CAAjB;eAae,Q",
+      sourcesContent: ["import {combineReducers} from 'redux';\r\nimport boardReducer from './boardReducer';\r\nimport colorReducer from './colorReducer';\r\nimport difficultyReducer from './difficultyReducer';\r\nimport selectionReducer from './selectionReducer';\r\nimport timeReducer from './timeReducer';\r\nimport entryModeReducer from './entryModeReducer';\r\nimport notesReducer from './notesReducer';\r\nimport gameStateReducer from './gameStateReducer';\r\n\r\nconst reducers = combineReducers({\r\n  board: boardReducer,\r\n  colors: colorReducer,\r\n  selection:selectionReducer,\r\n  difficulty:difficultyReducer,\r\n  timer:timeReducer,\r\n  entryMode: entryModeReducer,\r\n  notes:notesReducer,\r\n  gameState: gameStateReducer\r\n});\r\n\r\nexport type RootState = ReturnType<typeof reducers>;\r\n\r\nexport default reducers;"]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "9bd619823ee0f23eb555f5c7a2b08a3465286ad9"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1qh9kmja17 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1qh9kmja17();
+
+var _interopRequireDefault =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[0]++, require("@babel/runtime/helpers/interopRequireDefault"));
+
+/* istanbul ignore next */
+cov_1qh9kmja17().s[1]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_1qh9kmja17().s[2]++;
+exports.default = void 0;
+
+var _redux =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[3]++, require("redux"));
+
+var _boardReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[4]++, _interopRequireDefault(require("./boardReducer")));
+
+var _colorReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[5]++, _interopRequireDefault(require("./colorReducer")));
+
+var _difficultyReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[6]++, _interopRequireDefault(require("./difficultyReducer")));
+
+var _selectionReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[7]++, _interopRequireDefault(require("./selectionReducer")));
+
+var _timeReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[8]++, _interopRequireDefault(require("./timeReducer")));
+
+var _entryModeReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[9]++, _interopRequireDefault(require("./entryModeReducer")));
+
+var _notesReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[10]++, _interopRequireDefault(require("./notesReducer")));
+
+var _gameStateReducer =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[11]++, _interopRequireDefault(require("./gameStateReducer")));
+
+var reducers =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[12]++, (0, _redux.combineReducers)({
+  board: _boardReducer.default,
+  colors: _colorReducer.default,
+  selection: _selectionReducer.default,
+  difficulty: _difficultyReducer.default,
+  timer: _timeReducer.default,
+  entryMode: _entryModeReducer.default,
+  notes: _notesReducer.default,
+  gameState: _gameStateReducer.default
+}));
+
+var _default =
+/* istanbul ignore next */
+(cov_1qh9kmja17().s[13]++, reducers);
+
+/* istanbul ignore next */
+cov_1qh9kmja17().s[14]++;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUlBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFKQSxJQUFBLE1BQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSxPQUFBLENBQUEsQ0FBQTs7QUFDQSxJQUFBLGFBQUE7QUFBQTtBQUFBLDBCQUFBLHNCQUFBLENBQUEsT0FBQSxDQUFBLGdCQUFBLENBQUEsQ0FBQSxDQUFBOztBQUNBLElBQUEsYUFBQTtBQUFBO0FBQUEsMEJBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEsZ0JBQUEsQ0FBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxrQkFBQTtBQUFBO0FBQUEsMEJBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEscUJBQUEsQ0FBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxpQkFBQTtBQUFBO0FBQUEsMEJBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEsb0JBQUEsQ0FBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxZQUFBO0FBQUE7QUFBQSwwQkFBQSxzQkFBQSxDQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUEsQ0FBQSxDQUFBOztBQUNBLElBQUEsaUJBQUE7QUFBQTtBQUFBLDBCQUFBLHNCQUFBLENBQUEsT0FBQSxDQUFBLG9CQUFBLENBQUEsQ0FBQSxDQUFBOztBQUNBLElBQUEsYUFBQTtBQUFBO0FBQUEsMkJBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEsZ0JBQUEsQ0FBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxpQkFBQTtBQUFBO0FBQUEsMkJBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEsb0JBQUEsQ0FBQSxDQUFBLENBQUE7O0FBRUEsSUFBTSxRQUFRO0FBQUE7QUFBQSwyQkFBRyxDQUFBLEdBQUEsTUFBQSxDQUFBLGVBQUEsRUFBZ0I7QUFDL0IsRUFBQSxLQUFLLEVBQUUsYUFBQSxDQUR3QixPQUFBO0FBRS9CLEVBQUEsTUFBTSxFQUFFLGFBQUEsQ0FGdUIsT0FBQTtBQUcvQixFQUFBLFNBQVMsRUFBQyxpQkFBQSxDQUhxQixPQUFBO0FBSS9CLEVBQUEsVUFBVSxFQUFDLGtCQUFBLENBSm9CLE9BQUE7QUFLL0IsRUFBQSxLQUFLLEVBQUMsWUFBQSxDQUx5QixPQUFBO0FBTS9CLEVBQUEsU0FBUyxFQUFFLGlCQUFBLENBTm9CLE9BQUE7QUFPL0IsRUFBQSxLQUFLLEVBQUMsYUFBQSxDQVB5QixPQUFBO0FBUS9CLEVBQUEsU0FBUyxFQUFFLGlCQUFBLENBQUE7QUFSb0IsQ0FBaEIsQ0FBSCxDQUFkOzs7OzJCQWFlLFEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge2NvbWJpbmVSZWR1Y2Vyc30gZnJvbSAncmVkdXgnO1xyXG5pbXBvcnQgYm9hcmRSZWR1Y2VyIGZyb20gJy4vYm9hcmRSZWR1Y2VyJztcclxuaW1wb3J0IGNvbG9yUmVkdWNlciBmcm9tICcuL2NvbG9yUmVkdWNlcic7XHJcbmltcG9ydCBkaWZmaWN1bHR5UmVkdWNlciBmcm9tICcuL2RpZmZpY3VsdHlSZWR1Y2VyJztcclxuaW1wb3J0IHNlbGVjdGlvblJlZHVjZXIgZnJvbSAnLi9zZWxlY3Rpb25SZWR1Y2VyJztcclxuaW1wb3J0IHRpbWVSZWR1Y2VyIGZyb20gJy4vdGltZVJlZHVjZXInO1xyXG5pbXBvcnQgZW50cnlNb2RlUmVkdWNlciBmcm9tICcuL2VudHJ5TW9kZVJlZHVjZXInO1xyXG5pbXBvcnQgbm90ZXNSZWR1Y2VyIGZyb20gJy4vbm90ZXNSZWR1Y2VyJztcclxuaW1wb3J0IGdhbWVTdGF0ZVJlZHVjZXIgZnJvbSAnLi9nYW1lU3RhdGVSZWR1Y2VyJztcclxuXHJcbmNvbnN0IHJlZHVjZXJzID0gY29tYmluZVJlZHVjZXJzKHtcclxuICBib2FyZDogYm9hcmRSZWR1Y2VyLFxyXG4gIGNvbG9yczogY29sb3JSZWR1Y2VyLFxyXG4gIHNlbGVjdGlvbjpzZWxlY3Rpb25SZWR1Y2VyLFxyXG4gIGRpZmZpY3VsdHk6ZGlmZmljdWx0eVJlZHVjZXIsXHJcbiAgdGltZXI6dGltZVJlZHVjZXIsXHJcbiAgZW50cnlNb2RlOiBlbnRyeU1vZGVSZWR1Y2VyLFxyXG4gIG5vdGVzOm5vdGVzUmVkdWNlcixcclxuICBnYW1lU3RhdGU6IGdhbWVTdGF0ZVJlZHVjZXJcclxufSk7XHJcblxyXG5leHBvcnQgdHlwZSBSb290U3RhdGUgPSBSZXR1cm5UeXBlPHR5cGVvZiByZWR1Y2Vycz47XHJcblxyXG5leHBvcnQgZGVmYXVsdCByZWR1Y2VyczsiXX0=

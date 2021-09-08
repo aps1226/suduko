@@ -1,0 +1,394 @@
+a26b5704e3be60bb8be19c949240521e
+/* istanbul ignore next */
+function cov_11cflgsqtn() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\difficultyReducer.ts";
+  var hash = "75009e2afb244b8b4fc53c75521ff8a5fa4f23c7";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\difficultyReducer.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 25
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 13
+        },
+        end: {
+          line: 6,
+          column: 40
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 24
+        },
+        end: {
+          line: 19,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 14
+        },
+        end: {
+          line: 9,
+          column: 86
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 15
+        },
+        end: {
+          line: 10,
+          column: 62
+        }
+      },
+      "6": {
+        start: {
+          line: 12,
+          column: 2
+        },
+        end: {
+          line: 18,
+          column: 3
+        }
+      },
+      "7": {
+        start: {
+          line: 14,
+          column: 6
+        },
+        end: {
+          line: 14,
+          column: 28
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 6
+        },
+        end: {
+          line: 17,
+          column: 19
+        }
+      },
+      "9": {
+        start: {
+          line: 21,
+          column: 15
+        },
+        end: {
+          line: 21,
+          column: 32
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 0
+        },
+        end: {
+          line: 22,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "difficultyReducer",
+        decl: {
+          start: {
+            line: 8,
+            column: 33
+          },
+          end: {
+            line: 8,
+            column: 50
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 53
+          },
+          end: {
+            line: 19,
+            column: 1
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 86
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 9,
+            column: 67
+          },
+          end: {
+            line: 9,
+            column: 79
+          }
+        }, {
+          start: {
+            line: 9,
+            column: 82
+          },
+          end: {
+            line: 9,
+            column: 86
+          }
+        }],
+        line: 9
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 64
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 9,
+            column: 14
+          },
+          end: {
+            line: 9,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 9,
+            column: 38
+          },
+          end: {
+            line: 9,
+            column: 64
+          }
+        }],
+        line: 9
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 10,
+            column: 15
+          },
+          end: {
+            line: 10,
+            column: 62
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 10,
+            column: 38
+          },
+          end: {
+            line: 10,
+            column: 50
+          }
+        }, {
+          start: {
+            line: 10,
+            column: 53
+          },
+          end: {
+            line: 10,
+            column: 62
+          }
+        }],
+        line: 10
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 12,
+            column: 2
+          },
+          end: {
+            line: 18,
+            column: 3
+          }
+        },
+        type: "switch",
+        locations: [{
+          start: {
+            line: 13,
+            column: 4
+          },
+          end: {
+            line: 14,
+            column: 28
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 4
+          },
+          end: {
+            line: 17,
+            column: 19
+          }
+        }],
+        line: 12
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\difficultyReducer.ts"],
+      names: [],
+      mappings: ";;;;;AAAA;;AACA,IAAM,iBAAiB,GAAG,SAApB,iBAAoB,GAA8B;AAAA,MAA7B,KAA6B,uEAArB,IAAqB;AAAA,MAAf,MAAe;;AACtD,UAAO,MAAM,CAAC,IAAd;AACE,SAAK,qBAAL;AACE,aAAO,MAAM,CAAC,OAAd;;AACF;AACE,aAAO,KAAP;AAJJ;AAMD,CAPD;;eASe,iB",
+      sourcesContent: ["import { SET_DIFFICULTY } from '../actions/types';\r\nconst difficultyReducer = (state = null, action: any) =>{\r\n  switch(action.type){\r\n    case SET_DIFFICULTY:\r\n      return action.payload;\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n\r\nexport default difficultyReducer;"]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "75009e2afb244b8b4fc53c75521ff8a5fa4f23c7"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_11cflgsqtn = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_11cflgsqtn();
+cov_11cflgsqtn().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_11cflgsqtn().s[1]++;
+exports.default = void 0;
+
+var _types =
+/* istanbul ignore next */
+(cov_11cflgsqtn().s[2]++, require("../actions/types"));
+
+/* istanbul ignore next */
+cov_11cflgsqtn().s[3]++;
+
+var difficultyReducer = function difficultyReducer() {
+  /* istanbul ignore next */
+  cov_11cflgsqtn().f[0]++;
+  var state =
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().s[4]++,
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[1][0]++, arguments.length > 0) &&
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[1][1]++, arguments[0] !== undefined) ?
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[0][0]++, arguments[0]) :
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[0][1]++, null));
+  var action =
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().s[5]++, arguments.length > 1 ?
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[2][0]++, arguments[1]) :
+  /* istanbul ignore next */
+  (cov_11cflgsqtn().b[2][1]++, undefined));
+
+  /* istanbul ignore next */
+  cov_11cflgsqtn().s[6]++;
+
+  switch (action.type) {
+    case _types.SET_DIFFICULTY:
+      /* istanbul ignore next */
+      cov_11cflgsqtn().b[3][0]++;
+      cov_11cflgsqtn().s[7]++;
+      return action.payload;
+
+    default:
+      /* istanbul ignore next */
+      cov_11cflgsqtn().b[3][1]++;
+      cov_11cflgsqtn().s[8]++;
+      return state;
+  }
+};
+
+var _default =
+/* istanbul ignore next */
+(cov_11cflgsqtn().s[9]++, difficultyReducer);
+
+/* istanbul ignore next */
+cov_11cflgsqtn().s[10]++;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcZGlmZmljdWx0eVJlZHVjZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFLSTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBTEosSUFBQSxNQUFBO0FBQUE7QUFBQSwwQkFBQSxPQUFBLENBQUEsa0JBQUEsQ0FBQSxDQUFBOzs7OztBQUNBLElBQU0saUJBQWlCLEdBQUcsU0FBcEIsaUJBQW9CLEdBQThCO0FBQUE7QUFBQTtBQUFBLE1BQTdCLEtBQTZCO0FBQUE7QUFBQTtBQUFBO0FBQUEsK0JBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBLEtBQUEsU0FBQTtBQUFBO0FBQUEsK0JBQUEsU0FBQSxDQUFBLENBQUEsQ0FBQTtBQUFBO0FBQUEsK0JBQXJCLElBQXFCLENBQUEsQ0FBQTtBQUFBLE1BQWYsTUFBZTtBQUFBO0FBQUEsNEJBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQTs7QUFBQTtBQUFBOztBQUN0RCxVQUFPLE1BQU0sQ0FBYixJQUFBO0FBQ0UsU0FBSyxNQUFBLENBQUwsY0FBQTtBQUFBO0FBQUE7QUFBQTtBQUNFLGFBQU8sTUFBTSxDQUFiLE9BQUE7O0FBQ0Y7QUFBQTtBQUFBO0FBQUE7QUFDRSxhQUFBLEtBQUE7QUFKSjtBQURGLENBQUE7Ozs7MEJBU2UsaUIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBTRVRfRElGRklDVUxUWSB9IGZyb20gJy4uL2FjdGlvbnMvdHlwZXMnO1xyXG5jb25zdCBkaWZmaWN1bHR5UmVkdWNlciA9IChzdGF0ZSA9IG51bGwsIGFjdGlvbjogYW55KSA9PntcclxuICBzd2l0Y2goYWN0aW9uLnR5cGUpe1xyXG4gICAgY2FzZSBTRVRfRElGRklDVUxUWTpcclxuICAgICAgcmV0dXJuIGFjdGlvbi5wYXlsb2FkO1xyXG4gICAgZGVmYXVsdDpcclxuICAgICAgcmV0dXJuIHN0YXRlO1xyXG4gIH1cclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgZGlmZmljdWx0eVJlZHVjZXI7Il19

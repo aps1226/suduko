@@ -1,0 +1,424 @@
+06f0fa13d4c35d5de97383ca6b23d969
+/* istanbul ignore next */
+function cov_2h6m8w2c7c() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\boardReducer.ts";
+  var hash = "e45e47adda8b9ab92166fee846e9dcaa2a872f72";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\boardReducer.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 25
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 13
+        },
+        end: {
+          line: 6,
+          column: 40
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 23
+        },
+        end: {
+          line: 8,
+          column: 52
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 16
+        },
+        end: {
+          line: 10,
+          column: 524
+        }
+      },
+      "5": {
+        start: {
+          line: 12,
+          column: 19
+        },
+        end: {
+          line: 23,
+          column: 1
+        }
+      },
+      "6": {
+        start: {
+          line: 13,
+          column: 14
+        },
+        end: {
+          line: 13,
+          column: 91
+        }
+      },
+      "7": {
+        start: {
+          line: 14,
+          column: 15
+        },
+        end: {
+          line: 14,
+          column: 62
+        }
+      },
+      "8": {
+        start: {
+          line: 16,
+          column: 2
+        },
+        end: {
+          line: 22,
+          column: 3
+        }
+      },
+      "9": {
+        start: {
+          line: 18,
+          column: 6
+        },
+        end: {
+          line: 18,
+          column: 28
+        }
+      },
+      "10": {
+        start: {
+          line: 21,
+          column: 6
+        },
+        end: {
+          line: 21,
+          column: 19
+        }
+      },
+      "11": {
+        start: {
+          line: 25,
+          column: 15
+        },
+        end: {
+          line: 25,
+          column: 27
+        }
+      },
+      "12": {
+        start: {
+          line: 26,
+          column: 0
+        },
+        end: {
+          line: 26,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "boardReducer",
+        decl: {
+          start: {
+            line: 12,
+            column: 28
+          },
+          end: {
+            line: 12,
+            column: 40
+          }
+        },
+        loc: {
+          start: {
+            line: 12,
+            column: 43
+          },
+          end: {
+            line: 23,
+            column: 1
+          }
+        },
+        line: 12
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 13,
+            column: 14
+          },
+          end: {
+            line: 13,
+            column: 91
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 13,
+            column: 67
+          },
+          end: {
+            line: 13,
+            column: 79
+          }
+        }, {
+          start: {
+            line: 13,
+            column: 82
+          },
+          end: {
+            line: 13,
+            column: 91
+          }
+        }],
+        line: 13
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 13,
+            column: 14
+          },
+          end: {
+            line: 13,
+            column: 64
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 13,
+            column: 14
+          },
+          end: {
+            line: 13,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 13,
+            column: 38
+          },
+          end: {
+            line: 13,
+            column: 64
+          }
+        }],
+        line: 13
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 14,
+            column: 15
+          },
+          end: {
+            line: 14,
+            column: 62
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 14,
+            column: 38
+          },
+          end: {
+            line: 14,
+            column: 50
+          }
+        }, {
+          start: {
+            line: 14,
+            column: 53
+          },
+          end: {
+            line: 14,
+            column: 62
+          }
+        }],
+        line: 14
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 16,
+            column: 2
+          },
+          end: {
+            line: 22,
+            column: 3
+          }
+        },
+        type: "switch",
+        locations: [{
+          start: {
+            line: 17,
+            column: 4
+          },
+          end: {
+            line: 18,
+            column: 28
+          }
+        }, {
+          start: {
+            line: 20,
+            column: 4
+          },
+          end: {
+            line: 21,
+            column: 19
+          }
+        }],
+        line: 16
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\boardReducer.ts"],
+      names: [],
+      mappings: ";;;;;AAAA;;AACA;;AAIA,IAAM,SAAS,GAAuB,CAAC,8BAAQ,CAAC,CAAD,EAAG,CAAH,EAAK,CAAL,EAAO,CAAP,EAAS,CAAT,EAAW,CAAX,EAAa,CAAb,EAAe,CAAf,EAAiB,CAAjB,CAAR,CAAD,EAA8B,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAA9B,EAA6E,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAA7E,EAA4H,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAA5H,EAA2K,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAA3K,EAA0N,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAA1N,EAAyQ,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAAzQ,EAAwT,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAAxT,EAAuW,CAAC,IAAD,EAAM,IAAN,EAAW,IAAX,EAAgB,IAAhB,EAAqB,IAArB,EAA0B,IAA1B,EAA+B,IAA/B,EAAoC,IAApC,EAAyC,IAAzC,CAAvW,CAAtC;;AACA,IAAM,YAAY,GAAG,SAAf,YAAe,GAAmC;AAAA,MAAlC,KAAkC,uEAA1B,SAA0B;AAAA,MAAf,MAAe;;AACtD,UAAO,MAAM,CAAC,IAAd;AACE,SAAK,gBAAL;AACE,aAAO,MAAM,CAAC,OAAd;;AACF;AACE,aAAO,KAAP;AAJJ;AAMD,CAPD;;eASe,Y",
+      sourcesContent: ["import { SET_BOARD } from '../actions/types';\r\nimport { shuffle } from '../boardController';\r\nimport { store } from '../store'\r\nimport {RootState} from './index';\r\n\r\nconst initBoard:(number | null)[][] = [shuffle([1,2,3,4,5,6,7,8,9]),[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null]];\r\nconst boardReducer = (state = initBoard, action: any) =>{\r\n  switch(action.type){\r\n    case SET_BOARD:\r\n      return action.payload;\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n\r\nexport default boardReducer;"]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "e45e47adda8b9ab92166fee846e9dcaa2a872f72"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2h6m8w2c7c = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2h6m8w2c7c();
+cov_2h6m8w2c7c().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_2h6m8w2c7c().s[1]++;
+exports.default = void 0;
+
+var _types =
+/* istanbul ignore next */
+(cov_2h6m8w2c7c().s[2]++, require("../actions/types"));
+
+var _boardController =
+/* istanbul ignore next */
+(cov_2h6m8w2c7c().s[3]++, require("../boardController"));
+
+var initBoard =
+/* istanbul ignore next */
+(cov_2h6m8w2c7c().s[4]++, [(0, _boardController.shuffle)([1, 2, 3, 4, 5, 6, 7, 8, 9]), [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null], [null, null, null, null, null, null, null, null, null]]);
+
+/* istanbul ignore next */
+cov_2h6m8w2c7c().s[5]++;
+
+var boardReducer = function boardReducer() {
+  /* istanbul ignore next */
+  cov_2h6m8w2c7c().f[0]++;
+  var state =
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().s[6]++,
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[1][0]++, arguments.length > 0) &&
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[1][1]++, arguments[0] !== undefined) ?
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[0][0]++, arguments[0]) :
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[0][1]++, initBoard));
+  var action =
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().s[7]++, arguments.length > 1 ?
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[2][0]++, arguments[1]) :
+  /* istanbul ignore next */
+  (cov_2h6m8w2c7c().b[2][1]++, undefined));
+
+  /* istanbul ignore next */
+  cov_2h6m8w2c7c().s[8]++;
+
+  switch (action.type) {
+    case _types.SET_BOARD:
+      /* istanbul ignore next */
+      cov_2h6m8w2c7c().b[3][0]++;
+      cov_2h6m8w2c7c().s[9]++;
+      return action.payload;
+
+    default:
+      /* istanbul ignore next */
+      cov_2h6m8w2c7c().b[3][1]++;
+      cov_2h6m8w2c7c().s[10]++;
+      return state;
+  }
+};
+
+var _default =
+/* istanbul ignore next */
+(cov_2h6m8w2c7c().s[11]++, boardReducer);
+
+/* istanbul ignore next */
+cov_2h6m8w2c7c().s[12]++;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcYm9hcmRSZWR1Y2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQU9TOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFQVCxJQUFBLE1BQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSxrQkFBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxnQkFBQTtBQUFBO0FBQUEsMEJBQUEsT0FBQSxDQUFBLG9CQUFBLENBQUEsQ0FBQTs7QUFJQSxJQUFNLFNBQVM7QUFBQTtBQUFBLDBCQUF1QixDQUFDLENBQUEsR0FBQSxnQkFBQSxDQUFBLE9BQUEsRUFBUSxDQUFBLENBQUEsRUFBQSxDQUFBLEVBQUEsQ0FBQSxFQUFBLENBQUEsRUFBQSxDQUFBLEVBQUEsQ0FBQSxFQUFBLENBQUEsRUFBQSxDQUFBLEVBQVQsQ0FBUyxDQUFSLENBQUQsRUFBOEIsQ0FBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUE5QixJQUE4QixDQUE5QixFQUE2RSxDQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQTdFLElBQTZFLENBQTdFLEVBQTRILENBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBNUgsSUFBNEgsQ0FBNUgsRUFBMkssQ0FBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUEzSyxJQUEySyxDQUEzSyxFQUEwTixDQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQTFOLElBQTBOLENBQTFOLEVBQXlRLENBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBelEsSUFBeVEsQ0FBelEsRUFBd1QsQ0FBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUF4VCxJQUF3VCxDQUF4VCxFQUF1VyxDQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQUEsSUFBQSxFQUFBLElBQUEsRUFBQSxJQUFBLEVBQTdZLElBQTZZLENBQXZXLENBQXZCLENBQWY7Ozs7O0FBQ0EsSUFBTSxZQUFZLEdBQUcsU0FBZixZQUFlLEdBQW1DO0FBQUE7QUFBQTtBQUFBLE1BQWxDLEtBQWtDO0FBQUE7QUFBQTtBQUFBO0FBQUEsK0JBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBLEtBQUEsU0FBQTtBQUFBO0FBQUEsK0JBQUEsU0FBQSxDQUFBLENBQUEsQ0FBQTtBQUFBO0FBQUEsK0JBQTFCLFNBQTBCLENBQUEsQ0FBQTtBQUFBLE1BQWYsTUFBZTtBQUFBO0FBQUEsNEJBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBO0FBQUE7QUFBQSwrQkFBQSxTQUFBLENBQUEsQ0FBQTs7QUFBQTtBQUFBOztBQUN0RCxVQUFPLE1BQU0sQ0FBYixJQUFBO0FBQ0UsU0FBSyxNQUFBLENBQUwsU0FBQTtBQUFBO0FBQUE7QUFBQTtBQUNFLGFBQU8sTUFBTSxDQUFiLE9BQUE7O0FBQ0Y7QUFBQTtBQUFBO0FBQUE7QUFDRSxhQUFBLEtBQUE7QUFKSjtBQURGLENBQUE7Ozs7MkJBU2UsWSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFNFVF9CT0FSRCB9IGZyb20gJy4uL2FjdGlvbnMvdHlwZXMnO1xyXG5pbXBvcnQgeyBzaHVmZmxlIH0gZnJvbSAnLi4vYm9hcmRDb250cm9sbGVyJztcclxuaW1wb3J0IHsgc3RvcmUgfSBmcm9tICcuLi9zdG9yZSdcclxuaW1wb3J0IHtSb290U3RhdGV9IGZyb20gJy4vaW5kZXgnO1xyXG5cclxuY29uc3QgaW5pdEJvYXJkOihudW1iZXIgfCBudWxsKVtdW10gPSBbc2h1ZmZsZShbMSwyLDMsNCw1LDYsNyw4LDldKSxbbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGxdLFtudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF0sW251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsXSxbbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGxdLFtudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF0sW251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsXSxbbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGxdLFtudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF1dO1xyXG5jb25zdCBib2FyZFJlZHVjZXIgPSAoc3RhdGUgPSBpbml0Qm9hcmQsIGFjdGlvbjogYW55KSA9PntcclxuICBzd2l0Y2goYWN0aW9uLnR5cGUpe1xyXG4gICAgY2FzZSBTRVRfQk9BUkQ6XHJcbiAgICAgIHJldHVybiBhY3Rpb24ucGF5bG9hZDtcclxuICAgIGRlZmF1bHQ6XHJcbiAgICAgIHJldHVybiBzdGF0ZTtcclxuICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGJvYXJkUmVkdWNlcjsiXX0=
