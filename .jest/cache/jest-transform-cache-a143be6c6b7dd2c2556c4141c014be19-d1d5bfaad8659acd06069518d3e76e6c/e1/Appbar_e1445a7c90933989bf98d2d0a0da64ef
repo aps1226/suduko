@@ -1,0 +1,188 @@
+fc40d87106dc47bc0e8d142c006e3d9c
+"use strict";var _excluded = ["children", "dark", "style", "theme"],_excluded2 = ["backgroundColor", "elevation"];
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.Appbar = exports.default = exports.DEFAULT_APPBAR_HEIGHT = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _AppbarContent = _interopRequireDefault(require("./AppbarContent"));
+
+var _AppbarAction = _interopRequireDefault(require("./AppbarAction"));
+
+var _AppbarBackAction = _interopRequireDefault(require("./AppbarBackAction"));
+
+var _Surface = _interopRequireDefault(require("../Surface"));
+
+
+
+
+
+var _overlay = _interopRequireDefault(require("../../styles/overlay"));
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var DEFAULT_APPBAR_HEIGHT = 56;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exports.DEFAULT_APPBAR_HEIGHT = DEFAULT_APPBAR_HEIGHT;
+
+var Appbar = function Appbar(_ref)
+
+
+
+
+
+{var children = _ref.children,dark = _ref.dark,style = _ref.style,theme = _ref.theme,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var
+  colors =
+
+
+  theme.colors,isDarkTheme = theme.dark,mode = theme.mode;
+  var _ref2 =
+
+
+
+  require("react-native").StyleSheet.flatten(style) || {},customBackground = _ref2.backgroundColor,_ref2$elevation = _ref2.elevation,elevation = _ref2$elevation === void 0 ? 4 : _ref2$elevation,restStyle = require("@babel/runtime/helpers/objectWithoutProperties")(_ref2, _excluded2);
+  var isDark;
+  var backgroundColor = customBackground ? customBackground : isDarkTheme && mode === 'adaptive' ? (0, _overlay.default)(elevation, colors.surface) : colors.primary;
+
+  if (typeof dark === 'boolean') {
+    isDark = dark;
+  } else {
+    isDark = backgroundColor === 'transparent' ? false : typeof backgroundColor === 'string' ? !(0, _color.default)(backgroundColor).isLight() : true;
+  }
+
+  var shouldCenterContent = false;
+  var shouldAddLeftSpacing = false;
+  var shouldAddRightSpacing = false;
+
+  if (require("react-native").Platform.OS === 'ios') {
+    var hasAppbarContent = false;
+    var leftItemsCount = 0;
+    var rightItemsCount = 0;
+    React.Children.forEach(children, function (child) {
+      if (React.isValidElement(child)) {
+        if (child.type === _AppbarContent.default) {
+          hasAppbarContent = true;
+        } else if (hasAppbarContent) {
+          rightItemsCount++;
+        } else {
+          leftItemsCount++;
+        }
+      }
+    });
+    shouldCenterContent = hasAppbarContent && leftItemsCount < 2 && rightItemsCount < 2;
+    shouldAddLeftSpacing = shouldCenterContent && leftItemsCount === 0;
+    shouldAddRightSpacing = shouldCenterContent && rightItemsCount === 0;
+  }
+
+  return React.createElement(_Surface.default, _extends({
+    style: [{
+      backgroundColor: backgroundColor },
+    styles.appbar, {
+      elevation: elevation },
+    restStyle] },
+  rest), shouldAddLeftSpacing ? React.createElement(require("react-native").View, {
+    style: styles.spacing }) :
+  null, React.Children.toArray(children).filter(function (child) {return child != null && typeof child !== 'boolean';}).map(function (child, i) {
+    if (!React.isValidElement(child) || ![_AppbarContent.default, _AppbarAction.default, _AppbarBackAction.default].includes(
+    child.type)) {
+      return child;
+    }
+
+    var props = {
+      color: typeof child.props.color !== 'undefined' ? child.props.color : isDark ? require("../../styles/colors").white : require("../../styles/colors").black };
+
+
+    if (child.type === _AppbarContent.default) {
+      props.style = [
+      i !== 0 && {
+        marginLeft: 8 },
+      shouldCenterContent && {
+        alignItems: 'center' },
+      child.props.style];
+    }
+
+    return React.cloneElement(child, props);
+  }), shouldAddRightSpacing ? React.createElement(require("react-native").View, {
+    style: styles.spacing }) :
+  null);
+};
+
+var styles = require("react-native").StyleSheet.create({
+  appbar: {
+    height: DEFAULT_APPBAR_HEIGHT,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+    elevation: 4 },
+
+  spacing: {
+    width: 48 } });
+
+
+
+var _default = (0, require("../../core/theming").withTheme)(Appbar);
+
+
+exports.default = _default;
+var AppbarWithTheme = (0, require("../../core/theming").withTheme)(Appbar);
+
+exports.Appbar = AppbarWithTheme;

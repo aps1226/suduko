@@ -1,0 +1,673 @@
+c6ec1951d77cb4019f6d8c206a7a7311
+"use strict";var _excluded = ["route", "style", "children", "borderless", "centered", "rippleColor"],_excluded2 = ["component"];function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _overlay = _interopRequireDefault(require("../styles/overlay"));
+
+var _Icon = _interopRequireDefault(require("./Icon"));
+
+var _Surface = _interopRequireDefault(require("./Surface"));
+
+var _Badge = _interopRequireDefault(require("./Badge"));
+
+var _TouchableRipple = _interopRequireDefault(require("./TouchableRipple/TouchableRipple"));
+
+var _Text = _interopRequireDefault(require("./Typography/Text"));
+
+
+
+
+
+var _useAnimatedValue = _interopRequireDefault(require("../utils/useAnimatedValue"));
+
+var _useAnimatedValueArray = _interopRequireDefault(require("../utils/useAnimatedValueArray"));
+
+var _useLayout = _interopRequireDefault(require("../utils/useLayout"));
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var MIN_RIPPLE_SCALE = 0.001;
+
+var MIN_TAB_WIDTH = 96;
+var MAX_TAB_WIDTH = 168;
+var BAR_HEIGHT = 56;
+var BOTTOM_INSET = (0, require("react-native-iphone-x-helper").getBottomSpace)();
+var FAR_FAR_AWAY = require("react-native").Platform.OS === 'web' ? 0 : 9999;
+
+var Touchable = function Touchable(_ref) {var
+  _0 = _ref.route,
+  style = _ref.style,
+  children = _ref.children,
+  borderless = _ref.borderless,
+  centered = _ref.centered,
+  rippleColor = _ref.rippleColor,
+  rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);return (
+    _TouchableRipple.default.supported ? React.createElement(_TouchableRipple.default, _extends({}, rest, {
+      disabled: rest.disabled || undefined,
+      borderless: borderless,
+      centered: centered,
+      rippleColor: rippleColor,
+      style: style }),
+    children) : React.createElement(require("react-native").TouchableWithoutFeedback, rest, React.createElement(require("react-native").View, {
+      style: style },
+    children)));};
+
+var SceneComponent = React.memo(function (_ref2) {var
+  component = _ref2.component,
+  rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref2, _excluded2);return (
+    React.createElement(component, rest));});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var BottomNavigation = function BottomNavigation(_ref3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{var navigationState = _ref3.navigationState,renderScene = _ref3.renderScene,renderIcon = _ref3.renderIcon,renderLabel = _ref3.renderLabel,_ref3$renderTouchable = _ref3.renderTouchable,renderTouchable = _ref3$renderTouchable === void 0 ? function (props) {return React.createElement(Touchable, props);} : _ref3$renderTouchable,_ref3$getLabelText = _ref3.getLabelText,getLabelText = _ref3$getLabelText === void 0 ? function (_ref4) {var route = _ref4.route;return route.title;} : _ref3$getLabelText,_ref3$getBadge = _ref3.getBadge,getBadge = _ref3$getBadge === void 0 ? function (_ref5) {var route = _ref5.route;return route.badge;} : _ref3$getBadge,_ref3$getColor = _ref3.getColor,getColor = _ref3$getColor === void 0 ? function (_ref6) {var route = _ref6.route;return route.color;} : _ref3$getColor,_ref3$getAccessibilit = _ref3.getAccessibilityLabel,getAccessibilityLabel = _ref3$getAccessibilit === void 0 ? function (_ref7) {var route = _ref7.route;return route.accessibilityLabel;} : _ref3$getAccessibilit,_ref3$getTestID = _ref3.getTestID,getTestID = _ref3$getTestID === void 0 ? function (_ref8) {var route = _ref8.route;return route.testID;} : _ref3$getTestID,activeColor = _ref3.activeColor,inactiveColor = _ref3.inactiveColor,_ref3$keyboardHidesNa = _ref3.keyboardHidesNavigationBar,keyboardHidesNavigationBar = _ref3$keyboardHidesNa === void 0 ? true : _ref3$keyboardHidesNa,barStyle = _ref3.barStyle,_ref3$labeled = _ref3.labeled,labeled = _ref3$labeled === void 0 ? true : _ref3$labeled,style = _ref3.style,theme = _ref3.theme,_ref3$sceneAnimationE = _ref3.sceneAnimationEnabled,sceneAnimationEnabled = _ref3$sceneAnimationE === void 0 ? false : _ref3$sceneAnimationE,onTabPress = _ref3.onTabPress,onIndexChange = _ref3.onIndexChange,_ref3$shifting = _ref3.shifting,shifting = _ref3$shifting === void 0 ? navigationState.routes.length > 3 : _ref3$shifting,safeAreaInsets = _ref3.safeAreaInsets;
+  var _safeAreaInsets$left, _safeAreaInsets$right, _safeAreaInsets$botto;
+
+  var
+  scale =
+  theme.animation.scale;
+  var focusedKey = navigationState.routes[navigationState.index].key;
+
+
+
+
+  var visibleAnim = (0, _useAnimatedValue.default)(1);
+
+
+
+
+  var tabsAnims = (0, _useAnimatedValueArray.default)(navigationState.routes.map(
+  function (_, i) {return i === navigationState.index ? 1 : 0;}));
+
+
+
+
+
+
+  var offsetsAnims = (0, _useAnimatedValueArray.default)(navigationState.routes.map(
+  function (_, i) {return i === navigationState.index ? 0 : 1;}));
+
+
+
+
+
+  var indexAnim = (0, _useAnimatedValue.default)(navigationState.index);
+
+
+
+
+  var rippleAnim = (0, _useAnimatedValue.default)(MIN_RIPPLE_SCALE);
+
+
+
+
+  var _ref9 = (0, _useLayout.default)(),_ref10 = require("@babel/runtime/helpers/slicedToArray")(_ref9, 2),layout = _ref10[0],onLayout = _ref10[1];
+
+
+
+
+  var _React$useState = React.useState([focusedKey]),_React$useState2 = require("@babel/runtime/helpers/slicedToArray")(_React$useState, 2),loaded = _React$useState2[0],setLoaded = _React$useState2[1];
+
+  if (!loaded.includes(focusedKey)) {
+
+    setLoaded(function (loaded) {return [].concat(require("@babel/runtime/helpers/toConsumableArray")(loaded), [focusedKey]);});
+  }
+
+
+
+
+
+  var _React$useState3 = React.useState(false),_React$useState4 = require("@babel/runtime/helpers/slicedToArray")(_React$useState3, 2),keyboardVisible = _React$useState4[0],setKeyboardVisible = _React$useState4[1];
+  var handleKeyboardShow = React.useCallback(function () {
+    setKeyboardVisible(true);
+
+    require("react-native").Animated.timing(visibleAnim, {
+      toValue: 0,
+      duration: 150 * scale,
+      useNativeDriver: true }).
+    start();
+  }, [scale, visibleAnim]);
+  var handleKeyboardHide = React.useCallback(function () {
+    require("react-native").Animated.timing(visibleAnim, {
+      toValue: 1,
+      duration: 100 * scale,
+      useNativeDriver: true }).
+    start(function () {
+      setKeyboardVisible(false);
+    });
+  }, [scale, visibleAnim]);
+  var animateToIndex = React.useCallback(function (index) {
+
+    rippleAnim.setValue(MIN_RIPPLE_SCALE);
+
+    require("react-native").Animated.parallel([require("react-native").Animated.timing(rippleAnim, {
+      toValue: 1,
+      duration: shifting ? 400 * scale : 0,
+      useNativeDriver: true })].concat(require("@babel/runtime/helpers/toConsumableArray")(
+    navigationState.routes.map(function (_, i) {return require("react-native").Animated.timing(tabsAnims[i], {
+        toValue: i === index ? 1 : 0,
+        duration: shifting ? 150 * scale : 0,
+        useNativeDriver: true });})))).
+    start(function (_ref11)
+
+    {var finished = _ref11.finished;
+
+      tabsAnims.map(function (tab, i) {return tab.setValue(i === index ? 1 : 0);});
+
+      indexAnim.setValue(index);
+      rippleAnim.setValue(MIN_RIPPLE_SCALE);
+
+      if (finished) {
+
+
+        offsetsAnims.forEach(function (offset, i) {
+          if (i === index) {
+            offset.setValue(0);
+          } else {
+            offset.setValue(1);
+          }
+        });
+      }
+    });
+  }, [indexAnim, shifting, navigationState.routes, offsetsAnims, rippleAnim, scale, tabsAnims]);
+  React.useEffect(function () {
+
+
+    animateToIndex(navigationState.index);
+  }, []);
+  React.useEffect(function () {
+    if (require("react-native").Platform.OS === 'ios') {
+      require("react-native").Keyboard.addListener('keyboardWillShow', handleKeyboardShow);
+
+      require("react-native").Keyboard.addListener('keyboardWillHide', handleKeyboardHide);
+    } else {
+      require("react-native").Keyboard.addListener('keyboardDidShow', handleKeyboardShow);
+
+      require("react-native").Keyboard.addListener('keyboardDidHide', handleKeyboardHide);
+    }
+
+    return function () {
+      if (require("react-native").Platform.OS === 'ios') {
+        require("react-native").Keyboard.removeListener('keyboardWillShow', handleKeyboardShow);
+
+        require("react-native").Keyboard.removeListener('keyboardWillHide', handleKeyboardHide);
+      } else {
+        require("react-native").Keyboard.removeListener('keyboardDidShow', handleKeyboardShow);
+
+        require("react-native").Keyboard.removeListener('keyboardDidHide', handleKeyboardHide);
+      }
+    };
+  }, [handleKeyboardHide, handleKeyboardShow]);
+  var prevNavigationState = React.useRef();
+  React.useEffect(function () {
+
+    offsetsAnims.forEach(function (offset, i) {
+      var _prevNavigationState$;
+
+      if (i === navigationState.index || i === ((_prevNavigationState$ = prevNavigationState.current) === null || _prevNavigationState$ === void 0 ? void 0 : _prevNavigationState$.index)) {
+        offset.setValue(0);
+      }
+    });
+    animateToIndex(navigationState.index);
+  }, [navigationState.index, animateToIndex, offsetsAnims]);
+
+  var handleTabPress = function handleTabPress(index) {
+    var event = {
+      route: navigationState.routes[index],
+      defaultPrevented: false,
+      preventDefault: function preventDefault() {
+        event.defaultPrevented = true;
+      } };
+
+    onTabPress === null || onTabPress === void 0 ? void 0 : onTabPress(event);
+
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    if (index !== navigationState.index) {
+      onIndexChange(index);
+    }
+  };
+
+  var jumpTo = React.useCallback(function (key) {
+    var index = navigationState.routes.findIndex(function (route) {return route.key === key;});
+    onIndexChange(index);
+  }, [navigationState.routes, onIndexChange]);
+  var
+  routes =
+  navigationState.routes;
+  var
+  colors =
+
+
+  theme.colors,isDarkTheme = theme.dark,mode = theme.mode;
+  var _ref12 =
+
+
+  require("react-native").StyleSheet.flatten(barStyle) || {},customBackground = _ref12.backgroundColor,_ref12$elevation = _ref12.elevation,elevation = _ref12$elevation === void 0 ? 4 : _ref12$elevation;
+  var approxBackgroundColor = customBackground ? customBackground : isDarkTheme && mode === 'adaptive' ? (0, _overlay.default)(elevation, colors.surface) : colors.primary;
+  var backgroundColor = shifting ? indexAnim.interpolate({
+    inputRange: routes.map(function (_, i) {return i;}),
+
+
+    outputRange: routes.map(function (route) {return getColor({
+        route: route }) ||
+      approxBackgroundColor;}) }) :
+  approxBackgroundColor;
+  var isDark = typeof approxBackgroundColor === 'string' ? !(0, _color.default)(approxBackgroundColor).isLight() : true;
+  var textColor = isDark ? require("../styles/colors").white : require("../styles/colors").black;
+  var activeTintColor = typeof activeColor !== 'undefined' ? activeColor : textColor;
+  var inactiveTintColor = typeof inactiveColor !== 'undefined' ? inactiveColor : (0, _color.default)(textColor).alpha(0.5).rgb().string();
+  var touchColor = (0, _color.default)(activeColor || activeTintColor).alpha(0.12).rgb().string();
+  var maxTabWidth = routes.length > 3 ? MIN_TAB_WIDTH : MAX_TAB_WIDTH;
+  var maxTabBarWidth = maxTabWidth * routes.length;
+  var tabBarWidth = Math.min(layout.width, maxTabBarWidth);
+  var tabWidth = tabBarWidth / routes.length;
+  var rippleSize = layout.width / 4;
+  var insets = {
+    left: (_safeAreaInsets$left = safeAreaInsets === null || safeAreaInsets === void 0 ? void 0 : safeAreaInsets.left) !== null && _safeAreaInsets$left !== void 0 ? _safeAreaInsets$left : 0,
+    right: (_safeAreaInsets$right = safeAreaInsets === null || safeAreaInsets === void 0 ? void 0 : safeAreaInsets.right) !== null && _safeAreaInsets$right !== void 0 ? _safeAreaInsets$right : 0,
+    bottom: (_safeAreaInsets$botto = safeAreaInsets === null || safeAreaInsets === void 0 ? void 0 : safeAreaInsets.bottom) !== null && _safeAreaInsets$botto !== void 0 ? _safeAreaInsets$botto : BOTTOM_INSET };
+
+  return React.createElement(require("react-native").View, {
+    style: [styles.container, style] },
+  React.createElement(require("react-native").View, {
+    style: [styles.content, {
+      backgroundColor: colors.background }] },
+
+  routes.map(function (route, index) {
+    if (!loaded.includes(route.key)) {
+
+      return null;
+    }
+
+    var focused = navigationState.index === index;
+    var opacity = sceneAnimationEnabled ? tabsAnims[index] : focused ? 1 : 0;
+    var top = sceneAnimationEnabled ? offsetsAnims[index].interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, FAR_FAR_AWAY] }) :
+    focused ? 0 : FAR_FAR_AWAY;
+    return React.createElement(require("react-native").Animated.View, {
+      key: route.key,
+      pointerEvents: focused ? 'auto' : 'none',
+      accessibilityElementsHidden: !focused,
+      importantForAccessibility: focused ? 'auto' : 'no-hide-descendants',
+      style: [require("react-native").StyleSheet.absoluteFill, {
+        opacity: opacity }],
+
+      collapsable: false,
+      removeClippedSubviews:
+
+      require("react-native").Platform.OS === 'ios' ? navigationState.index !== index : true },
+    React.createElement(require("react-native").Animated.View, {
+      style: [styles.content, {
+        top: top }] },
+
+    renderScene({
+      route: route,
+      jumpTo: jumpTo })));
+
+  })), React.createElement(_Surface.default, {
+    style: [styles.bar, keyboardHidesNavigationBar ? {
+
+      transform: [{
+        translateY: visibleAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [layout.height, 0] }) }],
+
+
+
+
+      position: keyboardVisible ? 'absolute' : null } :
+    null, barStyle],
+    pointerEvents: layout.measured ? keyboardHidesNavigationBar && keyboardVisible ? 'none' : 'auto' : 'none',
+    onLayout: onLayout },
+  React.createElement(require("react-native").Animated.View, {
+    style: [styles.barContent, {
+      backgroundColor: backgroundColor }] },
+
+  React.createElement(require("react-native").View, {
+    style: [styles.items, {
+      marginBottom: insets.bottom,
+      marginHorizontal: Math.max(insets.left, insets.right),
+      maxWidth: maxTabBarWidth }],
+
+    accessibilityRole: 'tablist' },
+  shifting ? React.createElement(require("react-native").Animated.View, {
+    pointerEvents: "none",
+    style: [styles.ripple, {
+
+
+      top: (BAR_HEIGHT - rippleSize) / 2,
+      left: tabWidth * (navigationState.index + 0.5) - rippleSize / 2,
+      height: rippleSize,
+      width: rippleSize,
+      borderRadius: rippleSize / 2,
+      backgroundColor: getColor({
+        route: routes[navigationState.index] }),
+
+      transform: [{
+
+        scale: rippleAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0, 8] }) }],
+
+
+      opacity: rippleAnim.interpolate({
+        inputRange: [0, MIN_RIPPLE_SCALE, 0.3, 1],
+        outputRange: [0, 0, 1, 1] }) }] }) :
+
+
+  null, routes.map(function (route, index) {
+    var focused = navigationState.index === index;
+    var active = tabsAnims[index];
+
+    var scale = labeled && shifting ? active.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0.5, 1] }) :
+    1;
+
+    var translateY = labeled ? shifting ? active.interpolate({
+      inputRange: [0, 1],
+      outputRange: [7, 0] }) :
+    0 : 7;
+
+
+
+    var activeOpacity = active;
+    var inactiveOpacity = active.interpolate({
+      inputRange: [0, 1],
+      outputRange: [1, 0] });
+
+    var badge = getBadge({
+      route: route });
+
+    return renderTouchable({
+      key: route.key,
+      route: route,
+      borderless: true,
+      centered: true,
+      rippleColor: touchColor,
+      onPress: function onPress() {return handleTabPress(index);},
+      testID: getTestID({
+        route: route }),
+
+      accessibilityLabel: getAccessibilityLabel({
+        route: route }),
+
+
+      accessibilityTraits: focused ? ['button', 'selected'] : 'button',
+      accessibilityComponentType: 'button',
+      accessibilityRole: require("react-native").Platform.OS === 'ios' ? 'button' : 'tab',
+      accessibilityState: {
+        selected: focused },
+
+      style: styles.item,
+      children: React.createElement(require("react-native").View, {
+        pointerEvents: "none" },
+      React.createElement(require("react-native").Animated.View, {
+        style: [styles.iconContainer, {
+          transform: [{
+            translateY: translateY }] }] },
+
+
+      React.createElement(require("react-native").Animated.View, {
+        style: [styles.iconWrapper, {
+          opacity: activeOpacity }] },
+
+      renderIcon ? renderIcon({
+        route: route,
+        focused: true,
+        color: activeTintColor }) :
+      React.createElement(_Icon.default, {
+        source: route.icon,
+        color: activeTintColor,
+        size: 24 })),
+      React.createElement(require("react-native").Animated.View, {
+        style: [styles.iconWrapper, {
+          opacity: inactiveOpacity }] },
+
+      renderIcon ? renderIcon({
+        route: route,
+        focused: false,
+        color: inactiveTintColor }) :
+      React.createElement(_Icon.default, {
+        source: route.icon,
+        color: inactiveTintColor,
+        size: 24 })),
+      React.createElement(require("react-native").View, {
+        style: [styles.badgeContainer, {
+          right: (badge != null && typeof badge !== 'boolean' ? String(badge).length * -2 : 0) - 2 }] },
+
+      typeof badge === 'boolean' ? React.createElement(_Badge.default, {
+        visible: badge,
+        size: 8 }) :
+      React.createElement(_Badge.default, {
+        visible: badge != null,
+        size: 16 },
+      badge))), labeled ? React.createElement(require("react-native").Animated.View, {
+        style: [styles.labelContainer, {
+          transform: [{
+            scale: scale }] }] },
+
+
+      React.createElement(require("react-native").Animated.View, {
+        style: [styles.labelWrapper, {
+          opacity: activeOpacity }] },
+
+      renderLabel ? renderLabel({
+        route: route,
+        focused: true,
+        color: activeTintColor }) :
+      React.createElement(_Text.default, {
+        style: [styles.label, {
+          color: activeTintColor }] },
+
+      getLabelText({
+        route: route }))),
+      shifting ? null : React.createElement(require("react-native").Animated.View, {
+        style: [styles.labelWrapper, {
+          opacity: inactiveOpacity }] },
+
+      renderLabel ? renderLabel({
+        route: route,
+        focused: false,
+        color: inactiveTintColor }) :
+      React.createElement(_Text.default, {
+        selectable: false,
+        style: [styles.label, {
+          color: inactiveTintColor }] },
+
+      getLabelText({
+        route: route })))) :
+      React.createElement(require("react-native").View, {
+        style: styles.labelContainer })) });
+
+
+  })))));
+};
+
+
+
+
+
+
+
+BottomNavigation.SceneMap = function (scenes) {
+  return function (_ref13) {var
+    route = _ref13.route,
+    jumpTo = _ref13.jumpTo;return (
+      React.createElement(SceneComponent, {
+        key: route.key,
+        component: scenes[route.key ? route.key : ''],
+        route: route,
+        jumpTo: jumpTo }));};
+
+};
+
+var _default = (0, require("../core/theming").withTheme)(BottomNavigation);
+
+exports.default = _default;
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    flex: 1,
+    overflow: 'hidden' },
+
+  content: {
+    flex: 1 },
+
+  bar: {
+    left: 0,
+    right: 0,
+    bottom: 0,
+    elevation: 4 },
+
+  barContent: {
+    alignItems: 'center',
+    overflow: 'hidden' },
+
+  items: _objectSpread({
+    flexDirection: 'row' },
+  require("react-native").Platform.OS === 'web' ? {
+    width: '100%' } :
+  null),
+
+  item: {
+    flex: 1,
+
+
+    paddingVertical: 6 },
+
+  ripple: {
+    position: 'absolute' },
+
+  iconContainer: {
+    height: 24,
+    width: 24,
+    marginTop: 2,
+    marginHorizontal: 12,
+    alignSelf: 'center' },
+
+  iconWrapper: _objectSpread(_objectSpread({}, require("react-native").StyleSheet.absoluteFillObject), {}, {
+    alignItems: 'center' }),
+
+  labelContainer: {
+    height: 16,
+    paddingBottom: 2 },
+
+  labelWrapper: _objectSpread({}, require("react-native").StyleSheet.absoluteFillObject),
+
+
+  label: _objectSpread({
+    fontSize: 12,
+    textAlign: 'center',
+    backgroundColor: 'transparent' },
+  require("react-native").Platform.OS === 'web' ? {
+    whiteSpace: 'nowrap',
+    alignSelf: 'center' } :
+  null),
+
+  badgeContainer: {
+    position: 'absolute',
+    left: 0,
+    top: -2 } });

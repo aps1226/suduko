@@ -1,0 +1,41 @@
+2ce8f1f57fa5701d2fd115d4a81513f3
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.preventAutoHideAsync = preventAutoHideAsync;exports.hideAsync = hideAsync;exports.hide = hide;exports.preventAutoHide = preventAutoHide;var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));var _core = require("@unimodules/core");
+var _ExpoSplashScreen = _interopRequireDefault(require("./ExpoSplashScreen"));
+
+
+
+
+function preventAutoHideAsync() {return _regenerator.default.async(function preventAutoHideAsync$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (
+          _ExpoSplashScreen.default.preventAutoHideAsync) {_context.next = 2;break;}throw (
+            new _core.UnavailabilityError('expo-splash-screen', 'preventAutoHideAsync'));case 2:_context.next = 4;return _regenerator.default.awrap(
+
+          _ExpoSplashScreen.default.preventAutoHideAsync());case 4:return _context.abrupt("return", _context.sent);case 5:case "end":return _context.stop();}}}, null, null, null, Promise);}
+
+
+
+
+
+
+
+function hideAsync() {return _regenerator.default.async(function hideAsync$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (
+          _ExpoSplashScreen.default.hideAsync) {_context2.next = 2;break;}throw (
+            new _core.UnavailabilityError('expo-splash-screen', 'hideAsync'));case 2:_context2.next = 4;return _regenerator.default.awrap(
+
+          _ExpoSplashScreen.default.hideAsync());case 4:return _context2.abrupt("return", _context2.sent);case 5:case "end":return _context2.stop();}}}, null, null, null, Promise);}
+
+
+
+
+
+function hide() {
+  console.warn('SplashScreen.hide() is deprecated in favour of SplashScreen.hideAsync()');
+  hideAsync();
+}
+
+
+
+
+function preventAutoHide() {
+  console.warn('SplashScreen.preventAutoHide() is deprecated in favour of SplashScreen.preventAutoHideAsync()');
+  preventAutoHideAsync();
+}

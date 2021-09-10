@@ -1,0 +1,10 @@
+c2ddd9f374c01a17f18338ae65dd703e
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.randomColor = exports.randomValue = void 0;
+
+var randomValue = function randomValue(min, max) {
+  return Math.random() * (max - min) + min;
+};exports.randomValue = randomValue;
+
+var randomColor = function randomColor(colors) {
+  return colors[Math.round(randomValue(0, colors.length - 1))];
+};exports.randomColor = randomColor;

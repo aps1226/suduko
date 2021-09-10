@@ -16,7 +16,10 @@ export default function Winner() {
   const { changeColor, setSelection, setBoard,setNotes } = bindActionCreators(actionCreators,dispatch);
 
   return (
-    <View style = {styles.container}>
+    <View 
+      style = {styles.container}
+      testID = 'winnerAnimation'
+    >
       <View style = {styles.textContainer}>
         <TextStroke stroke = {2} color = {'white'}>
           <Text

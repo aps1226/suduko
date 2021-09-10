@@ -1,0 +1,28 @@
+44366656448ae41afab4afc97691c9fd
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.useAssets = useAssets;var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));var _react = require("react");
+var _Asset = require("./Asset");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function useAssets(moduleIds) {
+  var _useState = (0, _react.useState)(),_useState2 = (0, _slicedToArray2.default)(_useState, 2),assets = _useState2[0],setAssets = _useState2[1];
+  var _useState3 = (0, _react.useState)(),_useState4 = (0, _slicedToArray2.default)(_useState3, 2),error = _useState4[0],setError = _useState4[1];
+  (0, _react.useEffect)(function () {
+    _Asset.Asset.loadAsync(moduleIds).
+    then(setAssets).
+    catch(setError);
+  }, []);
+  return [assets, error];
+}

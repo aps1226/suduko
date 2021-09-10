@@ -1,0 +1,162 @@
+73f88e7295fc8bb9f867564eaa7905fb
+"use strict";function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.getAdornmentConfig = getAdornmentConfig;
+exports.getAdornmentStyleAdjustmentForNativeInput = getAdornmentStyleAdjustmentForNativeInput;
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _TextInputIcon = _interopRequireWildcard(require("./TextInputIcon"));
+
+var _TextInputAffix = _interopRequireWildcard(require("./TextInputAffix"));
+
+
+
+
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+function getAdornmentConfig(_ref)
+
+
+{var left = _ref.left,right = _ref.right;
+  var adornmentConfig = [];
+
+  if (left || right) {
+    [{
+      side: require("./enums").AdornmentSide.Left,
+      adornment: left },
+    {
+      side: require("./enums").AdornmentSide.Right,
+      adornment: right }].
+    forEach(function (_ref2)
+
+
+    {var side = _ref2.side,adornment = _ref2.adornment;
+      if (adornment && _react.default.isValidElement(adornment)) {
+        var type;
+
+        if (adornment.type === _TextInputAffix.default) {
+          type = require("./enums").AdornmentType.Affix;
+        } else if (adornment.type === _TextInputIcon.default) {
+          type = require("./enums").AdornmentType.Icon;
+        }
+
+        adornmentConfig.push({
+          side: side,
+          type: type });
+
+      }
+    });
+  }
+
+  return adornmentConfig;
+}
+
+function getAdornmentStyleAdjustmentForNativeInput(_ref3)
+
+
+
+
+
+
+{var adornmentConfig = _ref3.adornmentConfig,leftAffixWidth = _ref3.leftAffixWidth,rightAffixWidth = _ref3.rightAffixWidth,paddingHorizontal = _ref3.paddingHorizontal,_ref3$inputOffset = _ref3.inputOffset,inputOffset = _ref3$inputOffset === void 0 ? 0 : _ref3$inputOffset,mode = _ref3.mode;
+  if (adornmentConfig.length) {
+    var adornmentStyleAdjustmentForNativeInput = adornmentConfig.map(function (_ref4)
+
+
+    {var _ref5;var type = _ref4.type,side = _ref4.side;
+      var isLeftSide = side === require("./enums").AdornmentSide.Left;
+      var inputModeAdornemntOffset = mode === require("./enums").InputMode.Outlined ? require("../constants").ADORNMENT_OFFSET + require("../constants").OUTLINED_INPUT_OFFSET : require("../constants").ADORNMENT_OFFSET;
+      var paddingKey = "padding".concat(captalize(side));
+      var affixWidth = isLeftSide ? leftAffixWidth : rightAffixWidth;
+      var padding = typeof paddingHorizontal === 'number' ? paddingHorizontal : inputModeAdornemntOffset;
+      var offset = affixWidth + padding;
+      var isAffix = type === require("./enums").AdornmentType.Affix;
+      var marginKey = "margin".concat(captalize(side));
+      return _ref5 = {}, require("@babel/runtime/helpers/defineProperty")(_ref5,
+      marginKey, isAffix ? 0 : offset), require("@babel/runtime/helpers/defineProperty")(_ref5,
+      paddingKey, isAffix ? offset : inputOffset), _ref5;
+
+    });
+    var allStyleAdjustmentsMerged = adornmentStyleAdjustmentForNativeInput.reduce(function (mergedStyles, currentStyle) {
+      return _objectSpread(_objectSpread({}, mergedStyles),
+      currentStyle);
+
+    }, {});
+    return allStyleAdjustmentsMerged;
+  } else {
+    return [{}];
+  }
+}
+
+var captalize = function captalize(text) {return text.charAt(0).toUpperCase() + text.slice(1);};
+
+var TextInputAdornment = function TextInputAdornment(_ref6)
+
+
+
+
+
+
+
+
+
+
+{var adornmentConfig = _ref6.adornmentConfig,left = _ref6.left,right = _ref6.right,onAffixChange = _ref6.onAffixChange,textStyle = _ref6.textStyle,visible = _ref6.visible,topPosition = _ref6.topPosition,isTextInputFocused = _ref6.isTextInputFocused,forceFocus = _ref6.forceFocus,paddingHorizontal = _ref6.paddingHorizontal;
+  if (adornmentConfig.length) {
+    return _react.default.createElement(_react.default.Fragment, null, adornmentConfig.map(function (_ref7)
+
+
+    {var type = _ref7.type,side = _ref7.side;
+      var inputAdornmentComponent;
+
+      if (side === require("./enums").AdornmentSide.Left) {
+        inputAdornmentComponent = left;
+      } else if (side === require("./enums").AdornmentSide.Right) {
+        inputAdornmentComponent = right;
+      }
+
+      var commonProps = {
+        key: side,
+        side: side,
+        testID: "".concat(side, "-").concat(type, "-adornment"),
+        isTextInputFocused: isTextInputFocused,
+        paddingHorizontal: paddingHorizontal };
+
+
+      if (type === require("./enums").AdornmentType.Icon) {
+        return _react.default.createElement(_TextInputIcon.IconAdornment, _extends({}, commonProps, {
+          icon: inputAdornmentComponent,
+          topPosition: topPosition[require("./enums").AdornmentType.Icon],
+          forceFocus: forceFocus }));
+
+      } else if (type === require("./enums").AdornmentType.Affix) {
+        return _react.default.createElement(_TextInputAffix.AffixAdornment, _extends({}, commonProps, {
+          topPosition: topPosition[require("./enums").AdornmentType.Affix][side],
+          affix: inputAdornmentComponent,
+          textStyle: textStyle,
+          onLayout: onAffixChange[side],
+          visible: visible }));
+
+      } else {
+        return null;
+      }
+    }));
+  } else {
+    return null;
+  }
+};
+
+var _default = TextInputAdornment;
+exports.default = _default;

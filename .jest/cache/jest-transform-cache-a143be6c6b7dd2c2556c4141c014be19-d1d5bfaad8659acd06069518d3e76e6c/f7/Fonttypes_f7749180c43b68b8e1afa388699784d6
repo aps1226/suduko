@@ -1,0 +1,40 @@
+87f10d32d2e12fd2e508391439416696
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.FontDisplay = void 0;
+
+
+
+
+
+
+
+var FontDisplay;exports.FontDisplay = FontDisplay;
+(function (FontDisplay) {
+
+
+
+
+
+  FontDisplay["AUTO"] = "auto";
+
+
+
+
+  FontDisplay["SWAP"] = "swap";
+
+
+
+
+  FontDisplay["BLOCK"] = "block";
+
+
+
+
+
+
+  FontDisplay["FALLBACK"] = "fallback";
+
+
+
+
+  FontDisplay["OPTIONAL"] = "optional";
+})(FontDisplay || (exports.FontDisplay = FontDisplay = {}));

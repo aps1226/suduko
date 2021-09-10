@@ -1,0 +1,282 @@
+456dab9fa9158d30fb6560d3538d5e3e
+"use strict";var _excluded = ["label", "accessibilityLabel", "page", "numberOfPages", "onPageChange", "style", "theme", "showFastPaginationControls", "numberOfItemsPerPageList", "numberOfItemsPerPage", "onItemsPerPageChange", "selectPageDropdownLabel", "selectPageDropdownAccessibilityLabel"];
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.DataTablePagination = exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _IconButton = _interopRequireDefault(require("../IconButton"));
+
+var _Text = _interopRequireDefault(require("../Typography/Text"));
+
+
+
+var _MaterialCommunityIcon = _interopRequireDefault(require("../MaterialCommunityIcon"));
+
+var _Menu = _interopRequireDefault(require("../Menu/Menu"));
+
+var _Button = _interopRequireDefault(require("../Button"));
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var PaginationControls = function PaginationControls(_ref)
+
+
+
+
+{var page = _ref.page,numberOfPages = _ref.numberOfPages,onPageChange = _ref.onPageChange,showFastPaginationControls = _ref.showFastPaginationControls;
+  var _ref2 =
+
+  (0, require("../../core/theming").useTheme)(),colors = _ref2.colors;
+  return React.createElement(React.Fragment, null, showFastPaginationControls ? React.createElement(_IconButton.default, {
+    icon: function icon(_ref3) {var
+      size = _ref3.size,
+      color = _ref3.color;return (
+        React.createElement(_MaterialCommunityIcon.default, {
+          name: "page-first",
+          color: color,
+          size: size,
+          direction: require("react-native").I18nManager.isRTL ? 'rtl' : 'ltr' }));},
+
+    color: colors.text,
+    disabled: page === 0,
+    onPress: function onPress() {return onPageChange(0);},
+    accessibilityLabel: "page-first" }) :
+  null, React.createElement(_IconButton.default, {
+    icon: function icon(_ref4) {var
+      size = _ref4.size,
+      color = _ref4.color;return (
+        React.createElement(_MaterialCommunityIcon.default, {
+          name: "chevron-left",
+          color: color,
+          size: size,
+          direction: require("react-native").I18nManager.isRTL ? 'rtl' : 'ltr' }));},
+
+    color: colors.text,
+    disabled: page === 0,
+    onPress: function onPress() {return onPageChange(page - 1);},
+    accessibilityLabel: "chevron-left" }),
+  React.createElement(_IconButton.default, {
+    icon: function icon(_ref5) {var
+      size = _ref5.size,
+      color = _ref5.color;return (
+        React.createElement(_MaterialCommunityIcon.default, {
+          name: "chevron-right",
+          color: color,
+          size: size,
+          direction: require("react-native").I18nManager.isRTL ? 'rtl' : 'ltr' }));},
+
+    color: colors.text,
+    disabled: numberOfPages === 0 || page === numberOfPages - 1,
+    onPress: function onPress() {return onPageChange(page + 1);},
+    accessibilityLabel: "chevron-right" }),
+  showFastPaginationControls ? React.createElement(_IconButton.default, {
+    icon: function icon(_ref6) {var
+      size = _ref6.size,
+      color = _ref6.color;return (
+        React.createElement(_MaterialCommunityIcon.default, {
+          name: "page-last",
+          color: color,
+          size: size,
+          direction: require("react-native").I18nManager.isRTL ? 'rtl' : 'ltr' }));},
+
+    color: colors.text,
+    disabled: numberOfPages === 0 || page === numberOfPages - 1,
+    onPress: function onPress() {return onPageChange(numberOfPages - 1);},
+    accessibilityLabel: "page-last" }) :
+  null);
+};
+
+var PaginationDropdown = function PaginationDropdown(_ref7)
+
+
+
+{var numberOfItemsPerPageList = _ref7.numberOfItemsPerPageList,numberOfItemsPerPage = _ref7.numberOfItemsPerPage,onItemsPerPageChange = _ref7.onItemsPerPageChange;
+  var _ref8 =
+
+  (0, require("../../core/theming").useTheme)(),colors = _ref8.colors;
+  var _React$useState = React.useState(false),_React$useState2 = require("@babel/runtime/helpers/slicedToArray")(_React$useState, 2),showSelect = _React$useState2[0],toggleSelect = _React$useState2[1];
+  return React.createElement(_Menu.default, {
+    visible: showSelect,
+    onDismiss: function onDismiss() {return toggleSelect(!showSelect);},
+    anchor: React.createElement(_Button.default, {
+      mode: "outlined",
+      onPress: function onPress() {return toggleSelect(true);},
+      style: styles.button,
+      icon: "menu-down",
+      contentStyle: styles.contentStyle },
+    "".concat(numberOfItemsPerPage)) },
+  numberOfItemsPerPageList === null || numberOfItemsPerPageList === void 0 ? void 0 : numberOfItemsPerPageList.map(function (option) {return React.createElement(_Menu.default.Item, {
+      key: option,
+      titleStyle: option === numberOfItemsPerPage && {
+        color: colors.primary },
+
+      onPress: function onPress() {
+        onItemsPerPageChange === null || onItemsPerPageChange === void 0 ? void 0 : onItemsPerPageChange(option);
+        toggleSelect(false);
+      },
+      title: option });}));
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var DataTablePagination = function DataTablePagination(_ref9)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{var label = _ref9.label,accessibilityLabel = _ref9.accessibilityLabel,page = _ref9.page,numberOfPages = _ref9.numberOfPages,onPageChange = _ref9.onPageChange,style = _ref9.style,theme = _ref9.theme,_ref9$showFastPaginat = _ref9.showFastPaginationControls,showFastPaginationControls = _ref9$showFastPaginat === void 0 ? false : _ref9$showFastPaginat,numberOfItemsPerPageList = _ref9.numberOfItemsPerPageList,numberOfItemsPerPage = _ref9.numberOfItemsPerPage,onItemsPerPageChange = _ref9.onItemsPerPageChange,selectPageDropdownLabel = _ref9.selectPageDropdownLabel,selectPageDropdownAccessibilityLabel = _ref9.selectPageDropdownAccessibilityLabel,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref9, _excluded);
+  var labelColor = (0, _color.default)(theme.colors.text).alpha(0.6).rgb().string();
+  return React.createElement(require("react-native").View, _extends({}, rest, {
+    style: [styles.container, style],
+    accessibilityLabel: "pagination-container" }),
+  numberOfItemsPerPageList && numberOfItemsPerPage && onItemsPerPageChange && React.createElement(require("react-native").View, {
+    accessibilityLabel: "Options Select",
+    style: styles.optionsContainer },
+  React.createElement(_Text.default, {
+    style: [styles.label, {
+      color: labelColor }],
+
+    numberOfLines: 3,
+    accessibilityLabel: selectPageDropdownAccessibilityLabel || 'selectPageDropdownLabel' },
+  selectPageDropdownLabel), React.createElement(PaginationDropdown, {
+    numberOfItemsPerPageList: numberOfItemsPerPageList,
+    numberOfItemsPerPage: numberOfItemsPerPage,
+    onItemsPerPageChange: onItemsPerPageChange })),
+  React.createElement(_Text.default, {
+    style: [styles.label, {
+      color: labelColor }],
+
+    numberOfLines: 3,
+    accessibilityLabel: accessibilityLabel || 'label' },
+  label), React.createElement(require("react-native").View, {
+    style: styles.iconsContainer },
+  React.createElement(PaginationControls, {
+    showFastPaginationControls: showFastPaginationControls,
+    onPageChange: onPageChange,
+    page: page,
+    numberOfPages: numberOfPages })));
+
+};
+
+exports.DataTablePagination = DataTablePagination;
+DataTablePagination.displayName = 'DataTable.Pagination';
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 16,
+    flexWrap: 'wrap' },
+
+  optionsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 6 },
+
+  label: {
+    fontSize: 12,
+    marginRight: 16 },
+
+  button: {
+    textAlign: 'center',
+    marginRight: 16 },
+
+  iconsContainer: {
+    flexDirection: 'row' },
+
+  contentStyle: {
+    flexDirection: 'row-reverse' } });
+
+
+
+var _default = (0, require("../../core/theming").withTheme)(DataTablePagination);
+
+
+exports.default = _default;

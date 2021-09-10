@@ -1,0 +1,75 @@
+1822b7390bc06a3cc2a1094e0a1e69fa
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "DeviceEventEmitter", {
+  enumerable: true,
+  get: function get() {
+    return _reactNative.DeviceEventEmitter;
+  }
+});
+Object.defineProperty(exports, "EventEmitter", {
+  enumerable: true,
+  get: function get() {
+    return _EventEmitter.EventEmitter;
+  }
+});
+Object.defineProperty(exports, "NativeModulesProxy", {
+  enumerable: true,
+  get: function get() {
+    return _NativeModulesProxy.default;
+  }
+});
+Object.defineProperty(exports, "requireNativeViewManager", {
+  enumerable: true,
+  get: function get() {
+    return _NativeViewManagerAdapter.requireNativeViewManager;
+  }
+});
+Object.defineProperty(exports, "Platform", {
+  enumerable: true,
+  get: function get() {
+    return _Platform.default;
+  }
+});
+Object.defineProperty(exports, "SyntheticPlatformEmitter", {
+  enumerable: true,
+  get: function get() {
+    return _SyntheticPlatformEmitter.default;
+  }
+});
+Object.defineProperty(exports, "CodedError", {
+  enumerable: true,
+  get: function get() {
+    return _CodedError.CodedError;
+  }
+});
+Object.defineProperty(exports, "UnavailabilityError", {
+  enumerable: true,
+  get: function get() {
+    return _UnavailabilityError.UnavailabilityError;
+  }
+});
+exports.RCTDeviceEventEmitter = void 0;
+
+var _reactNative = require("react-native");
+
+var _EventEmitter = require("./EventEmitter");
+
+var _NativeModulesProxy = _interopRequireDefault(require("./NativeModulesProxy"));
+
+var _NativeViewManagerAdapter = require("./NativeViewManagerAdapter");
+
+var _Platform = _interopRequireDefault(require("./Platform"));
+
+var _SyntheticPlatformEmitter = _interopRequireDefault(require("./SyntheticPlatformEmitter"));
+
+var _CodedError = require("./errors/CodedError");
+
+var _UnavailabilityError = require("./errors/UnavailabilityError");
+
+var RCTDeviceEventEmitter = _reactNative.DeviceEventEmitter;
+exports.RCTDeviceEventEmitter = RCTDeviceEventEmitter;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7O0FBRUE7O0FBQ0E7O0FBRUE7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBbUJPLElBQU0scUJBQXFCLEdBQUcsK0JBQTlCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRGV2aWNlRXZlbnRFbWl0dGVyIH0gZnJvbSAncmVhY3QtbmF0aXZlJztcblxuaW1wb3J0IHsgRXZlbnRFbWl0dGVyLCBTdWJzY3JpcHRpb24gfSBmcm9tICcuL0V2ZW50RW1pdHRlcic7XG5pbXBvcnQgTmF0aXZlTW9kdWxlc1Byb3h5IGZyb20gJy4vTmF0aXZlTW9kdWxlc1Byb3h5JztcbmltcG9ydCB7IFByb3h5TmF0aXZlTW9kdWxlIH0gZnJvbSAnLi9OYXRpdmVNb2R1bGVzUHJveHkudHlwZXMnO1xuaW1wb3J0IHsgcmVxdWlyZU5hdGl2ZVZpZXdNYW5hZ2VyIH0gZnJvbSAnLi9OYXRpdmVWaWV3TWFuYWdlckFkYXB0ZXInO1xuaW1wb3J0IFBsYXRmb3JtIGZyb20gJy4vUGxhdGZvcm0nO1xuaW1wb3J0IFN5bnRoZXRpY1BsYXRmb3JtRW1pdHRlciBmcm9tICcuL1N5bnRoZXRpY1BsYXRmb3JtRW1pdHRlcic7XG5pbXBvcnQgeyBDb2RlZEVycm9yIH0gZnJvbSAnLi9lcnJvcnMvQ29kZWRFcnJvcic7XG5pbXBvcnQgeyBVbmF2YWlsYWJpbGl0eUVycm9yIH0gZnJvbSAnLi9lcnJvcnMvVW5hdmFpbGFiaWxpdHlFcnJvcic7XG5cbmV4cG9ydCB7XG4gIERldmljZUV2ZW50RW1pdHRlcixcbiAgRXZlbnRFbWl0dGVyLFxuICBOYXRpdmVNb2R1bGVzUHJveHksXG4gIFByb3h5TmF0aXZlTW9kdWxlLFxuICBQbGF0Zm9ybSxcbiAgU3Vic2NyaXB0aW9uLFxuICBTeW50aGV0aWNQbGF0Zm9ybUVtaXR0ZXIsXG4gIHJlcXVpcmVOYXRpdmVWaWV3TWFuYWdlcixcbiAgLy8gRXJyb3JzXG4gIENvZGVkRXJyb3IsXG4gIFVuYXZhaWxhYmlsaXR5RXJyb3IsXG59O1xuXG4vKipcbiAqIEBkZXByZWNhdGVkIHJlbmFtZWQgdG8gYERldmljZUV2ZW50RW1pdHRlcmBcbiAqL1xuZXhwb3J0IGNvbnN0IFJDVERldmljZUV2ZW50RW1pdHRlciA9IERldmljZUV2ZW50RW1pdHRlcjtcbiJdLCJzb3VyY2VSb290IjoiIn0=

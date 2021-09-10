@@ -1,0 +1,410 @@
+43cb72a97d40a7078958fb30ce8c9c34
+"use strict";var _excluded = ["mode"];function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = require("@babel/runtime/helpers/getPrototypeOf")(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = require("@babel/runtime/helpers/getPrototypeOf")(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return require("@babel/runtime/helpers/possibleConstructorReturn")(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _TextInputOutlined = _interopRequireDefault(require("./TextInputOutlined"));
+
+var _TextInputFlat = _interopRequireDefault(require("./TextInputFlat"));
+
+var _TextInputIcon = _interopRequireDefault(require("./Adornment/TextInputIcon"));
+
+var _TextInputAffix = _interopRequireDefault(require("./Adornment/TextInputAffix"));
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var BLUR_ANIMATION_DURATION = 180;
+var FOCUS_ANIMATION_DURATION = 150;var
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TextInput = function (_React$Component) {require("@babel/runtime/helpers/inherits")(TextInput, _React$Component);var _super = _createSuper(TextInput);
+  function TextInput() {var _this;require("@babel/runtime/helpers/classCallCheck")(this, TextInput);for (var _len = arguments.length, _args = new Array(_len), _key = 0; _key < _len; _key++) {_args[_key] = arguments[_key];}
+    _this = _super.call.apply(_super, [this].concat(_args));
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "validInputValue", _this.props.value !== undefined ? _this.props.value : _this.props.defaultValue);
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "state", {
+      labeled: new (require("react-native").Animated.Value)(_this.validInputValue ? 0 : 1),
+      error: new (require("react-native").Animated.Value)(_this.props.error ? 1 : 0),
+      focused: false,
+      placeholder: '',
+      value: _this.validInputValue,
+      labelLayout: {
+        measured: false,
+        width: 0,
+        height: 0 },
+
+      leftLayout: {
+        width: null,
+        height: null },
+
+      rightLayout: {
+        width: null,
+        height: null } });
+
+
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "ref", void 0);
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "showPlaceholder", function () {
+      if (_this.timer) {
+        clearTimeout(_this.timer);
+      }
+
+
+
+      _this.timer = setTimeout(function () {return _this.setState({
+          placeholder: _this.props.placeholder });},
+      50);
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "hidePlaceholder", function () {return _this.setState({
+        placeholder: '' });});
+
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "timer", void 0);
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "root", void 0);
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "showError", function () {
+      var
+      scale =
+      _this.props.theme.animation.scale;
+
+      require("react-native").Animated.timing(_this.state.error, {
+        toValue: 1,
+        duration: FOCUS_ANIMATION_DURATION * scale,
+
+        useNativeDriver: require("react-native").Platform.select({
+          ios: false,
+          default: true }) }).
+
+      start();
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "hideError", function () {
+      var
+      scale =
+      _this.props.theme.animation.scale;
+
+      require("react-native").Animated.timing(_this.state.error, {
+        toValue: 0,
+        duration: BLUR_ANIMATION_DURATION * scale,
+
+        useNativeDriver: require("react-native").Platform.select({
+          ios: false,
+          default: true }) }).
+
+      start();
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "restoreLabel", function () {
+      var
+      scale =
+      _this.props.theme.animation.scale;
+
+      require("react-native").Animated.timing(_this.state.labeled, {
+        toValue: 1,
+        duration: FOCUS_ANIMATION_DURATION * scale,
+
+        useNativeDriver: require("react-native").Platform.select({
+          ios: false,
+          default: true }) }).
+
+      start();
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "minimizeLabel", function () {
+      var
+      scale =
+      _this.props.theme.animation.scale;
+
+      require("react-native").Animated.timing(_this.state.labeled, {
+        toValue: 0,
+        duration: BLUR_ANIMATION_DURATION * scale,
+
+        useNativeDriver: require("react-native").Platform.select({
+          ios: false,
+          default: true }) }).
+
+      start();
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "onLeftAffixLayoutChange", function (event) {
+      _this.setState({
+        leftLayout: {
+          height: event.nativeEvent.layout.height,
+          width: event.nativeEvent.layout.width } });
+
+
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "onRightAffixLayoutChange", function (event) {
+      _this.setState({
+        rightLayout: {
+          width: event.nativeEvent.layout.width,
+          height: event.nativeEvent.layout.height } });
+
+
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "handleFocus", function (args) {
+      if (_this.props.disabled || !_this.props.editable) {
+        return;
+      }
+
+      _this.setState({
+        focused: true });
+
+
+      if (_this.props.onFocus) {
+        _this.props.onFocus(args);
+      }
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "handleBlur", function (args) {
+      if (!_this.props.editable) {
+        return;
+      }
+
+      _this.setState({
+        focused: false });
+
+
+      if (_this.props.onBlur) {
+        _this.props.onBlur(args);
+      }
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "handleChangeText", function (value) {
+      if (!_this.props.editable) {
+        return;
+      }
+
+      _this.setState({
+        value: value });
+
+      _this.props.onChangeText && _this.props.onChangeText(value);
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "handleLayoutAnimatedText", function (e) {
+      _this.setState({
+        labelLayout: {
+          width: e.nativeEvent.layout.width,
+          height: e.nativeEvent.layout.height,
+          measured: true } });
+
+
+    });
+
+    _defineProperty(require("@babel/runtime/helpers/assertThisInitialized")(_this), "forceFocus", function () {
+      var _this$root;
+
+      return (_this$root = _this.root) === null || _this$root === void 0 ? void 0 : _this$root.focus();
+    });return _this;
+  }require("@babel/runtime/helpers/createClass")(TextInput, [{ key: "componentDidUpdate", value:
+
+
+
+
+
+
+
+    function componentDidUpdate(prevProps, prevState) {
+      var isFocusChanged = prevState.focused !== this.state.focused;
+      var isValueChanged = prevState.value !== this.state.value;
+      var isLabelLayoutChanged = prevState.labelLayout !== this.state.labelLayout;
+      var isLabelChanged = prevProps.label !== this.props.label;
+      var isErrorChanged = prevProps.error !== this.props.error;
+
+      if (isFocusChanged || isValueChanged ||
+
+      isLabelLayoutChanged) {
+
+
+        if (this.state.value || this.state.focused) {
+          this.minimizeLabel();
+        } else {
+          this.restoreLabel();
+        }
+      }
+
+      if (isFocusChanged || isLabelChanged) {
+
+
+
+        if (this.state.focused || !this.props.label) {
+          this.showPlaceholder();
+        } else {
+          this.hidePlaceholder();
+        }
+      }
+
+      if (isErrorChanged) {
+
+        if (this.props.error) {
+          this.showError();
+        } else {
+          this.hideError();
+        }
+      }
+    } }, { key: "componentWillUnmount", value:
+
+    function componentWillUnmount() {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+    } }, { key: "setNativeProps", value:
+
+
+
+
+    function setNativeProps(args) {
+      return this.root && this.root.setNativeProps(args);
+    } }, { key: "isFocused", value:
+
+
+
+
+
+    function isFocused() {
+      return this.root && this.root.isFocused();
+    } }, { key: "clear", value:
+
+
+
+
+
+    function clear() {
+      return this.root && this.root.clear();
+    } }, { key: "focus", value:
+
+
+
+
+
+    function focus() {
+      return this.root && this.root.focus();
+    } }, { key: "blur", value:
+
+
+
+
+
+    function blur() {
+      return this.root && this.root.blur();
+    } }, { key: "render", value:
+
+    function render() {var _this2 = this;
+      var _this$props =
+
+
+      this.props,mode = _this$props.mode,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_this$props, _excluded);
+      return mode === 'outlined' ? React.createElement(_TextInputOutlined.default, _extends({}, rest, {
+        value: this.state.value,
+        parentState: this.state,
+        innerRef: function innerRef(ref) {
+          _this2.root = ref;
+        },
+        onFocus: this.handleFocus,
+        forceFocus: this.forceFocus,
+        onBlur: this.handleBlur,
+        onChangeText: this.handleChangeText,
+        onLayoutAnimatedText: this.handleLayoutAnimatedText,
+        onLeftAffixLayoutChange: this.onLeftAffixLayoutChange,
+        onRightAffixLayoutChange: this.onRightAffixLayoutChange })) :
+      React.createElement(_TextInputFlat.default, _extends({}, rest, {
+        value: this.state.value,
+        parentState: this.state,
+        innerRef: function innerRef(ref) {
+          _this2.root = ref;
+        },
+        onFocus: this.handleFocus,
+        forceFocus: this.forceFocus,
+        onBlur: this.handleBlur,
+        onChangeText: this.handleChangeText,
+        onLayoutAnimatedText: this.handleLayoutAnimatedText,
+        onLeftAffixLayoutChange: this.onLeftAffixLayoutChange,
+        onRightAffixLayoutChange: this.onRightAffixLayoutChange }));
+
+    } }], [{ key: "getDerivedStateFromProps", value: function getDerivedStateFromProps(nextProps, prevState) {return { value: typeof nextProps.value !== 'undefined' ? nextProps.value : prevState.value };} }]);return TextInput;}(React.Component);
+
+
+
+_defineProperty(TextInput, "Icon", _TextInputIcon.default);
+
+_defineProperty(TextInput, "Affix", _TextInputAffix.default);
+
+_defineProperty(TextInput, "defaultProps", {
+  mode: 'flat',
+  dense: false,
+  disabled: false,
+  error: false,
+  multiline: false,
+  editable: true,
+  render: function render(props) {return React.createElement(require("react-native").TextInput, props);} });
+
+
+var _default = (0, require("../../core/theming").withTheme)(TextInput);
+
+exports.default = _default;

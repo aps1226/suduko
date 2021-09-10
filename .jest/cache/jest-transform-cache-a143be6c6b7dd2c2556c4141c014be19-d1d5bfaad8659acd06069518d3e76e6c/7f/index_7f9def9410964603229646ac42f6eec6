@@ -1,0 +1,18 @@
+88929e75aa7bcc71eec9085798dc76b9
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _SplashScreen = require("./SplashScreen");
+
+Object.keys(_SplashScreen).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _SplashScreen[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _SplashScreen[key];
+    }
+  });
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUE7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL1NwbGFzaFNjcmVlbic7XG4iXSwic291cmNlUm9vdCI6IiJ9

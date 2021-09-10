@@ -1,0 +1,113 @@
+07a15d432d8d5671c1b6a3016233989a
+"use strict";var _excluded = ["color", "subtitle", "subtitleStyle", "onPress", "style", "titleRef", "titleStyle", "theme", "title"];function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.AppbarContent = exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _Text = _interopRequireDefault(require("../Typography/Text"));
+
+
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppbarContent = function AppbarContent(_ref)
+
+
+
+
+
+
+
+
+
+
+{var _ref$color = _ref.color,titleColor = _ref$color === void 0 ? require("../../styles/colors").white : _ref$color,subtitle = _ref.subtitle,subtitleStyle = _ref.subtitleStyle,onPress = _ref.onPress,style = _ref.style,titleRef = _ref.titleRef,titleStyle = _ref.titleStyle,theme = _ref.theme,title = _ref.title,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var
+  fonts =
+  theme.fonts;
+  var subtitleColor = (0, _color.default)(titleColor).alpha(0.7).rgb().string();
+  return React.createElement(require("react-native").TouchableWithoutFeedback, {
+    onPress: onPress,
+    disabled: !onPress },
+  React.createElement(require("react-native").View, _extends({
+    style: [styles.container, style] },
+  rest), React.createElement(_Text.default, {
+    ref: titleRef,
+    style: [_objectSpread({
+      color: titleColor },
+    require("react-native").Platform.OS === 'ios' ? fonts.regular : fonts.medium),
+    styles.title, titleStyle],
+    numberOfLines: 1,
+    accessible: true,
+    accessibilityTraits: "header",
+
+    accessibilityRole: require("react-native").Platform.OS === 'web' ? 'heading' : 'header' },
+  title), subtitle ? React.createElement(_Text.default, {
+    style: [styles.subtitle, {
+      color: subtitleColor },
+    subtitleStyle],
+    numberOfLines: 1 },
+  subtitle) : null));
+};
+
+AppbarContent.displayName = 'Appbar.Content';
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 12 },
+
+  title: {
+    fontSize: require("react-native").Platform.OS === 'ios' ? 17 : 20 },
+
+  subtitle: {
+    fontSize: require("react-native").Platform.OS === 'ios' ? 11 : 14 } });
+
+
+
+var _default = (0, require("../../core/theming").withTheme)(AppbarContent);
+
+
+exports.default = _default;
+var AppbarContentWithTheme = (0, require("../../core/theming").withTheme)(AppbarContent);
+
+exports.AppbarContent = AppbarContentWithTheme;

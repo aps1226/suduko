@@ -1,0 +1,18 @@
+67aef7890cc1d1e721e1dd6bfe944f77
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _createIconSet = _interopRequireDefault(require("./createIconSet"));
+
+var _MaterialCommunityIcons = _interopRequireDefault(require("./vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"));
+
+var _MaterialCommunityIcons2 = _interopRequireDefault(require("./vendor/react-native-vector-icons/glyphmaps/MaterialCommunityIcons.json"));
+
+var _default = (0, _createIconSet.default)(_MaterialCommunityIcons2.default, 'material-community', _MaterialCommunityIcons.default);
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9NYXRlcmlhbENvbW11bml0eUljb25zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7ZUFFZSw0QkFBYyxnQ0FBZCxFQUF3QixvQkFBeEIsRUFBOEMsK0JBQTlDLEMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3JlYXRlSWNvblNldCBmcm9tICcuL2NyZWF0ZUljb25TZXQnO1xuaW1wb3J0IGZvbnQgZnJvbSAnLi92ZW5kb3IvcmVhY3QtbmF0aXZlLXZlY3Rvci1pY29ucy9Gb250cy9NYXRlcmlhbENvbW11bml0eUljb25zLnR0Zic7XG5pbXBvcnQgZ2x5cGhNYXAgZnJvbSAnLi92ZW5kb3IvcmVhY3QtbmF0aXZlLXZlY3Rvci1pY29ucy9nbHlwaG1hcHMvTWF0ZXJpYWxDb21tdW5pdHlJY29ucy5qc29uJztcblxuZXhwb3J0IGRlZmF1bHQgY3JlYXRlSWNvblNldChnbHlwaE1hcCwgJ21hdGVyaWFsLWNvbW11bml0eScsIGZvbnQpO1xuIl0sInNvdXJjZVJvb3QiOiIifQ==

@@ -1,0 +1,79 @@
+4996e4aced147dd5acbe25101a6bbe7d
+"use strict";var _excluded = ["size", "source", "style", "theme"];
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var defaultSize = 64;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AvatarImage = function AvatarImage(_ref)
+
+
+
+
+
+{var _ref$size = _ref.size,size = _ref$size === void 0 ? defaultSize : _ref$size,source = _ref.source,style = _ref.style,theme = _ref.theme,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var
+  colors =
+  theme.colors;
+  var _ref2 =
+
+  require("react-native").StyleSheet.flatten(style) || {},_ref2$backgroundColor = _ref2.backgroundColor,backgroundColor = _ref2$backgroundColor === void 0 ? colors.primary : _ref2$backgroundColor;
+  return React.createElement(require("react-native").View, _extends({
+    style: [{
+      width: size,
+      height: size,
+      borderRadius: size / 2,
+      backgroundColor: backgroundColor },
+    style] },
+  rest), typeof source === 'function' && source({
+    size: size }),
+  typeof source !== 'function' && React.createElement(require("react-native").Image, {
+    source: source,
+    style: {
+      width: size,
+      height: size,
+      borderRadius: size / 2 } }));
+
+
+};
+
+AvatarImage.displayName = 'Avatar.Image';
+
+var _default = (0, require("../../core/theming").withTheme)(AvatarImage);
+
+exports.default = _default;

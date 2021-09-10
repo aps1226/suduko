@@ -1,0 +1,51 @@
+1df772c004a48c15a8b7dbfe9370ef66
+/* istanbul ignore next */
+function cov_2ibwm17guo() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\assets\\fonts\\SpaceMono-Regular.ttf";
+  var hash = "7feea2e8e2eab67637d832d8b680fbd6945cf5bb";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\assets\\fonts\\SpaceMono-Regular.ttf",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 19
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "7feea2e8e2eab67637d832d8b680fbd6945cf5bb"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2ibwm17guo = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2ibwm17guo();
+cov_2ibwm17guo().s[0]++;
+module.exports = 1;

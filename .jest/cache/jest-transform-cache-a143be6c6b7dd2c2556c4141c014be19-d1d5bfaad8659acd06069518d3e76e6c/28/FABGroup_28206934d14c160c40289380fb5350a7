@@ -1,0 +1,284 @@
+f7fad1ebeb7a013661726bd3c570c16b
+"use strict";function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.FABGroup = exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _FAB = _interopRequireDefault(require("./FAB"));
+
+var _Text = _interopRequireDefault(require("../Typography/Text"));
+
+var _Card = _interopRequireDefault(require("../Card/Card"));
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var FABGroup = function FABGroup(_ref)
+
+
+
+
+
+
+
+
+
+
+
+
+{var actions = _ref.actions,icon = _ref.icon,open = _ref.open,_onPress = _ref.onPress,accessibilityLabel = _ref.accessibilityLabel,theme = _ref.theme,style = _ref.style,fabStyle = _ref.fabStyle,visible = _ref.visible,testID = _ref.testID,onStateChange = _ref.onStateChange,colorProp = _ref.color;
+  var _React$useRef =
+
+  React.useRef(new (require("react-native").Animated.Value)(0)),backdrop = _React$useRef.current;
+  var animations = React.useRef(actions.map(function () {return new (require("react-native").Animated.Value)(open ? 1 : 0);}));
+  var _React$useState = React.useState(null),_React$useState2 = require("@babel/runtime/helpers/slicedToArray")(_React$useState, 2),prevActions = _React$useState2[0],setPrevActions = _React$useState2[1];
+  var
+  scale =
+  theme.animation.scale;
+  React.useEffect(function () {
+    if (open) {
+      require("react-native").Animated.parallel([require("react-native").Animated.timing(backdrop, {
+        toValue: 1,
+        duration: 250 * scale,
+        useNativeDriver: true }),
+      require("react-native").Animated.stagger(50 * scale, animations.current.map(function (animation) {return require("react-native").Animated.timing(animation, {
+          toValue: 1,
+          duration: 150 * scale,
+          useNativeDriver: true });}).
+      reverse())]).start();
+    } else {
+      require("react-native").Animated.parallel([require("react-native").Animated.timing(backdrop, {
+        toValue: 0,
+        duration: 200 * scale,
+        useNativeDriver: true })].concat(require("@babel/runtime/helpers/toConsumableArray")(
+      animations.current.map(function (animation) {return require("react-native").Animated.timing(animation, {
+          toValue: 0,
+          duration: 150 * scale,
+          useNativeDriver: true });})))).
+      start();
+    }
+  }, [open, actions, backdrop, scale]);
+
+  var close = function close() {return onStateChange({
+      open: false });};
+
+
+  var toggle = function toggle() {return onStateChange({
+      open: !open });};
+
+
+  var
+  colors =
+  theme.colors;
+  var labelColor = theme.dark ? colors.text : (0, _color.default)(colors.text).fade(0.54).rgb().string();
+  var backdropOpacity = open ? backdrop.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [0, 1, 1] }) :
+  backdrop;
+  var opacities = animations.current;
+  var scales = opacities.map(function (opacity) {return open ? opacity.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0.8, 1] }) :
+    1;});
+
+  if (actions.length !== (prevActions === null || prevActions === void 0 ? void 0 : prevActions.length)) {
+    animations.current = actions.map(function (_, i) {return animations.current[i] || new (require("react-native").Animated.Value)(open ? 1 : 0);});
+    setPrevActions(actions);
+  }
+
+  return React.createElement(require("react-native").View, {
+    pointerEvents: "box-none",
+    style: [styles.container, style] },
+  React.createElement(require("react-native").TouchableWithoutFeedback, {
+    onPress: close },
+  React.createElement(require("react-native").Animated.View, {
+    pointerEvents: open ? 'auto' : 'none',
+    style: [styles.backdrop, {
+      opacity: backdropOpacity,
+      backgroundColor: colors.backdrop }] })),
+
+  React.createElement(require("react-native").SafeAreaView, {
+    pointerEvents: "box-none",
+    style: styles.safeArea },
+  React.createElement(require("react-native").View, {
+    pointerEvents: open ? 'box-none' : 'none' },
+  actions.map(function (it, i) {return React.createElement(require("react-native").View, {
+      key: i,
+
+      style: [styles.item, {
+        marginHorizontal: typeof it.small === 'undefined' || it.small ? 24 : 16 }],
+
+      pointerEvents: open ? 'box-none' : 'none' },
+    it.label && React.createElement(require("react-native").View, null, React.createElement(_Card.default, {
+      style: [styles.label, {
+        transform: [{
+          scale: scales[i] }],
+
+        opacity: opacities[i] }],
+
+      onPress: function onPress() {
+        it.onPress();
+        close();
+      },
+      accessibilityLabel: it.accessibilityLabel !== 'undefined' ? it.accessibilityLabel : it.label,
+
+      accessibilityTraits: "button",
+      accessibilityComponentType: "button",
+      accessibilityRole: "button" },
+    React.createElement(_Text.default, {
+      style: {
+        color: labelColor } },
+
+    it.label))), React.createElement(_FAB.default, {
+      small: typeof it.small !== 'undefined' ? it.small : true,
+      icon: it.icon,
+      color: it.color,
+      style: [{
+        transform: [{
+          scale: scales[i] }],
+
+        opacity: opacities[i],
+        backgroundColor: theme.colors.surface },
+      it.style],
+      onPress: function onPress() {
+        it.onPress();
+        close();
+      },
+      accessibilityLabel: typeof it.accessibilityLabel !== 'undefined' ? it.accessibilityLabel : it.label,
+
+      accessibilityTraits: "button",
+      accessibilityComponentType: "button",
+      accessibilityRole: "button",
+      testID: it.testID,
+      visible: open }));})),
+  React.createElement(_FAB.default, {
+    onPress: function onPress() {
+      _onPress === null || _onPress === void 0 ? void 0 : _onPress();
+      toggle();
+    },
+    icon: icon,
+    color: colorProp,
+    accessibilityLabel: accessibilityLabel,
+
+    accessibilityTraits: "button",
+    accessibilityComponentType: "button",
+    accessibilityRole: "button",
+    accessibilityState: {
+      expanded: open },
+
+    style: [styles.fab, fabStyle],
+    visible: visible,
+    testID: testID })));
+
+};
+
+FABGroup.displayName = 'FAB.Group';
+
+var _default = (0, require("../../core/theming").withTheme)(FABGroup);
+
+
+exports.default = _default;
+var FABGroupWithTheme = (0, require("../../core/theming").withTheme)(FABGroup);
+
+exports.FABGroup = FABGroupWithTheme;
+
+var styles = require("react-native").StyleSheet.create({
+  safeArea: {
+    alignItems: 'flex-end' },
+
+  container: _objectSpread(_objectSpread({}, require("react-native").StyleSheet.absoluteFillObject), {}, {
+    justifyContent: 'flex-end' }),
+
+  fab: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    marginTop: 0 },
+
+  backdrop: _objectSpread({}, require("react-native").StyleSheet.absoluteFillObject),
+
+  label: {
+    borderRadius: 5,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    elevation: 2 },
+
+  item: {
+    marginBottom: 16,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center' } });

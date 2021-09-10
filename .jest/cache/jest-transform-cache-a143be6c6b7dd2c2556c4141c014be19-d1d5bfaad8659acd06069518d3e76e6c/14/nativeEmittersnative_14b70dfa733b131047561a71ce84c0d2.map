@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/nativeEmitters.native.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA","sourcesContent":["import RCTEventEmitter from 'react-native/Libraries/vendor/emitter/EventEmitter';\n\nexport { RCTEventEmitter };\n"],"sourceRoot":""}

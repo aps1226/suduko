@@ -1,0 +1,3 @@
+c45764a36c948fc256c0d848c2b42825
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _MaterialCommunityIcons = _interopRequireDefault(require("./build/MaterialCommunityIcons"));var _default =
+_MaterialCommunityIcons.default;exports.default = _default;

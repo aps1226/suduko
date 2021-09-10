@@ -1,0 +1,23 @@
+492a157ef5cf9e651b491651f60b0ccd
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.useFonts = useFonts;var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));var _react = require("react");
+var _Font = require("./Font");
+
+
+
+
+
+
+
+
+
+
+function useFonts(map) {
+  var _useState = (0, _react.useState)(false),_useState2 = (0, _slicedToArray2.default)(_useState, 2),loaded = _useState2[0],setLoaded = _useState2[1];
+  var _useState3 = (0, _react.useState)(null),_useState4 = (0, _slicedToArray2.default)(_useState3, 2),error = _useState4[0],setError = _useState4[1];
+  (0, _react.useEffect)(function () {
+    (0, _Font.loadAsync)(map).
+    then(function () {return setLoaded(true);}).
+    catch(setError);
+  }, []);
+  return [loaded, error];
+}

@@ -1,0 +1,191 @@
+a18b13928531c89c5d722dea935b6c1f
+"use strict";var _excluded = ["color", "indeterminate", "style", "progress", "visible", "theme"];
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var INDETERMINATE_DURATION = 2000;
+var INDETERMINATE_MAX_WIDTH = 0.6;
+var
+isRTL =
+require("react-native").I18nManager.isRTL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ProgressBar = function ProgressBar(_ref)
+
+
+
+
+
+
+
+{var color = _ref.color,indeterminate = _ref.indeterminate,style = _ref.style,_ref$progress = _ref.progress,progress = _ref$progress === void 0 ? 0 : _ref$progress,_ref$visible = _ref.visible,visible = _ref$visible === void 0 ? true : _ref$visible,theme = _ref.theme,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var _React$useRef =
+
+  React.useRef(new (require("react-native").Animated.Value)(0)),timer = _React$useRef.current;
+  var _React$useRef2 =
+
+  React.useRef(new (require("react-native").Animated.Value)(0)),fade = _React$useRef2.current;
+  var _React$useState = React.useState(0),_React$useState2 = require("@babel/runtime/helpers/slicedToArray")(_React$useState, 2),width = _React$useState2[0],setWidth = _React$useState2[1];
+  var _React$useState3 = React.useState(0),_React$useState4 = require("@babel/runtime/helpers/slicedToArray")(_React$useState3, 2),prevWidth = _React$useState4[0],setPrevWidth = _React$useState4[1];
+  var indeterminateAnimation = React.useRef(null);
+  var
+  scale =
+  theme.animation.scale;
+  var startAnimation = React.useCallback(function () {
+
+    require("react-native").Animated.timing(fade, {
+      duration: 200 * scale,
+      toValue: 1,
+      useNativeDriver: true,
+      isInteraction: false }).
+    start();
+
+
+    if (indeterminate) {
+      if (!indeterminateAnimation.current) {
+        indeterminateAnimation.current = require("react-native").Animated.timing(timer, {
+          duration: INDETERMINATE_DURATION,
+          toValue: 1,
+
+          useNativeDriver: require("react-native").Platform.OS !== 'web',
+          isInteraction: false });
+
+      }
+
+
+      timer.setValue(0);
+
+      require("react-native").Animated.loop(indeterminateAnimation.current).start();
+    } else {
+      require("react-native").Animated.timing(timer, {
+        duration: 200 * scale,
+        toValue: progress ? progress : 0,
+        useNativeDriver: true,
+        isInteraction: false }).
+      start();
+    }
+  }, [scale, timer, progress, indeterminate, fade]);
+  var stopAnimation = React.useCallback(function () {
+
+    if (indeterminateAnimation.current) {
+      indeterminateAnimation.current.stop();
+    }
+
+    require("react-native").Animated.timing(fade, {
+      duration: 200 * scale,
+      toValue: 0,
+      useNativeDriver: true,
+      isInteraction: false }).
+    start();
+  }, [fade, scale]);
+  React.useEffect(function () {
+    if (visible) startAnimation();else stopAnimation();
+  }, [visible, startAnimation, stopAnimation]);
+  React.useEffect(function () {
+
+    if (visible && prevWidth === 0) {
+      startAnimation();
+    }
+  }, [prevWidth, startAnimation, visible]);
+
+  var onLayout = function onLayout(event) {
+    setPrevWidth(width);
+    setWidth(event.nativeEvent.layout.width);
+  };
+
+  var tintColor = color || theme.colors.primary;
+  var trackTintColor = (0, _color.default)(tintColor).alpha(0.38).rgb().string();
+  return React.createElement(require("react-native").View, _extends({
+    onLayout: onLayout },
+  rest, {
+    accessible: true,
+    accessibilityRole: "progressbar",
+    accessibilityState: {
+      busy: visible },
+
+    accessibilityValue: indeterminate ? {} : {
+      min: 0,
+      max: 100,
+      now: progress * 100 } }),
+
+  React.createElement(require("react-native").Animated.View, {
+    style: [styles.container, {
+      backgroundColor: trackTintColor,
+      opacity: fade },
+    style] },
+  React.createElement(require("react-native").Animated.View, {
+    style: [styles.progressBar, {
+      backgroundColor: tintColor,
+      width: width,
+      transform: [{
+        translateX: timer.interpolate(indeterminate ? {
+          inputRange: [0, 0.5, 1],
+          outputRange: [(isRTL ? 1 : -1) * 0.5 * width, (isRTL ? 1 : -1) * 0.5 * INDETERMINATE_MAX_WIDTH * width, (isRTL ? -1 : 1) * 0.7 * width] } :
+        {
+          inputRange: [0, 1],
+          outputRange: [(isRTL ? 1 : -1) * 0.5 * width, 0] }) },
+
+      {
+
+        scaleX: timer.interpolate(indeterminate ? {
+          inputRange: [0, 0.5, 1],
+          outputRange: [0.0001, INDETERMINATE_MAX_WIDTH, 0.0001] } :
+        {
+          inputRange: [0, 1],
+          outputRange: [0.0001, 1] }) }] }] })));
+
+
+
+
+};
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    height: 4,
+    overflow: 'hidden' },
+
+  progressBar: {
+    flex: 1 } });
+
+
+
+var _default = (0, require("../core/theming").withTheme)(ProgressBar);
+
+exports.default = _default;
