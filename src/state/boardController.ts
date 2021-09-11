@@ -126,16 +126,24 @@ export function isSolvable(data:(number|null)[][]):boolean {
 export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number;
   switch(difficulty){
+    //Easy selection.
     case 0:
-      blank = 81 - (37 + Math.floor(37 * Math.random()));
+      //Board should be initialized with (37, 46) non-null values.
+      blank = 81 - (37 + Math.floor(10 * Math.random()));
       break;
+    //Medium selection.
     case 1:
-      blank = 81 - (27 + Math.floor(9 * Math.random()));
+      //Board should be initialized with (27, 36) non-null values.
+      blank = 81 - (27 + Math.floor(10 * Math.random()));
       break;
+    //Hard selection.
     case 2:
-      blank = 81 - (19 + Math.floor(9 * Math.random()));
+      //Board should be initialized with (19, 26) non-null values.
+      blank = 81 - (19 + Math.floor(7 * Math.random()));
       break;
+    //Extreme selection.
     case 3:
+      //Board should be initialized with 18 non-null values.
       blank = 63;
       break;
     default:

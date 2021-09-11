@@ -26,6 +26,7 @@ export default function Toggle(){
       color='#3297FD'
       value={!isSwitchOn} 
       onValueChange={onToggleSwitch} 
+      testID = 'entryModeToggle'
     />
   );
 };

@@ -118,7 +118,8 @@ export default function GridSquare(props:IProps) {
   return (
     <View style={styles.container}>
       <TouchableHighlight
-          onPress = {handleOnPress}
+        onPress = {handleOnPress}
+        testID = {`gridSquare_${row}${col}`}
       >
         <View 
           style={{
@@ -133,6 +134,7 @@ export default function GridSquare(props:IProps) {
             borderBottomColor: 'rgba(0, 0, 0, 0.5)',
             alignItems:'center'
           }}
+          testID = {`gridSquareView_${board[row][col]}`}
         >
           <ImageBackground
             source = {require('../assets/images/square.jpg')}
@@ -149,6 +151,7 @@ export default function GridSquare(props:IProps) {
                   textAlign:'center',
                   marginTop:'20%',
                 }}
+                testID = {`gridSquareText_${board[row][col]}`}
               >
                 {String(board[row][col])}
               </Text>

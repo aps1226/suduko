@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.1% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.91% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -153,7 +153,9 @@
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -167,28 +169,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">432x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">54x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">909x</span>
+<span class="cline-any cline-yes">432x</span>
+<span class="cline-any cline-yes">432x</span>
+<span class="cline-any cline-yes">432x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">432x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">72x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">864x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">432x</span>
+<span class="cline-any cline-yes">63x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">369x</span>
+<span class="cline-any cline-yes">369x</span>
+<span class="cline-any cline-yes">369x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -270,9 +274,9 @@ export default function SelectionSquare(props:IProps) {
   const dispatch = useDispatch();
   const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
 &nbsp;
-  const <span class="fstat-no" title="function not covered" >handleOnPress </span>= ():void =&gt;{
-<span class="cstat-no" title="statement not covered" >    setSelection(</span>number);
-<span class="cstat-no" title="statement not covered" >    changeColor(</span>`Selection_${number}`);
+  const handleOnPress = ():void =&gt;{
+    setSelection(number);
+    changeColor(`Selection_${number}`);
   }
   const [isLoaded] = useFonts({
     "JustAnotherHand":require("../assets/fonts/JustAnotherHand-Regular.ttf"),
@@ -282,8 +286,8 @@ export default function SelectionSquare(props:IProps) {
   if(!isLoaded){
     return(&lt;AppLoading/&gt;);
   }else{
-    let fontFamily:string = entryMode ? "SpaceMono":<span class="branch-1 cbranch-no" title="branch not covered" >"JustAnotherHand";</span>
-    let marginTop:number = entryMode ? 0:<span class="branch-1 cbranch-no" title="branch not covered" >5;</span>
+    let fontFamily:string = entryMode ? "SpaceMono":"JustAnotherHand";
+    let marginTop:number = entryMode ? 0:5;
     return (
       &lt;View
         style = {{backgroundColor:color}}
@@ -297,6 +301,7 @@ export default function SelectionSquare(props:IProps) {
           &gt;
             &lt;TouchableHighlight
               onPress = {handleOnPress}
+              testID = {`selectionSquare_${number}`}
             &gt;
               &lt;View style={styles.gridSquare}&gt;
                   &lt;Text
@@ -313,6 +318,7 @@ export default function SelectionSquare(props:IProps) {
           :
             &lt;TouchableHighlight
               onPress = {handleOnPress}
+              testID = {`selectionSquare_${number}`}
             &gt;
               &lt;View style={styles.gridSquare}&gt;
                   &lt;Text
@@ -352,7 +358,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Sep 09 2021 19:59:33 GMT-0400 (Eastern Daylight Time)
+                at Sat Sep 11 2021 18:42:23 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

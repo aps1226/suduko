@@ -205,7 +205,7 @@ describe('Home', () =>{
   //When the 'No' button is selected on the prompt it should disappear
   //and not route to another component.
   it(`prompt should disappear and not route to any other component when the 'No' button is selected on the prompt.`, async()=>{
-    const {getByTestId, findByTestId} = homeComponent;
+    const {getByTestId} = homeComponent;
     const newGameButton = getByTestId('newGameButton');
     const newGamePopUp = getByTestId('newGamePopUp');
     const noButton = getByTestId('newGamePopUpNo');

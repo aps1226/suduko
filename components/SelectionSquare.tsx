@@ -46,6 +46,7 @@ export default function SelectionSquare(props:IProps) {
           >
             <TouchableHighlight
               onPress = {handleOnPress}
+              testID = {`selectionSquare_${number}`}
             >
               <View style={styles.gridSquare}>
                   <Text
@@ -62,6 +63,7 @@ export default function SelectionSquare(props:IProps) {
           :
             <TouchableHighlight
               onPress = {handleOnPress}
+              testID = {`selectionSquare_${number}`}
             >
               <View style={styles.gridSquare}>
                   <Text
