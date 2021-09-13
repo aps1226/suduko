@@ -9,6 +9,8 @@ import TextStroke from '../../../components/TextStroke';
 
 //TextStroke component test.
 describe('TextStroke', () =>{
+
+  //Test that the component renders.
   it('renders without crashing', () =>{
     const titleComponent = render(
       <TextStroke
@@ -22,4 +24,5 @@ describe('TextStroke', () =>{
     ).toJSON();
     expect(titleComponent).toMatchSnapshot();
   })
+
 })
