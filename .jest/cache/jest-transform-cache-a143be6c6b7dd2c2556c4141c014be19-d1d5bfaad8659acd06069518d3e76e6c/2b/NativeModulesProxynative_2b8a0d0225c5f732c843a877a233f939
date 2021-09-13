@@ -1,0 +1,31 @@
+75929d0ab2d721a2f8a1b53b80d46bee
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _reactNative = require("react-native");
+var NativeProxy = _reactNative.NativeModules.NativeUnimoduleProxy;
+var modulesConstantsKey = 'modulesConstants';
+var exportedMethodsKey = 'exportedMethods';
+var NativeModulesProxy = {};
+if (NativeProxy) {
+  Object.keys(NativeProxy[exportedMethodsKey]).forEach(function (moduleName) {
+    NativeModulesProxy[moduleName] = NativeProxy[modulesConstantsKey][moduleName] || {};
+    NativeProxy[exportedMethodsKey][moduleName].forEach(function (methodInfo) {
+      NativeModulesProxy[moduleName][methodInfo.name] = function () {
+        var key = methodInfo.key,argumentsCount = methodInfo.argumentsCount;for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
+        if (argumentsCount !== args.length) {
+          return Promise.reject(new Error("Native method " + moduleName + "." + methodInfo.name + " expects " + argumentsCount + " " + (argumentsCount === 1 ? 'argument' : 'arguments') + " but received " + args.length));
+        }
+        return NativeProxy.callMethod(moduleName, key, args);
+      };
+    });
+
+
+
+
+
+    NativeModulesProxy[moduleName].addListener = function () {var _NativeModules$UMReac;for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {args[_key2] = arguments[_key2];}return (_NativeModules$UMReac = _reactNative.NativeModules.UMReactNativeEventEmitter).addProxiedListener.apply(_NativeModules$UMReac, [moduleName].concat(args));};
+    NativeModulesProxy[moduleName].removeListeners = function () {var _NativeModules$UMReac2;for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {args[_key3] = arguments[_key3];}return (_NativeModules$UMReac2 = _reactNative.NativeModules.UMReactNativeEventEmitter).removeProxiedListeners.apply(_NativeModules$UMReac2, [moduleName].concat(args));};
+  });
+} else
+{
+  console.warn("The \"UMNativeModulesProxy\" native module is not exported through NativeModules; verify that @unimodules/react-native-adapter's native code is linked properly");
+}var _default =
+NativeModulesProxy;exports.default = _default;

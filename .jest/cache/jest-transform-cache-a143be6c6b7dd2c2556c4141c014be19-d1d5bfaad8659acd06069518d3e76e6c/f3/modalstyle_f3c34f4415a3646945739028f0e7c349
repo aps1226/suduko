@@ -1,0 +1,31 @@
+029c279a5deab269e4e6b5c6f4a77dd9
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactNative = require("react-native");
+
+var _default = _reactNative.StyleSheet.create({
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    opacity: 0,
+    backgroundColor: 'black'
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  containerBox: {
+    zIndex: 2,
+    opacity: 1,
+    backgroundColor: 'transparent'
+  }
+});
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZGFsLnN0eWxlLmpzIl0sIm5hbWVzIjpbIlN0eWxlU2hlZXQiLCJjcmVhdGUiLCJiYWNrZHJvcCIsInBvc2l0aW9uIiwidG9wIiwiYm90dG9tIiwibGVmdCIsInJpZ2h0Iiwib3BhY2l0eSIsImJhY2tncm91bmRDb2xvciIsImNvbnRlbnQiLCJmbGV4IiwianVzdGlmeUNvbnRlbnQiLCJjb250YWluZXJCb3giLCJ6SW5kZXgiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7O2VBQ2VBLHdCQUFXQyxNQUFYLENBQWtCO0FBQzdCQyxFQUFBQSxRQUFRLEVBQUU7QUFDTkMsSUFBQUEsUUFBUSxFQUFFLFVBREo7QUFFTkMsSUFBQUEsR0FBRyxFQUFFLENBRkM7QUFHTkMsSUFBQUEsTUFBTSxFQUFFLENBSEY7QUFJTkMsSUFBQUEsSUFBSSxFQUFFLENBSkE7QUFLTkMsSUFBQUEsS0FBSyxFQUFFLENBTEQ7QUFNTkMsSUFBQUEsT0FBTyxFQUFFLENBTkg7QUFPTkMsSUFBQUEsZUFBZSxFQUFFO0FBUFgsR0FEbUI7QUFVN0JDLEVBQUFBLE9BQU8sRUFBRTtBQUNMQyxJQUFBQSxJQUFJLEVBQUUsQ0FERDtBQUVMQyxJQUFBQSxjQUFjLEVBQUU7QUFGWCxHQVZvQjtBQWM3QkMsRUFBQUEsWUFBWSxFQUFFO0FBQ1ZDLElBQUFBLE1BQU0sRUFBRSxDQURFO0FBRVZOLElBQUFBLE9BQU8sRUFBRSxDQUZDO0FBR1ZDLElBQUFBLGVBQWUsRUFBRTtBQUhQO0FBZGUsQ0FBbEIsQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFN0eWxlU2hlZXQgfSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuZXhwb3J0IGRlZmF1bHQgU3R5bGVTaGVldC5jcmVhdGUoe1xuICAgIGJhY2tkcm9wOiB7XG4gICAgICAgIHBvc2l0aW9uOiAnYWJzb2x1dGUnLFxuICAgICAgICB0b3A6IDAsXG4gICAgICAgIGJvdHRvbTogMCxcbiAgICAgICAgbGVmdDogMCxcbiAgICAgICAgcmlnaHQ6IDAsXG4gICAgICAgIG9wYWNpdHk6IDAsXG4gICAgICAgIGJhY2tncm91bmRDb2xvcjogJ2JsYWNrJyxcbiAgICB9LFxuICAgIGNvbnRlbnQ6IHtcbiAgICAgICAgZmxleDogMSxcbiAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxuICAgIH0sXG4gICAgY29udGFpbmVyQm94OiB7XG4gICAgICAgIHpJbmRleDogMixcbiAgICAgICAgb3BhY2l0eTogMSxcbiAgICAgICAgYmFja2dyb3VuZENvbG9yOiAndHJhbnNwYXJlbnQnLFxuICAgIH0sXG59KTtcbiJdfQ==

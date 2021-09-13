@@ -1,0 +1,17 @@
+34a235c98d3c75ad637e70bc43ffb8f3
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "ReactNativeModal", {
+  enumerable: true,
+  get: function get() {
+    return _modal.ReactNativeModal;
+  }
+});
+exports.default = void 0;
+
+var _modal = require("./modal");
+
+var _default = _modal.ReactNativeModal;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbIlJlYWN0TmF0aXZlTW9kYWwiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBQUE7O2VBRWVBLHVCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUmVhY3ROYXRpdmVNb2RhbCB9IGZyb20gJy4vbW9kYWwnO1xuZXhwb3J0IHsgUmVhY3ROYXRpdmVNb2RhbCB9IGZyb20gJy4vbW9kYWwnO1xuZXhwb3J0IGRlZmF1bHQgUmVhY3ROYXRpdmVNb2RhbDtcbiJdfQ==

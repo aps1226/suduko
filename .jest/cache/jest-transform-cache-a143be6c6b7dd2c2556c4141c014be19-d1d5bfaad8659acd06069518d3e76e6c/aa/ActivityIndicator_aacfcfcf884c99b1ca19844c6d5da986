@@ -1,0 +1,218 @@
+8f298216306d8b5658c852c62263c23d
+"use strict";var _excluded = ["animating", "color", "hidesWhenStopped", "size", "style", "theme"];function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var DURATION = 2400;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ActivityIndicator = function ActivityIndicator(_ref)
+
+
+
+
+
+
+
+{var _ref$animating = _ref.animating,animating = _ref$animating === void 0 ? true : _ref$animating,indicatorColor = _ref.color,_ref$hidesWhenStopped = _ref.hidesWhenStopped,hidesWhenStopped = _ref$hidesWhenStopped === void 0 ? true : _ref$hidesWhenStopped,_ref$size = _ref.size,indicatorSize = _ref$size === void 0 ? 'small' : _ref$size,style = _ref.style,theme = _ref.theme,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var _React$useRef =
+
+  React.useRef(new (require("react-native").Animated.Value)(0)),timer = _React$useRef.current;
+  var _React$useRef2 =
+
+  React.useRef(new (require("react-native").Animated.Value)(!animating && hidesWhenStopped ? 0 : 1)),fade = _React$useRef2.current;
+  var rotation = React.useRef(undefined);
+  var
+
+  scale =
+
+  theme.animation.scale;
+  var startRotation = React.useCallback(function () {
+
+    require("react-native").Animated.timing(fade, {
+      duration: 200 * scale,
+      toValue: 1,
+      isInteraction: false,
+      useNativeDriver: true }).
+    start();
+
+
+    if (rotation.current) {
+      timer.setValue(0);
+
+      require("react-native").Animated.loop(rotation.current).start();
+    }
+  }, [scale, fade, timer]);
+
+  var stopRotation = function stopRotation() {
+    if (rotation.current) {
+      rotation.current.stop();
+    }
+  };
+
+  React.useEffect(function () {
+    if (rotation.current === undefined) {
+
+      rotation.current = require("react-native").Animated.timing(timer, {
+        duration: DURATION,
+        easing: require("react-native").Easing.linear,
+
+        useNativeDriver: require("react-native").Platform.OS !== 'web',
+        toValue: 1,
+        isInteraction: false });
+
+    }
+
+    if (animating) {
+      startRotation();
+    } else if (hidesWhenStopped) {
+
+      require("react-native").Animated.timing(fade, {
+        duration: 200 * scale,
+        toValue: 0,
+        useNativeDriver: true,
+        isInteraction: false }).
+      start(stopRotation);
+    } else {
+      stopRotation();
+    }
+  }, [animating, fade, hidesWhenStopped, startRotation, scale, timer]);
+  var color = indicatorColor || theme.colors.primary;
+  var size = typeof indicatorSize === 'string' ? indicatorSize === 'small' ? 24 : 48 : indicatorSize ? indicatorSize : 24;
+  var frames = 60 * DURATION / 1000;
+
+  var easing = require("react-native").Easing.bezier(0.4, 0.0, 0.7, 1.0);
+
+  var containerStyle = {
+    width: size,
+    height: size / 2,
+    overflow: 'hidden' };
+
+  return React.createElement(require("react-native").View, _extends({
+    style: [styles.container, style] },
+  rest, {
+    accessible: true,
+    accessibilityRole: "progressbar",
+    accessibilityState: {
+      busy: animating } }),
+
+  React.createElement(require("react-native").Animated.View, {
+    style: [{
+      width: size,
+      height: size,
+      opacity: fade }],
+
+    collapsable: false },
+  [0, 1].map(function (index) {
+
+    var inputRange = Array.from(new Array(frames), function (_, frameIndex) {return frameIndex / (frames - 1);});
+    var outputRange = Array.from(new Array(frames), function (_, frameIndex) {
+      var progress = 2 * frameIndex / (frames - 1);
+      var rotation = index ? +(360 - 15) : -(180 - 15);
+
+      if (progress > 1.0) {
+        progress = 2.0 - progress;
+      }
+
+      var direction = index ? -1 : +1;
+      return "".concat(direction * (180 - 30) * easing(progress) + rotation, "deg");
+    });
+    var layerStyle = {
+      width: size,
+      height: size,
+      transform: [{
+        rotate: timer.interpolate({
+          inputRange: [0, 1],
+          outputRange: ["".concat(0 + 30 + 15, "deg"), "".concat(2 * 360 + 30 + 15, "deg")] }) }] };
+
+
+
+    var viewportStyle = {
+      width: size,
+      height: size,
+      transform: [{
+        translateY: index ? -size / 2 : 0 },
+      {
+        rotate: timer.interpolate({
+          inputRange: inputRange,
+          outputRange: outputRange }) }] };
+
+
+
+    var offsetStyle = index ? {
+      top: size / 2 } :
+    null;
+    var lineStyle = {
+      width: size,
+      height: size,
+      borderColor: color,
+      borderWidth: size / 10,
+      borderRadius: size / 2 };
+
+    return React.createElement(require("react-native").Animated.View, {
+      key: index,
+      style: [styles.layer] },
+    React.createElement(require("react-native").Animated.View, {
+      style: layerStyle },
+    React.createElement(require("react-native").Animated.View, {
+      style: [containerStyle, offsetStyle],
+      collapsable: false },
+    React.createElement(require("react-native").Animated.View, {
+      style: viewportStyle },
+    React.createElement(require("react-native").Animated.View, {
+      style: containerStyle,
+      collapsable: false },
+    React.createElement(require("react-native").Animated.View, {
+      style: lineStyle }))))));
+
+  })));
+};
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center' },
+
+  layer: _objectSpread(_objectSpread({}, require("react-native").StyleSheet.absoluteFillObject), {}, {
+    justifyContent: 'center',
+    alignItems: 'center' }) });
+
+
+
+var _default = (0, require("../core/theming").withTheme)(ActivityIndicator);
+
+exports.default = _default;

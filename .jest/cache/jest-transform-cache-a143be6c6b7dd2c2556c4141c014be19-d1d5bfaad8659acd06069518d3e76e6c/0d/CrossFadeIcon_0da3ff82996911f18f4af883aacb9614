@@ -1,0 +1,109 @@
+e5da27dad042cbfe6dd41ed156e381d7
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _Icon = _interopRequireWildcard(require("./Icon"));
+
+
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+var CrossFadeIcon = function CrossFadeIcon(_ref)
+
+
+
+
+{var color = _ref.color,size = _ref.size,source = _ref.source,theme = _ref.theme;
+  var _React$useState = React.useState(function () {return source;}),_React$useState2 = require("@babel/runtime/helpers/slicedToArray")(_React$useState, 2),currentIcon = _React$useState2[0],setCurrentIcon = _React$useState2[1];
+  var _React$useState3 = React.useState(null),_React$useState4 = require("@babel/runtime/helpers/slicedToArray")(_React$useState3, 2),previousIcon = _React$useState4[0],setPreviousIcon = _React$useState4[1];
+  var _React$useRef =
+
+  React.useRef(new (require("react-native").Animated.Value)(1)),fade = _React$useRef.current;
+  var
+  scale =
+  theme.animation.scale;
+
+  if (currentIcon !== source) {
+    setPreviousIcon(function () {return currentIcon;});
+    setCurrentIcon(function () {return source;});
+  }
+
+  React.useEffect(function () {
+    if ((0, _Icon.isValidIcon)(previousIcon) && !(0, _Icon.isEqualIcon)(previousIcon, currentIcon)) {
+      fade.setValue(1);
+
+      require("react-native").Animated.timing(fade, {
+        duration: scale * 200,
+        toValue: 0,
+        useNativeDriver: true }).
+      start();
+    }
+  }, [currentIcon, previousIcon, fade, scale]);
+  var opacityPrev = fade;
+  var opacityNext = previousIcon ? fade.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 0] }) :
+  1;
+  var rotatePrev = fade.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['-90deg', '0deg'] });
+
+  var rotateNext = previousIcon ? fade.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '-180deg'] }) :
+  '0deg';
+  return React.createElement(require("react-native").View, {
+    style: [styles.content, {
+      height: size,
+      width: size }] },
+
+  previousIcon ? React.createElement(require("react-native").Animated.View, {
+    style: [styles.icon, {
+      opacity: opacityPrev,
+      transform: [{
+        rotate: rotatePrev }] }] },
+
+
+  React.createElement(_Icon.default, {
+    source: previousIcon,
+    size: size,
+    color: color })) :
+  null, React.createElement(require("react-native").Animated.View, {
+    style: [styles.icon, {
+      opacity: opacityNext,
+      transform: [{
+        rotate: rotateNext }] }] },
+
+
+  React.createElement(_Icon.default, {
+    source: currentIcon,
+    size: size,
+    color: color })));
+
+};
+
+var _default = (0, require("../core/theming").withTheme)(CrossFadeIcon);
+
+exports.default = _default;
+
+var styles = require("react-native").StyleSheet.create({
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center' },
+
+  icon: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0 } });

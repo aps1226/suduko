@@ -1,0 +1,16 @@
+18925084a47effc6a40bca0c1df751e0
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _reactNative = require("react-native");
+var _nativeEmitters = require("./nativeEmitters");var
+
+
+
+
+SyntheticPlatformEmitter = function () {
+  function SyntheticPlatformEmitter() {(0, _classCallCheck2.default)(this, SyntheticPlatformEmitter);
+    this._emitter = new _nativeEmitters.RCTEventEmitter(_reactNative.DeviceEventEmitter.sharedSubscriber);
+  }(0, _createClass2.default)(SyntheticPlatformEmitter, [{ key: "emit", value:
+    function emit(eventName, props) {
+      this._emitter.emit(eventName, props);
+    } }]);return SyntheticPlatformEmitter;}();var _default =
+
+new SyntheticPlatformEmitter();exports.default = _default;

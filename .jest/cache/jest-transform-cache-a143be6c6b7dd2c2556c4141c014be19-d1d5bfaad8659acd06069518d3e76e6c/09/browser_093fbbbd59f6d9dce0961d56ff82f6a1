@@ -1,0 +1,5 @@
+925c204a2fed7f84f0fc4419f96124f4
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.canUseViewport = exports.canUseEventListeners = exports.isDOMAvailable = void 0;
+var isDOMAvailable = false;exports.isDOMAvailable = isDOMAvailable;
+var canUseEventListeners = false;exports.canUseEventListeners = canUseEventListeners;
+var canUseViewport = false;exports.canUseViewport = canUseViewport;

@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DifficultySelection renders without crashing 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+        "left": 0,
+        "position": "absolute",
+        "top": 50,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1E90FF",
+          "borderRadius": 4,
+          "elevation": 3,
+          "justifyContent": "center",
+          "marginTop": 30,
+          "paddingVertical": 12,
+          "shadowColor": "rgba(0,0,0,0.35)",
+          "shadowOffset": Object {
+            "height": -2,
+            "width": -2,
+          },
+          "shadowOpacity": 0.75,
+          "shadowRadius": 2,
+          "width": 125,
+        }
+      }
+      testID="mainMenuButton"
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "lineHeight": 21,
+          }
+        }
+      >
+        Main Menu
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1E90FF",
+        "borderRadius": 4,
+        "elevation": 3,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "paddingVertical": 12,
+        "shadowColor": "rgba(0,0,0,0.35)",
+        "shadowOffset": Object {
+          "height": -2,
+          "width": -2,
+        },
+        "shadowOpacity": 0.75,
+        "shadowRadius": 2,
+        "width": 150,
+      }
+    }
+    testID="easyButton"
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 0.25,
+          "lineHeight": 21,
+        }
+      }
+    >
+      Easy
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1E90FF",
+        "borderRadius": 4,
+        "elevation": 3,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "paddingVertical": 12,
+        "shadowColor": "rgba(0,0,0,0.35)",
+        "shadowOffset": Object {
+          "height": -2,
+          "width": -2,
+        },
+        "shadowOpacity": 0.75,
+        "shadowRadius": 2,
+        "width": 150,
+      }
+    }
+    testID="mediumButton"
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 0.25,
+          "lineHeight": 21,
+        }
+      }
+    >
+      Medium
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1E90FF",
+        "borderRadius": 4,
+        "elevation": 3,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "paddingVertical": 12,
+        "shadowColor": "rgba(0,0,0,0.35)",
+        "shadowOffset": Object {
+          "height": -2,
+          "width": -2,
+        },
+        "shadowOpacity": 0.75,
+        "shadowRadius": 2,
+        "width": 150,
+      }
+    }
+    testID="hardButton"
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 0.25,
+          "lineHeight": 21,
+        }
+      }
+    >
+      Hard
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1E90FF",
+        "borderRadius": 4,
+        "elevation": 3,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "paddingVertical": 12,
+        "shadowColor": "rgba(0,0,0,0.35)",
+        "shadowOffset": Object {
+          "height": -2,
+          "width": -2,
+        },
+        "shadowOpacity": 0.75,
+        "shadowRadius": 2,
+        "width": 150,
+      }
+    }
+    testID="extremeButton"
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 0.25,
+          "lineHeight": 21,
+        }
+      }
+    >
+      Extreme
+    </Text>
+  </View>
+</View>
+`;

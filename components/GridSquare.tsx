@@ -27,10 +27,9 @@ export default function GridSquare(props:IProps) {
     if(board[row][col]){
       changeColor(String(board[row][col]));
       setSelection(board[row][col]);
-    }
     //Else, determine if current selection placed at the respective
     //location creates a valid board.
-    else if(selection && entryMode){
+    }else if(selection && entryMode){
       const newBoard:(number|null)[][] = board.map((arr:(number|null)[])=> [...arr]);
       newBoard[row][col] = Number(selection);
       //If board would be valid, modify board state.
@@ -42,8 +41,8 @@ export default function GridSquare(props:IProps) {
           setGameState({'isCompleted':true,'gameExists':false});
         }
       }
-    //Else if a number is selected and entryMode is set to 'notes'.
-    } else if(selection && !entryMode){
+    //Else a number is selected and entryMode is set to 'notes'.
+    } else {
       //Clone notes state. 
       const newNotes:Notes = Object.assign({},notes);
       //Create variable for note index based on current row and column position.
@@ -118,7 +117,8 @@ export default function GridSquare(props:IProps) {
   return (
     <View style={styles.container}>
       <TouchableHighlight
-          onPress = {handleOnPress}
+        onPress = {handleOnPress}
+        testID = {`gridSquare_${row}${col}`}
       >
         <View 
           style={{
@@ -133,6 +133,7 @@ export default function GridSquare(props:IProps) {
             borderBottomColor: 'rgba(0, 0, 0, 0.5)',
             alignItems:'center'
           }}
+          testID = {`gridSquareView_${board[row][col]}`}
         >
           <ImageBackground
             source = {require('../assets/images/square.jpg')}
@@ -149,6 +150,7 @@ export default function GridSquare(props:IProps) {
                   textAlign:'center',
                   marginTop:'20%',
                 }}
+                testID = {`gridSquareText_${board[row][col]}`}
               >
                 {String(board[row][col])}
               </Text>

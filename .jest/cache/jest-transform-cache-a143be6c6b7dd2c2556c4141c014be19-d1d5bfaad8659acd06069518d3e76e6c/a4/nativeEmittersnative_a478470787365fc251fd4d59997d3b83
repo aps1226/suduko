@@ -1,0 +1,2 @@
+9a11da66c14b3dd7d53ce2978e880fb1
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "RCTEventEmitter", { enumerable: true, get: function get() {return _EventEmitter.default;} });var _EventEmitter = _interopRequireDefault(require("react-native/Libraries/vendor/emitter/EventEmitter"));

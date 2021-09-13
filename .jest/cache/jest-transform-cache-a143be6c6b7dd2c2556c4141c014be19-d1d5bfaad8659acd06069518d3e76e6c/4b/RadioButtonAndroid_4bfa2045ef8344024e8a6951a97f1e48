@@ -1,0 +1,179 @@
+39df15a7487dbd00888910471c035183
+"use strict";var _excluded = ["disabled", "onPress", "theme", "value", "status", "testID"];
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.RadioButtonAndroid = exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+
+
+
+
+var _TouchableRipple = _interopRequireDefault(require("../TouchableRipple/TouchableRipple"));
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}
+
+var BORDER_WIDTH = 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var RadioButtonAndroid = function RadioButtonAndroid(_ref)
+
+
+
+
+
+
+
+{var disabled = _ref.disabled,onPress = _ref.onPress,theme = _ref.theme,value = _ref.value,status = _ref.status,testID = _ref.testID,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded);
+  var _React$useRef =
+
+  React.useRef(new (require("react-native").Animated.Value)(BORDER_WIDTH)),borderAnim = _React$useRef.current;
+  var _React$useRef2 =
+
+  React.useRef(new (require("react-native").Animated.Value)(1)),radioAnim = _React$useRef2.current;
+  var isFirstRendering = React.useRef(true);
+  var
+  scale =
+  theme.animation.scale;
+  React.useEffect(function () {
+
+    if (isFirstRendering.current) {
+      isFirstRendering.current = false;
+      return;
+    }
+
+    if (status === 'checked') {
+      radioAnim.setValue(1.2);
+
+      require("react-native").Animated.timing(radioAnim, {
+        toValue: 1,
+        duration: 150 * scale,
+        useNativeDriver: true }).
+      start();
+    } else {
+      borderAnim.setValue(10);
+
+      require("react-native").Animated.timing(borderAnim, {
+        toValue: BORDER_WIDTH,
+        duration: 150 * scale,
+        useNativeDriver: false }).
+      start();
+    }
+  }, [status, borderAnim, radioAnim, scale]);
+  var checkedColor = rest.color || theme.colors.accent;
+  var uncheckedColor = rest.uncheckedColor || (0, _color.default)(theme.colors.text).alpha(theme.dark ? 0.7 : 0.54).rgb().string();
+  var rippleColor, radioColor;
+  return React.createElement(require("./RadioButtonGroup").RadioButtonContext.Consumer, null, function (context) {
+    var checked = (0, require("./utils").isChecked)({
+      contextValue: context === null || context === void 0 ? void 0 : context.value,
+      status: status,
+      value: value }) ===
+    'checked';
+
+    if (disabled) {
+      rippleColor = (0, _color.default)(theme.colors.text).alpha(0.16).rgb().string();
+      radioColor = theme.colors.disabled;
+    } else {
+      rippleColor = (0, _color.default)(checkedColor).fade(0.32).rgb().string();
+      radioColor = checked ? checkedColor : uncheckedColor;
+    }
+
+    return React.createElement(_TouchableRipple.default, _extends({}, rest, {
+      borderless: true,
+      rippleColor: rippleColor,
+      onPress: disabled ? undefined : function () {
+        (0, require("./utils").handlePress)({
+          onPress: onPress,
+          onValueChange: context === null || context === void 0 ? void 0 : context.onValueChange,
+          value: value });
+
+      },
+
+      accessibilityTraits: disabled ? ['button', 'disabled'] : 'button',
+      accessibilityComponentType: checked ? 'radiobutton_checked' : 'radiobutton_unchecked',
+      accessibilityRole: "radio",
+      accessibilityState: {
+        disabled: disabled,
+        checked: checked },
+
+      accessibilityLiveRegion: "polite",
+      style: styles.container,
+      testID: testID }),
+    React.createElement(require("react-native").Animated.View, {
+      style: [styles.radio, {
+        borderColor: radioColor,
+        borderWidth: borderAnim }] },
+
+    checked ? React.createElement(require("react-native").View, {
+      style: [require("react-native").StyleSheet.absoluteFill, styles.radioContainer] },
+    React.createElement(require("react-native").Animated.View, {
+      style: [styles.dot, {
+        backgroundColor: radioColor,
+        transform: [{
+          scale: radioAnim }] }] })) :
+
+
+    null));
+  });
+};
+
+RadioButtonAndroid.displayName = 'RadioButton.Android';
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    borderRadius: 18 },
+
+  radioContainer: {
+    alignItems: 'center',
+    justifyContent: 'center' },
+
+  radio: {
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    margin: 8 },
+
+  dot: {
+    height: 10,
+    width: 10,
+    borderRadius: 5 } });
+
+
+
+var _default = (0, require("../../core/theming").withTheme)(RadioButtonAndroid);
+
+
+exports.default = _default;
+var RadioButtonAndroidWithTheme = (0, require("../../core/theming").withTheme)(RadioButtonAndroid);
+
+exports.RadioButtonAndroid = RadioButtonAndroidWithTheme;

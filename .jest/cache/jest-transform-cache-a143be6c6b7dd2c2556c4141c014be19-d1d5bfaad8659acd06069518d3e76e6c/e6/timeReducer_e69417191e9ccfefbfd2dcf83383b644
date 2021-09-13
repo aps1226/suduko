@@ -1,0 +1,412 @@
+82b1727311abd5a6f4ec6b8a4a84892d
+/* istanbul ignore next */
+function cov_tt85td5c1() {
+  var path = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\timeReducer.ts";
+  var hash = "6753be63d97a730acdad083637fddbce4d108193";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\timeReducer.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 25
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 13
+        },
+        end: {
+          line: 6,
+          column: 40
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 16
+        },
+        end: {
+          line: 11,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 18
+        },
+        end: {
+          line: 24,
+          column: 1
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 14
+        },
+        end: {
+          line: 14,
+          column: 91
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 15
+        },
+        end: {
+          line: 15,
+          column: 62
+        }
+      },
+      "7": {
+        start: {
+          line: 17,
+          column: 2
+        },
+        end: {
+          line: 23,
+          column: 3
+        }
+      },
+      "8": {
+        start: {
+          line: 19,
+          column: 6
+        },
+        end: {
+          line: 19,
+          column: 28
+        }
+      },
+      "9": {
+        start: {
+          line: 22,
+          column: 6
+        },
+        end: {
+          line: 22,
+          column: 19
+        }
+      },
+      "10": {
+        start: {
+          line: 26,
+          column: 15
+        },
+        end: {
+          line: 26,
+          column: 26
+        }
+      },
+      "11": {
+        start: {
+          line: 27,
+          column: 0
+        },
+        end: {
+          line: 27,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "timeReducer",
+        decl: {
+          start: {
+            line: 13,
+            column: 27
+          },
+          end: {
+            line: 13,
+            column: 38
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 41
+          },
+          end: {
+            line: 24,
+            column: 1
+          }
+        },
+        line: 13
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 14,
+            column: 14
+          },
+          end: {
+            line: 14,
+            column: 91
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 14,
+            column: 67
+          },
+          end: {
+            line: 14,
+            column: 79
+          }
+        }, {
+          start: {
+            line: 14,
+            column: 82
+          },
+          end: {
+            line: 14,
+            column: 91
+          }
+        }],
+        line: 14
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 14,
+            column: 14
+          },
+          end: {
+            line: 14,
+            column: 64
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 14,
+            column: 14
+          },
+          end: {
+            line: 14,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 14,
+            column: 38
+          },
+          end: {
+            line: 14,
+            column: 64
+          }
+        }],
+        line: 14
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 15,
+            column: 15
+          },
+          end: {
+            line: 15,
+            column: 62
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 15,
+            column: 38
+          },
+          end: {
+            line: 15,
+            column: 50
+          }
+        }, {
+          start: {
+            line: 15,
+            column: 53
+          },
+          end: {
+            line: 15,
+            column: 62
+          }
+        }],
+        line: 15
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 17,
+            column: 2
+          },
+          end: {
+            line: 23,
+            column: 3
+          }
+        },
+        type: "switch",
+        locations: [{
+          start: {
+            line: 18,
+            column: 4
+          },
+          end: {
+            line: 19,
+            column: 28
+          }
+        }, {
+          start: {
+            line: 21,
+            column: 4
+          },
+          end: {
+            line: 22,
+            column: 19
+          }
+        }],
+        line: 17
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\src\\state\\reducers\\timeReducer.ts"],
+      names: [],
+      mappings: ";;;;;AAAA;;AAGA,IAAM,SAAS,GAAS;AACtB,UAAO,CADe;AAEtB,iBAAc;AAFQ,CAAxB;;AAIA,IAAM,WAAW,GAAG,SAAd,WAAc,GAAmC;AAAA,MAAlC,KAAkC,uEAA1B,SAA0B;AAAA,MAAf,MAAe;;AACrD,UAAO,MAAM,CAAC,IAAd;AACE,SAAK,gBAAL;AACE,aAAO,MAAM,CAAC,OAAd;;AACF;AACE,aAAO,KAAP;AAJJ;AAMD,CAPD;;eASe,W",
+      sourcesContent: ["import { SET_TIMER } from '../actions/types';\r\nimport {Timer} from '../../../types'\r\n\r\nconst initTimer:Timer = {\r\n  'time':0,\r\n  'decrementor':1\r\n}\r\nconst timeReducer = (state = initTimer, action: any) =>{\r\n  switch(action.type){\r\n    case SET_TIMER:\r\n      return action.payload;\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n\r\nexport default timeReducer;"]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6753be63d97a730acdad083637fddbce4d108193"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_tt85td5c1 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_tt85td5c1();
+cov_tt85td5c1().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_tt85td5c1().s[1]++;
+exports.default = void 0;
+
+var _types =
+/* istanbul ignore next */
+(cov_tt85td5c1().s[2]++, require("../actions/types"));
+
+var initTimer =
+/* istanbul ignore next */
+(cov_tt85td5c1().s[3]++, {
+  'time': 0,
+  'decrementor': 1
+});
+
+/* istanbul ignore next */
+cov_tt85td5c1().s[4]++;
+
+var timeReducer = function timeReducer() {
+  /* istanbul ignore next */
+  cov_tt85td5c1().f[0]++;
+  var state =
+  /* istanbul ignore next */
+  (cov_tt85td5c1().s[5]++,
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[1][0]++, arguments.length > 0) &&
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[1][1]++, arguments[0] !== undefined) ?
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[0][0]++, arguments[0]) :
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[0][1]++, initTimer));
+  var action =
+  /* istanbul ignore next */
+  (cov_tt85td5c1().s[6]++, arguments.length > 1 ?
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[2][0]++, arguments[1]) :
+  /* istanbul ignore next */
+  (cov_tt85td5c1().b[2][1]++, undefined));
+
+  /* istanbul ignore next */
+  cov_tt85td5c1().s[7]++;
+
+  switch (action.type) {
+    case _types.SET_TIMER:
+      /* istanbul ignore next */
+      cov_tt85td5c1().b[3][0]++;
+      cov_tt85td5c1().s[8]++;
+      return action.payload;
+
+    default:
+      /* istanbul ignore next */
+      cov_tt85td5c1().b[3][1]++;
+      cov_tt85td5c1().s[9]++;
+      return state;
+  }
+};
+
+var _default =
+/* istanbul ignore next */
+(cov_tt85td5c1().s[10]++, timeReducer);
+
+/* istanbul ignore next */
+cov_tt85td5c1().s[11]++;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYXNoZWVcXERvY3VtZW50c1xcSmF2YXNjcmlwdFxcUmVhY3RcXFJlYWN0IE5hdGl2ZVxcc3VkdWtvXFxzcmNcXHN0YXRlXFxyZWR1Y2Vyc1xcdGltZVJlZHVjZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLElBQUEsTUFBQTtBQUFBO0FBQUEseUJBQUEsT0FBQSxDQUFBLGtCQUFBLENBQUEsQ0FBQTs7QUFHQSxJQUFNLFNBQVM7QUFBQTtBQUFBLHlCQUFTO0FBQ3RCLFVBRHNCLENBQUE7QUFFdEIsaUJBQWM7QUFGUSxDQUFULENBQWY7Ozs7O0FBSUEsSUFBTSxXQUFXLEdBQUcsU0FBZCxXQUFjLEdBQW1DO0FBQUE7QUFBQTtBQUFBLE1BQWxDLEtBQWtDO0FBQUE7QUFBQTtBQUFBO0FBQUEsOEJBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSw4QkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBLEtBQUEsU0FBQTtBQUFBO0FBQUEsOEJBQUEsU0FBQSxDQUFBLENBQUEsQ0FBQTtBQUFBO0FBQUEsOEJBQTFCLFNBQTBCLENBQUEsQ0FBQTtBQUFBLE1BQWYsTUFBZTtBQUFBO0FBQUEsMkJBQUEsU0FBQSxDQUFBLE1BQUEsR0FBQSxDQUFBO0FBQUE7QUFBQSw4QkFBQSxTQUFBLENBQUEsQ0FBQSxDQUFBO0FBQUE7QUFBQSw4QkFBQSxTQUFBLENBQUEsQ0FBQTs7QUFBQTtBQUFBOztBQUNyRCxVQUFPLE1BQU0sQ0FBYixJQUFBO0FBQ0UsU0FBSyxNQUFBLENBQUwsU0FBQTtBQUFBO0FBQUE7QUFBQTtBQUNFLGFBQU8sTUFBTSxDQUFiLE9BQUE7O0FBQ0Y7QUFBQTtBQUFBO0FBQUE7QUFDRSxhQUFBLEtBQUE7QUFKSjtBQURGLENBQUE7Ozs7MEJBU2UsVyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFNFVF9USU1FUiB9IGZyb20gJy4uL2FjdGlvbnMvdHlwZXMnO1xyXG5pbXBvcnQge1RpbWVyfSBmcm9tICcuLi8uLi8uLi90eXBlcydcclxuXHJcbmNvbnN0IGluaXRUaW1lcjpUaW1lciA9IHtcclxuICAndGltZSc6MCxcclxuICAnZGVjcmVtZW50b3InOjFcclxufVxyXG5jb25zdCB0aW1lUmVkdWNlciA9IChzdGF0ZSA9IGluaXRUaW1lciwgYWN0aW9uOiBhbnkpID0+e1xyXG4gIHN3aXRjaChhY3Rpb24udHlwZSl7XHJcbiAgICBjYXNlIFNFVF9USU1FUjpcclxuICAgICAgcmV0dXJuIGFjdGlvbi5wYXlsb2FkO1xyXG4gICAgZGVmYXVsdDpcclxuICAgICAgcmV0dXJuIHN0YXRlO1xyXG4gIH1cclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgdGltZVJlZHVjZXI7Il19

@@ -62,6 +62,7 @@ export default function DifficultySelection({history}:RouteComponentProps) {
         <Pressable
           style = {styles.mainMenuButton}
           onPress = {() => history.push('/')}
+          testID = 'mainMenuButton'
         >
           <Text style = {styles.text}>
             Main Menu
@@ -71,24 +72,28 @@ export default function DifficultySelection({history}:RouteComponentProps) {
       <Pressable
         style = {styles.button}
         onPress = {()=> handlePress(0)}
+        testID = 'easyButton'
       >
         <Text style = {styles.text}>Easy</Text>
       </Pressable>
       <Pressable
         style = {styles.button}
         onPress = {()=> handlePress(1)}
+        testID = 'mediumButton'
       >
         <Text style = {styles.text}>Medium</Text>
       </Pressable>
       <Pressable
         style = {styles.button}
         onPress = {()=> handlePress(2)}
+        testID = 'hardButton'
       >
         <Text style = {styles.text}>Hard</Text>
       </Pressable>
       <Pressable
         style = {styles.button}
         onPress = {()=> handlePress(3)}
+        testID = 'extremeButton'
       >
         <Text style = {styles.text}>Extreme</Text>
       </Pressable>

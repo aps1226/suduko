@@ -28,6 +28,7 @@ export default function GameDisplay({history}:RouteComponentProps) {
         <View style = {styles.winnerContainer}>
           <Pressable
             onPress = {() => history.push('/')}
+            testID = 'winnerAnimationPressable'
           >
             <Winner/>
           </Pressable>
@@ -45,11 +46,15 @@ export default function GameDisplay({history}:RouteComponentProps) {
   },[gameState]);
   
   return (
-    <View style={styles.container}>
+    <View 
+      style={styles.container}
+      testID = 'gameDisplay'
+    >
       <View style={styles.topBar}>
         <Pressable
           style = {styles.button}
           onPress = {() => history.push('/')}
+          testID = 'mainMenuButton'
         >
           <Text style = {styles.text}>
             Main Menu

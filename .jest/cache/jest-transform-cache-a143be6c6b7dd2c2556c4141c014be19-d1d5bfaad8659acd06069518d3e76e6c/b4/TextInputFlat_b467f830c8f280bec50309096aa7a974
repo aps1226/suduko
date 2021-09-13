@@ -1,0 +1,339 @@
+159bdb3433e085aceee68119e8d3cbf4
+"use strict";var _excluded = ["disabled", "editable", "label", "error", "selectionColor", "underlineColor", "dense", "style", "theme", "render", "multiline", "parentState", "innerRef", "onFocus", "forceFocus", "onBlur", "onChangeText", "onLayoutAnimatedText", "onLeftAffixLayoutChange", "onRightAffixLayoutChange", "left", "right", "placeholderTextColor"],_excluded2 = ["fontSize", "fontWeight", "height", "paddingHorizontal", "textAlign"];function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) {symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});}keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {require("@babel/runtime/helpers/defineProperty")(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = require("@babel/runtime/helpers/getPrototypeOf")(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = require("@babel/runtime/helpers/getPrototypeOf")(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return require("@babel/runtime/helpers/possibleConstructorReturn")(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _color = _interopRequireDefault(require("color"));
+
+var _InputLabel = _interopRequireDefault(require("./Label/InputLabel"));
+
+var _TextInputAdornment = _interopRequireWildcard(require("./Adornment/TextInputAdornment"));
+
+
+
+
+
+
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var MINIMIZED_LABEL_Y_OFFSET = -18;
+var LABEL_PADDING_TOP = 30;
+var LABEL_PADDING_TOP_DENSE = 24;
+var MIN_HEIGHT = 64;
+var MIN_DENSE_HEIGHT_WL = 52;
+var MIN_DENSE_HEIGHT = 40;var
+
+TextInputFlat = function (_React$Component) {require("@babel/runtime/helpers/inherits")(TextInputFlat, _React$Component);var _super = _createSuper(TextInputFlat);function TextInputFlat() {require("@babel/runtime/helpers/classCallCheck")(this, TextInputFlat);return _super.apply(this, arguments);}require("@babel/runtime/helpers/createClass")(TextInputFlat, [{ key: "render", value:
+    function render() {var _affixTopPosition, _onAffixChange, _topPosition;
+      var _this$props =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      this.props,disabled = _this$props.disabled,editable = _this$props.editable,label = _this$props.label,error = _this$props.error,selectionColor = _this$props.selectionColor,underlineColor = _this$props.underlineColor,dense = _this$props.dense,style = _this$props.style,theme = _this$props.theme,render = _this$props.render,multiline = _this$props.multiline,parentState = _this$props.parentState,innerRef = _this$props.innerRef,onFocus = _this$props.onFocus,forceFocus = _this$props.forceFocus,onBlur = _this$props.onBlur,onChangeText = _this$props.onChangeText,onLayoutAnimatedText = _this$props.onLayoutAnimatedText,onLeftAffixLayoutChange = _this$props.onLeftAffixLayoutChange,onRightAffixLayoutChange = _this$props.onRightAffixLayoutChange,left = _this$props.left,right = _this$props.right,placeholderTextColor = _this$props.placeholderTextColor,rest = require("@babel/runtime/helpers/objectWithoutProperties")(_this$props, _excluded);
+      var
+      colors =
+
+      theme.colors,fonts = theme.fonts;
+      var font = fonts.regular;
+      var hasActiveOutline = parentState.focused || error;
+      var _ref =
+
+
+
+
+
+
+      require("react-native").StyleSheet.flatten(style) || {},fontSizeStyle = _ref.fontSize,fontWeight = _ref.fontWeight,height = _ref.height,paddingHorizontal = _ref.paddingHorizontal,textAlign = _ref.textAlign,viewStyle = require("@babel/runtime/helpers/objectWithoutProperties")(_ref, _excluded2);
+      var fontSize = fontSizeStyle || require("./constants").MAXIMIZED_LABEL_FONT_SIZE;
+      var isPaddingHorizontalPassed = paddingHorizontal !== undefined && typeof paddingHorizontal === 'number';
+      var adornmentConfig = (0, _TextInputAdornment.getAdornmentConfig)({
+        left: left,
+        right: right });
+
+      var _ref2 =
+
+
+      (0, require("./helpers").calculateFlatInputHorizontalPadding)({
+        adornmentConfig: adornmentConfig }),paddingLeft = _ref2.paddingLeft,paddingRight = _ref2.paddingRight;
+
+
+      if (isPaddingHorizontalPassed) {
+        paddingLeft = paddingHorizontal;
+        paddingRight = paddingHorizontal;
+      }
+
+      var
+      leftLayout =
+
+      parentState.leftLayout,rightLayout = parentState.rightLayout;
+      var rightAffixWidth = right ? rightLayout.width || require("./constants").ADORNMENT_SIZE : require("./constants").ADORNMENT_SIZE;
+      var leftAffixWidth = left ? leftLayout.width || require("./constants").ADORNMENT_SIZE : require("./constants").ADORNMENT_SIZE;
+      var adornmentStyleAdjustmentForNativeInput = (0, _TextInputAdornment.getAdornmentStyleAdjustmentForNativeInput)({
+        adornmentConfig: adornmentConfig,
+        rightAffixWidth: rightAffixWidth,
+        leftAffixWidth: leftAffixWidth,
+        paddingHorizontal: paddingHorizontal,
+        inputOffset: require("./constants").FLAT_INPUT_OFFSET,
+        mode: require("./Adornment/enums").InputMode.Flat });
+
+      var inputTextColor, activeColor, underlineColorCustom, placeholderColor, errorColor;
+
+      if (disabled) {
+        inputTextColor = activeColor = (0, _color.default)(colors.text).alpha(0.54).rgb().string();
+        placeholderColor = colors.disabled;
+        underlineColorCustom = 'transparent';
+      } else {
+        inputTextColor = colors.text;
+        activeColor = error ? colors.error : colors.primary;
+        placeholderColor = colors.placeholder;
+        errorColor = colors.error;
+        underlineColorCustom = underlineColor || colors.disabled;
+      }
+
+      var containerStyle = {
+        backgroundColor: theme.dark ? (0, _color.default)(colors.background).lighten(0.24).rgb().string() : (0, _color.default)(colors.background).darken(0.06).rgb().string(),
+        borderTopLeftRadius: theme.roundness,
+        borderTopRightRadius: theme.roundness };
+
+      var labelScale = require("./constants").MINIMIZED_LABEL_FONT_SIZE / fontSize;
+      var fontScale = require("./constants").MAXIMIZED_LABEL_FONT_SIZE / fontSize;
+      var labelWidth = parentState.labelLayout.width;
+      var labelHeight = parentState.labelLayout.height;
+      var labelHalfWidth = labelWidth / 2;
+      var labelHalfHeight = labelHeight / 2;
+      var baseLabelTranslateX = (require("react-native").I18nManager.isRTL ? 1 : -1) * (labelHalfWidth - labelScale * labelWidth / 2) + (1 - labelScale) * (require("react-native").I18nManager.isRTL ? -1 : 1) * paddingLeft;
+      var minInputHeight = dense ? (label ? MIN_DENSE_HEIGHT_WL : MIN_DENSE_HEIGHT) - LABEL_PADDING_TOP_DENSE : MIN_HEIGHT - LABEL_PADDING_TOP;
+      var inputHeight = (0, require("./helpers").calculateInputHeight)(labelHeight, height, minInputHeight);
+      var topPosition = (0, require("./helpers").calculateLabelTopPosition)(labelHeight, inputHeight, multiline && height ? 0 : !height ? minInputHeight / 2 : 0);
+
+      if (height && typeof height !== 'number') {
+
+        console.warn('Currently we support only numbers in height prop');
+      }
+
+      var paddingSettings = {
+        height: height ? +height : null,
+        labelHalfHeight: labelHalfHeight,
+        offset: require("./constants").FLAT_INPUT_OFFSET,
+        multiline: multiline ? multiline : null,
+        dense: dense ? dense : null,
+        topPosition: topPosition,
+        fontSize: fontSize,
+        label: label,
+        scale: fontScale,
+        isAndroid: require("react-native").Platform.OS === 'android',
+        styles: require("react-native").StyleSheet.flatten(dense ? styles.inputFlatDense : styles.inputFlat) };
+
+      var pad = (0, require("./helpers").calculatePadding)(paddingSettings);
+      var paddingFlat = (0, require("./helpers").adjustPaddingFlat)(_objectSpread(_objectSpread({}, paddingSettings), {}, {
+        pad: pad }));
+
+      var baseLabelTranslateY = -labelHalfHeight - (topPosition + MINIMIZED_LABEL_Y_OFFSET);
+      var placeholderOpacity = hasActiveOutline ? (0, require("./helpers").interpolatePlaceholder)(parentState.labeled, hasActiveOutline) : parentState.labelLayout.measured ? 1 : 0;
+      var minHeight = height || (dense ? label ? MIN_DENSE_HEIGHT_WL : MIN_DENSE_HEIGHT : MIN_HEIGHT);
+      var flatHeight = inputHeight + (!height ? dense ? LABEL_PADDING_TOP_DENSE : LABEL_PADDING_TOP : 0);
+      var iconTopPosition = (flatHeight - require("./constants").ADORNMENT_SIZE) / 2;
+      var leftAffixTopPosition = leftLayout.height ? (0, require("./helpers").calculateFlatAffixTopPosition)(_objectSpread(_objectSpread({
+        height: flatHeight },
+      paddingFlat), {}, {
+        affixHeight: leftLayout.height })) :
+      null;
+      var rightAffixTopPosition = rightLayout.height ? (0, require("./helpers").calculateFlatAffixTopPosition)(_objectSpread(_objectSpread({
+        height: flatHeight },
+      paddingFlat), {}, {
+        affixHeight: rightLayout.height })) :
+      null;
+      var labelProps = {
+        label: label,
+        onLayoutAnimatedText: onLayoutAnimatedText,
+        placeholderOpacity: placeholderOpacity,
+        error: error,
+        placeholderStyle: styles.placeholder,
+        baseLabelTranslateY: baseLabelTranslateY,
+        baseLabelTranslateX: baseLabelTranslateX,
+        font: font,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        labelScale: labelScale,
+        wiggleOffsetX: require("./constants").LABEL_WIGGLE_X_OFFSET,
+        topPosition: topPosition,
+        paddingOffset: {
+          paddingLeft: paddingLeft,
+          paddingRight: paddingRight },
+
+        hasActiveOutline: hasActiveOutline,
+        activeColor: activeColor,
+        placeholderColor: placeholderColor,
+        errorColor: errorColor };
+
+      var affixTopPosition = (_affixTopPosition = {}, require("@babel/runtime/helpers/defineProperty")(_affixTopPosition,
+      require("./Adornment/enums").AdornmentSide.Left, leftAffixTopPosition), require("@babel/runtime/helpers/defineProperty")(_affixTopPosition,
+      require("./Adornment/enums").AdornmentSide.Right, rightAffixTopPosition), _affixTopPosition);
+
+      var onAffixChange = (_onAffixChange = {}, require("@babel/runtime/helpers/defineProperty")(_onAffixChange,
+      require("./Adornment/enums").AdornmentSide.Left, onLeftAffixLayoutChange), require("@babel/runtime/helpers/defineProperty")(_onAffixChange,
+      require("./Adornment/enums").AdornmentSide.Right, onRightAffixLayoutChange), _onAffixChange);
+
+      var adornmentProps = {
+        paddingHorizontal: paddingHorizontal,
+        adornmentConfig: adornmentConfig,
+        forceFocus: forceFocus,
+        topPosition: (_topPosition = {}, require("@babel/runtime/helpers/defineProperty")(_topPosition,
+        require("./Adornment/enums").AdornmentType.Affix, affixTopPosition), require("@babel/runtime/helpers/defineProperty")(_topPosition,
+        require("./Adornment/enums").AdornmentType.Icon, iconTopPosition), _topPosition),
+
+        onAffixChange: onAffixChange,
+        isTextInputFocused: this.props.parentState.focused };
+
+
+      if (adornmentConfig.length) {
+        adornmentProps = _objectSpread(_objectSpread({}, adornmentProps), {}, {
+          left: left,
+          right: right,
+          textStyle: _objectSpread(_objectSpread({}, font), {}, {
+            fontSize: fontSize,
+            fontWeight: fontWeight }),
+
+          visible: this.props.parentState.labeled });
+
+      }
+
+      return React.createElement(require("react-native").View, {
+        style: [containerStyle, viewStyle] },
+      React.createElement(Underline, {
+        parentState: parentState,
+        underlineColorCustom: underlineColorCustom,
+        error: error,
+        colors: colors,
+        activeColor: activeColor }),
+      React.createElement(require("react-native").View, {
+        style: [styles.labelContainer, {
+          minHeight: minHeight }] },
+
+      React.createElement(_InputLabel.default, {
+        parentState: parentState,
+        labelProps: labelProps }),
+      render === null || render === void 0 ? void 0 : render(_objectSpread(_objectSpread({}, rest), {}, {
+        ref: innerRef,
+        onChangeText: onChangeText,
+        placeholder: label ? parentState.placeholder : this.props.placeholder,
+        placeholderTextColor: placeholderTextColor !== null && placeholderTextColor !== void 0 ? placeholderTextColor : placeholderColor,
+        editable: !disabled && editable,
+        selectionColor: typeof selectionColor === 'undefined' ? activeColor : selectionColor,
+        onFocus: onFocus,
+        onBlur: onBlur,
+        underlineColorAndroid: 'transparent',
+        multiline: multiline,
+        style: [styles.input, {
+          paddingLeft: paddingLeft,
+          paddingRight: paddingRight },
+        !multiline || multiline && height ? {
+          height: flatHeight } :
+        {}, paddingFlat, _objectSpread(_objectSpread({}, font), {}, {
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          color: inputTextColor,
+          textAlignVertical: multiline ? 'top' : 'center',
+          textAlign: textAlign ? textAlign : require("react-native").I18nManager.isRTL ? 'right' : 'left' }),
+        require("react-native").Platform.OS === 'web' && {
+          outline: 'none' },
+        adornmentStyleAdjustmentForNativeInput] }))),
+      React.createElement(_TextInputAdornment.default, adornmentProps));
+    } }]);return TextInputFlat;}(React.Component);
+
+
+
+_defineProperty(TextInputFlat, "defaultProps", {
+  disabled: false,
+  error: false,
+  multiline: false,
+  editable: true,
+  render: function render(props) {return React.createElement(require("react-native").TextInput, props);} });
+
+
+var _default = TextInputFlat;
+exports.default = _default;
+
+var Underline = function Underline(_ref3)
+
+
+
+
+
+{var parentState = _ref3.parentState,error = _ref3.error,colors = _ref3.colors,activeColor = _ref3.activeColor,underlineColorCustom = _ref3.underlineColorCustom;
+  var backgroundColor = parentState.focused ? activeColor : underlineColorCustom;
+  if (error) backgroundColor = colors.error;
+  return React.createElement(require("react-native").Animated.View, {
+    style: [styles.underline, {
+      backgroundColor: backgroundColor,
+
+      transform: [{
+        scaleY: parentState.focused ? 1 : 0.5 }] }] });
+
+
+
+};
+
+var styles = require("react-native").StyleSheet.create({
+  placeholder: {
+    position: 'absolute',
+    left: 0 },
+
+  underline: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 2 },
+
+  labelContainer: {
+    paddingTop: 0,
+    paddingBottom: 0 },
+
+  input: {
+    flexGrow: 1,
+    margin: 0,
+    zIndex: 1 },
+
+  inputFlat: {
+    paddingTop: 24,
+    paddingBottom: 4 },
+
+  inputFlatDense: {
+    paddingTop: 22,
+    paddingBottom: 2 } });

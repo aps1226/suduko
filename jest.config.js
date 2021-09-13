@@ -2,9 +2,10 @@ const { defaults: tsjPreset } = require('ts-jest/presets');
 
 module.exports = {
   ...tsjPreset,
-  preset: 'react-native',
+  preset: 'jest-expo',
   transform: {
     ...tsjPreset.transform,
+    "\\.[jt]sx?$": "babel-jest",
     '\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
   },
   globals: {
@@ -12,7 +13,11 @@ module.exports = {
       babelConfig: true,
     },
   },
-  // This is the only part which you can keep
-  // from the above linked tutorial's config:
+  'modulePathIgnorePatterns':[
+    '__tests__/Component Tests/renderWithRedux.tsx'
+  ],
+  'transformIgnorePatterns':[
+    "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+  ],
   cacheDirectory: '.jest/cache',
 };

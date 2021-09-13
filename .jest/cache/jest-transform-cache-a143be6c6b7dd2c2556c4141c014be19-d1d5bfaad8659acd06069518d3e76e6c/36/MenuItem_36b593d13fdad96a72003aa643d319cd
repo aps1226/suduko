@@ -1,0 +1,143 @@
+7ec9a2ab13670cffb5bfb03090352042
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.MenuItem = MenuItem;
+exports.default = void 0;
+
+var _color = _interopRequireDefault(require("color"));
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _Icon = _interopRequireDefault(require("../Icon"));
+
+var _TouchableRipple = _interopRequireDefault(require("../TouchableRipple/TouchableRipple"));
+
+var _Text = _interopRequireDefault(require("../Typography/Text"));
+
+
+
+
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function MenuItem(_ref)
+
+
+
+
+
+
+
+
+
+{var icon = _ref.icon,title = _ref.title,disabled = _ref.disabled,onPress = _ref.onPress,style = _ref.style,contentStyle = _ref.contentStyle,testID = _ref.testID,titleStyle = _ref.titleStyle,accessibilityLabel = _ref.accessibilityLabel;
+  var theme = (0, require("../../core/theming").useTheme)();
+  var disabledColor = (0, _color.default)(theme.dark ? require("../../styles/colors").white : require("../../styles/colors").black).alpha(0.32).rgb().string();
+  var titleColor = disabled ? disabledColor : (0, _color.default)(theme.colors.text).alpha(0.87).rgb().string();
+  var iconColor = disabled ? disabledColor : (0, _color.default)(theme.colors.text).alpha(0.54).rgb().string();
+  return React.createElement(_TouchableRipple.default, {
+    style: [styles.container, style],
+    onPress: onPress,
+    disabled: disabled,
+    testID: testID,
+    accessibilityLabel: accessibilityLabel,
+    accessibilityRole: "menuitem",
+    accessibilityState: {
+      disabled: disabled } },
+
+  React.createElement(require("react-native").View, {
+    style: styles.row },
+  icon ? React.createElement(require("react-native").View, {
+    style: [styles.item, styles.icon],
+    pointerEvents: "box-none" },
+  React.createElement(_Icon.default, {
+    source: icon,
+    size: 24,
+    color: iconColor })) :
+  null, React.createElement(require("react-native").View, {
+    style: [styles.item, styles.content, icon ? styles.widthWithIcon : null, contentStyle],
+    pointerEvents: "none" },
+  React.createElement(_Text.default, {
+    selectable: false,
+    numberOfLines: 1,
+    style: [styles.title, {
+      color: titleColor },
+    titleStyle] },
+  title))));
+}
+
+MenuItem.displayName = 'Menu.Item';
+var minWidth = 112;
+var maxWidth = 280;
+var iconWidth = 40;
+
+var styles = require("react-native").StyleSheet.create({
+  container: {
+    paddingHorizontal: 8,
+    minWidth: minWidth,
+    maxWidth: maxWidth,
+    height: 48,
+    justifyContent: 'center' },
+
+  row: {
+    flexDirection: 'row' },
+
+  icon: {
+    width: iconWidth },
+
+  title: {
+    fontSize: 16 },
+
+  item: {
+    marginHorizontal: 8 },
+
+  content: {
+    justifyContent: 'center',
+    minWidth: minWidth - 16,
+    maxWidth: maxWidth - 16 },
+
+  widthWithIcon: {
+    maxWidth: maxWidth - (iconWidth + 48) } });
+
+
+
+var _default = MenuItem;
+
+exports.default = _default;

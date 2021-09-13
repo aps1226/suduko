@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title renders without crashing 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "position": "absolute",
+      "top": "30%",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": 0,
+              "width": -2.4,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": 0,
+              "width": 2,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": -2.4,
+              "width": 0,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": -2,
+              "width": -2,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": -2,
+              "width": 2,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1E90FF",
+            "elevation": 3,
+            "fontSize": 80,
+            "fontWeight": "bold",
+            "letterSpacing": 0.25,
+            "textShadowColor": "white",
+            "textShadowOffset": Object {
+              "height": 2,
+              "width": -2,
+            },
+            "textShadowRadius": 1,
+          }
+        }
+      >
+        Suduko
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#1E90FF",
+          "elevation": 3,
+          "fontSize": 80,
+          "fontWeight": "bold",
+          "letterSpacing": 0.25,
+          "textShadowColor": "white",
+          "textShadowOffset": Object {
+            "height": 2,
+            "width": 2,
+          },
+          "textShadowRadius": 1,
+        }
+      }
+    >
+      Suduko
+    </Text>
+  </View>
+</View>
+`;

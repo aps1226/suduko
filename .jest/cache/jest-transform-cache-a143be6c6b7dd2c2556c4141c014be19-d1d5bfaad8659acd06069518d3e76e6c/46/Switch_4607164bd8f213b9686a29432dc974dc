@@ -1,0 +1,229 @@
+a30936a94a3a2085ab22fc1cbd26e6b2
+
+
+
+
+
+
+
+
+
+
+
+'use strict';var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _Platform = _interopRequireDefault(require("../../Utilities/Platform"));
+var React = _interopRequireWildcard(require("react"));
+var _StyleSheet = _interopRequireDefault(require("../../StyleSheet/StyleSheet"));
+
+var _AndroidSwitchNativeComponent = _interopRequireWildcard(require("./AndroidSwitchNativeComponent"));
+
+
+var _SwitchNativeComponent = _interopRequireWildcard(require("./SwitchNativeComponent"));var _jsxFileName = "C:\\Users\\ashee\\Documents\\Javascript\\React\\React Native\\suduko\\node_modules\\react-native\\Libraries\\Components\\Switch\\Switch.js";var _excluded = ["disabled", "ios_backgroundColor", "onChange", "onValueChange", "style", "thumbColor", "trackColor", "value"];function _getRequireWildcardCache(nodeInterop) {if (typeof WeakMap !== "function") return null;var cacheBabelInterop = new WeakMap();var cacheNodeInterop = new WeakMap();return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {return nodeInterop ? cacheNodeInterop : cacheBabelInterop;})(nodeInterop);}function _interopRequireWildcard(obj, nodeInterop) {if (!nodeInterop && obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache(nodeInterop);if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = (0, _getPrototypeOf2.default)(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = (0, _getPrototypeOf2.default)(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return (0, _possibleConstructorReturn2.default)(this, result);};}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));return true;} catch (e) {return false;}}var
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch = function (_React$Component) {(0, _inherits2.default)(Switch, _React$Component);var _super = _createSuper(Switch);function Switch() {var _this;(0, _classCallCheck2.default)(this, Switch);for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}_this = _super.call.apply(_super, [this].concat(args));_this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    _handleChange = function (event) {
+      if (_this.props.onChange != null) {
+        _this.props.onChange(event);
+      }
+
+      if (_this.props.onValueChange != null) {
+        _this.props.onValueChange(event.nativeEvent.value);
+      }
+
+      _this._lastNativeValue = event.nativeEvent.value;
+      _this.forceUpdate();
+    };_this.
+
+    _handleSwitchNativeComponentRef = function (
+    ref)
+
+
+    {
+      _this._nativeSwitchRef = ref;
+    };return _this;}(0, _createClass2.default)(Switch, [{ key: "render", value: function render() {var _props$accessibilityR2;var _this$props = this.props,disabled = _this$props.disabled,ios_backgroundColor = _this$props.ios_backgroundColor,onChange = _this$props.onChange,onValueChange = _this$props.onValueChange,style = _this$props.style,thumbColor = _this$props.thumbColor,trackColor = _this$props.trackColor,value = _this$props.value,props = (0, _objectWithoutProperties2.default)(_this$props, _excluded);var trackColorForFalse = trackColor == null ? void 0 : trackColor.false;var trackColorForTrue = trackColor == null ? void 0 : trackColor.true;if (_Platform.default.OS === 'android') {var _props$accessibilityR;var _platformProps = { enabled: disabled !== true, on: value === true, style: style, thumbTintColor: thumbColor, trackColorForFalse: trackColorForFalse, trackColorForTrue: trackColorForTrue, trackTintColor: value === true ? trackColorForTrue : trackColorForFalse };return React.createElement(_AndroidSwitchNativeComponent.default, (0, _extends2.default)({}, props, _platformProps, { accessibilityRole: (_props$accessibilityR = props.accessibilityRole) != null ? _props$accessibilityR : 'switch', onChange: this._handleChange, onResponderTerminationRequest: returnsFalse, onStartShouldSetResponder: returnsTrue, ref: this._handleSwitchNativeComponentRef, __self: this, __self: this, __source: { fileName: _jsxFileName, lineNumber: 131, columnNumber: 9 } }));}var platformProps = { disabled: disabled, onTintColor: trackColorForTrue, style: _StyleSheet.default.compose({ height: 31, width: 51 }, _StyleSheet.default.compose(style, ios_backgroundColor == null ? null : { backgroundColor: ios_backgroundColor, borderRadius: 16 })), thumbTintColor: thumbColor, tintColor: trackColorForFalse, value: value === true };return React.createElement(_SwitchNativeComponent.default, (0, _extends2.default)({}, props, platformProps, { accessibilityRole: (_props$accessibilityR2 = props.accessibilityRole) != null ? _props$accessibilityR2 : 'switch', onChange: this._handleChange, onResponderTerminationRequest: returnsFalse, onStartShouldSetResponder: returnsTrue, ref: this._handleSwitchNativeComponentRef, __self: this, __self: this, __source: { fileName: _jsxFileName, lineNumber: 164, columnNumber: 7 } }));} }, { key: "componentDidUpdate", value: function componentDidUpdate() {var nativeProps = {};var value = this.props.value === true;if (this._lastNativeValue !== value) {nativeProps.value = value;}if (Object.keys(nativeProps).length > 0 && this._nativeSwitchRef && this._nativeSwitchRef.setNativeProps) {if (_Platform.default.OS === 'android') {_AndroidSwitchNativeComponent.Commands.setNativeValue(this._nativeSwitchRef, nativeProps.value);} else {_SwitchNativeComponent.Commands.setValue(this._nativeSwitchRef, nativeProps.value);}}} }]);return Switch;}(React.Component);
+
+
+var returnsFalse = function returnsFalse() {return false;};
+var returnsTrue = function returnsTrue() {return true;};
+
+module.exports = Switch;

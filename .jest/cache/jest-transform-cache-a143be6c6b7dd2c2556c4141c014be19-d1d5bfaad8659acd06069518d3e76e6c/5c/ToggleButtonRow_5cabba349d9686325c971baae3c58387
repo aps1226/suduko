@@ -1,0 +1,105 @@
+73cd288900e8eb4e77c91c7a7f7c6597
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports.ToggleButtonRow = exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+
+
+var _ToggleButtonGroup = _interopRequireDefault(require("./ToggleButtonGroup"));
+
+var _ToggleButton = _interopRequireDefault(require("./ToggleButton"));
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}
+
+function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ToggleButtonRow = function ToggleButtonRow(_ref)
+
+
+
+
+{var value = _ref.value,onValueChange = _ref.onValueChange,children = _ref.children,style = _ref.style;
+  var count = React.Children.count(children);
+  return React.createElement(_ToggleButtonGroup.default, {
+    value: value,
+    onValueChange: onValueChange },
+  React.createElement(require("react-native").View, {
+    style: [styles.row, style] },
+  React.Children.map(children, function (child, i) {
+
+    if (child && child.type === _ToggleButton.default) {
+
+      return React.cloneElement(child, {
+        style: [styles.button, i === 0 ? styles.first : i === count - 1 ? styles.last : styles.middle,
+        child.props.style] });
+
+    }
+
+    return child;
+  })));
+};
+
+exports.ToggleButtonRow = ToggleButtonRow;
+ToggleButtonRow.displayName = 'ToggleButton.Row';
+
+var styles = require("react-native").StyleSheet.create({
+  row: {
+    flexDirection: 'row' },
+
+  button: {
+    borderWidth: require("react-native").StyleSheet.hairlineWidth },
+
+  first: {
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0 },
+
+  middle: {
+    borderRadius: 0,
+    borderLeftWidth: 0 },
+
+  last: {
+    borderLeftWidth: 0,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0 } });
+
+
+
+var _default = ToggleButtonRow;
+
+exports.default = _default;

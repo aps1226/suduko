@@ -90,56 +90,62 @@ export function isValidSudoku(board:(number|null)[][]):boolean {
   }
   return true
 };
-
-//Function determines if the current game board is solvable.
-export function isSolvable(data:(number|null)[][]):boolean {
-  //Iterate through each row of board.
-  for (let i = 0; i < 9; i++) {
-    //Iterate through column of respective row.
-    for (let j = 0; j < 9; j++) {
-      //If current value needs an entry.
-      if (data[i][j] == null) {
-        //Iterate through possible values.
-        for (let k = 1; k <= 9; k++) {
-          //Determine if current value if valid for the board
-          //at the current position.
-          if (isValid(data, i, j, k)) {
-            data[i][j] = k;
-            //If the value is valid, recurse with the given value
-            //entered on the board.
-            if (isSolvable(data)) {
-              return true;
-            //If false is returned, iterate to the next value.
-            } else {
-              data[i][j] = null;
-            }
-          }
-        }
-        return false;
-      }
-    }
-  }
-  return true;
-}
+////*Not needed.
+////Function determines if the current game board is solvable.
+// export function isSolvable(data:(number|null)[][]):boolean {
+//   //Iterate through each row of board.
+//   for (let i = 0; i < 9; i++) {
+//     //Iterate through column of respective row.
+//     for (let j = 0; j < 9; j++) {
+//       //If current value needs an entry.
+//       if (data[i][j] == null) {
+//         //Iterate through possible values.
+//         for (let k = 1; k <= 9; k++) {
+//           //Determine if current value if valid for the board
+//           //at the current position.
+//           if (isValid(data, i, j, k)) {
+//             data[i][j] = k;
+//             //If the value is valid, recurse with the given value
+//             //entered on the board.
+//             if (isSolvable(data)) {
+//               return true;
+//             //If false is returned, iterate to the next value.
+//             } else {
+//               data[i][j] = null;
+//             }
+//           }
+//         }
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
 
 //Function initializes game board based on difficulty input.
 export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
-  let blank:number;
+  let blank:number = Math.floor(37 * Math.random());
   switch(difficulty){
+    //Easy selection.
     case 0:
-      blank = 81 - (37 + Math.floor(37 * Math.random()));
+      //Board should be initialized with (37, 46) non-null values.
+      blank = 81 - (37 + Math.floor(10 * Math.random()));
       break;
+    //Medium selection.
     case 1:
-      blank = 81 - (27 + Math.floor(9 * Math.random()));
+      //Board should be initialized with (27, 36) non-null values.
+      blank = 81 - (27 + Math.floor(10 * Math.random()));
       break;
+    //Hard selection.
     case 2:
-      blank = 81 - (19 + Math.floor(9 * Math.random()));
+      //Board should be initialized with (19, 26) non-null values.
+      blank = 81 - (19 + Math.floor(7 * Math.random()));
       break;
+    //Extreme selection.
     case 3:
+      //Board should be initialized with 18 non-null values.
       blank = 63;
       break;
-    default:
-      blank = Math.floor(37 * Math.random());
   }
 
   for(let i = 0; i < blank; i++){
@@ -147,13 +153,14 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
     let col:number = Math.floor(9*Math.random());
     while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
     const clonedBoard = curBoard.map(arr => [...arr])
-    while(!isSolvable(clonedBoard)){
-      clonedBoard[row][col] = curBoard[row][col];
-      row = Math.floor(9*Math.random());
-      col = Math.floor(9*Math.random());
-      while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
-      clonedBoard[row][col] = null;
-    }
+    ////*Not needed.
+    // while(!isSolvable(clonedBoard)){
+    //   clonedBoard[row][col] = curBoard[row][col];
+    //   row = Math.floor(9*Math.random());
+    //   col = Math.floor(9*Math.random());
+    //   while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
+    //   clonedBoard[row][col] = null;
+    // }
     curBoard[row][col] = null;
   }
   return curBoard;

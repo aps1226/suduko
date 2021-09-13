@@ -1,0 +1,19 @@
+a031e6023c2179c410eb7c136e78448f
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.UserInterfaceIdiom = exports.ExecutionEnvironment = exports.AppOwnership = void 0;var AppOwnership;exports.AppOwnership = AppOwnership;
+(function (AppOwnership) {
+  AppOwnership["Standalone"] = "standalone";
+  AppOwnership["Expo"] = "expo";
+  AppOwnership["Guest"] = "guest";
+})(AppOwnership || (exports.AppOwnership = AppOwnership = {}));
+var ExecutionEnvironment;exports.ExecutionEnvironment = ExecutionEnvironment;
+(function (ExecutionEnvironment) {
+  ExecutionEnvironment["Bare"] = "bare";
+  ExecutionEnvironment["Standalone"] = "standalone";
+  ExecutionEnvironment["StoreClient"] = "storeClient";
+})(ExecutionEnvironment || (exports.ExecutionEnvironment = ExecutionEnvironment = {}));
+var UserInterfaceIdiom;exports.UserInterfaceIdiom = UserInterfaceIdiom;
+(function (UserInterfaceIdiom) {
+  UserInterfaceIdiom["Handset"] = "handset";
+  UserInterfaceIdiom["Tablet"] = "tablet";
+  UserInterfaceIdiom["Unsupported"] = "unsupported";
+})(UserInterfaceIdiom || (exports.UserInterfaceIdiom = UserInterfaceIdiom = {}));

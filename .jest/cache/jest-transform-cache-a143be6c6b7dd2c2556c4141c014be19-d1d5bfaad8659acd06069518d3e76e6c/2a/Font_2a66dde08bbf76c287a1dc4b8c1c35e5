@@ -1,0 +1,150 @@
+95d0d89c178e9de72bdf635953c863db
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.processFontFamily = processFontFamily;exports.isLoaded = isLoaded;exports.isLoading = isLoading;exports.loadAsync = loadAsync;exports.unloadAllAsync = unloadAllAsync;exports.unloadAsync = unloadAsync;Object.defineProperty(exports, "FontDisplay", { enumerable: true, get: function get() {return _Font.FontDisplay;} });var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));var _core = require("@unimodules/core");
+var _ExpoFontLoader = _interopRequireDefault(require("./ExpoFontLoader"));
+var _Font = require("./Font.types");
+var _FontLoader = require("./FontLoader");
+var loaded = {};
+var loadPromises = {};
+
+
+
+
+
+
+
+
+
+
+function processFontFamily(fontFamily) {
+  if (!fontFamily || !(0, _FontLoader.fontFamilyNeedsScoping)(fontFamily)) {
+    return fontFamily;
+  }
+  if (!isLoaded(fontFamily)) {
+    if (__DEV__) {
+      if (isLoading(fontFamily)) {
+        console.error("You started loading the font \"" + fontFamily + "\", but used it before it finished loading. You need to wait for Font.loadAsync to complete before using the font.");
+      } else
+      {
+        console.error("fontFamily \"" + fontFamily + "\" is not a system font and has not been loaded through Font.loadAsync.\n\n- If you intended to use a system font, make sure you typed the name correctly and that it is supported by your device operating system.\n\n- If this is a custom font, be sure to load it with Font.loadAsync.");
+
+
+      }
+    }
+    return 'System';
+  }
+  return "ExpoFont-" + (0, _FontLoader.getNativeFontName)(fontFamily);
+}
+
+
+
+
+
+
+function isLoaded(fontFamily) {
+  return fontFamily in loaded;
+}
+
+
+
+
+
+
+function isLoading(fontFamily) {
+  return fontFamily in loadPromises;
+}
+
+
+
+
+
+function loadAsync(fontFamilyOrFontMap, source) {var fontMap, names;return _regenerator.default.async(function loadAsync$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+          typeof fontFamilyOrFontMap === 'object')) {_context.next = 8;break;}if (!
+          source) {_context.next = 3;break;}throw (
+            new _core.CodedError("ERR_FONT_API", "No fontFamily can be used for the provided source: " + source + ". The second argument of `loadAsync()` can only be used with a `string` value as the first argument."));case 3:
+
+          fontMap = fontFamilyOrFontMap;
+          names = Object.keys(fontMap);_context.next = 7;return _regenerator.default.awrap(
+          Promise.all(names.map(function (name) {return loadFontInNamespaceAsync(name, fontMap[name]);})));case 7:return _context.abrupt("return");case 8:_context.next = 10;return _regenerator.default.awrap(
+
+
+          loadFontInNamespaceAsync(fontFamilyOrFontMap, source));case 10:return _context.abrupt("return", _context.sent);case 11:case "end":return _context.stop();}}}, null, null, null, Promise);}
+
+function loadFontInNamespaceAsync(fontFamily, source) {var asset;return _regenerator.default.async(function loadFontInNamespaceAsync$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:if (
+          source) {_context3.next = 2;break;}throw (
+            new _core.CodedError("ERR_FONT_SOURCE", "Cannot load null or undefined font source: { \"" + fontFamily + "\": " + source + " }. Expected asset of type `FontSource` for fontFamily of name: \"" + fontFamily + "\""));case 2:if (!
+
+          loaded[fontFamily]) {_context3.next = 4;break;}return _context3.abrupt("return");case 4:if (!
+
+
+          loadPromises[fontFamily]) {_context3.next = 6;break;}return _context3.abrupt("return",
+          loadPromises[fontFamily]);case 6:
+
+
+
+
+
+          asset = (0, _FontLoader.getAssetForSource)(source);
+          loadPromises[fontFamily] = function _callee() {return _regenerator.default.async(function _callee$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.prev = 0;_context2.next = 3;return _regenerator.default.awrap(
+
+                    (0, _FontLoader.loadSingleFontAsync)(fontFamily, asset));case 3:
+                    loaded[fontFamily] = true;case 4:_context2.prev = 4;
+
+
+                    delete loadPromises[fontFamily];return _context2.finish(4);case 7:case "end":return _context2.stop();}}}, null, null, [[0,, 4, 7]], Promise);}();_context3.next = 10;return _regenerator.default.awrap(
+
+
+          loadPromises[fontFamily]);case 10:case "end":return _context3.stop();}}}, null, null, null, Promise);}
+
+
+
+
+function unloadAllAsync() {var _i, _Object$keys, fontFamily;return _regenerator.default.async(function unloadAllAsync$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:if (
+          _ExpoFontLoader.default.unloadAllAsync) {_context4.next = 2;break;}throw (
+            new _core.UnavailabilityError('expo-font', 'unloadAllAsync'));case 2:if (!
+
+          Object.keys(loadPromises).length) {_context4.next = 4;break;}throw (
+            new _core.CodedError("ERR_UNLOAD", "Cannot unload fonts while they're still loading: " + Object.keys(loadPromises).join(', ')));case 4:
+
+          for (_i = 0, _Object$keys = Object.keys(loaded); _i < _Object$keys.length; _i++) {fontFamily = _Object$keys[_i];
+            delete loaded[fontFamily];
+          }_context4.next = 7;return _regenerator.default.awrap(
+          _ExpoFontLoader.default.unloadAllAsync());case 7:case "end":return _context4.stop();}}}, null, null, null, Promise);}
+
+
+
+
+
+
+
+
+function unloadAsync(fontFamilyOrFontMap, options) {var fontMap, names;return _regenerator.default.async(function unloadAsync$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:if (
+          _ExpoFontLoader.default.unloadAsync) {_context5.next = 2;break;}throw (
+            new _core.UnavailabilityError('expo-font', 'unloadAsync'));case 2:if (!(
+
+          typeof fontFamilyOrFontMap === 'object')) {_context5.next = 10;break;}if (!
+          options) {_context5.next = 5;break;}throw (
+            new _core.CodedError("ERR_FONT_API", "No fontFamily can be used for the provided options: " + options + ". The second argument of `unloadAsync()` can only be used with a `string` value as the first argument."));case 5:
+
+          fontMap = fontFamilyOrFontMap;
+          names = Object.keys(fontMap);_context5.next = 9;return _regenerator.default.awrap(
+          Promise.all(names.map(function (name) {return unloadFontInNamespaceAsync(name, fontMap[name]);})));case 9:return _context5.abrupt("return");case 10:_context5.next = 12;return _regenerator.default.awrap(
+
+
+          unloadFontInNamespaceAsync(fontFamilyOrFontMap, options));case 12:return _context5.abrupt("return", _context5.sent);case 13:case "end":return _context5.stop();}}}, null, null, null, Promise);}
+
+function unloadFontInNamespaceAsync(fontFamily, options) {var nativeFontName;return _regenerator.default.async(function unloadFontInNamespaceAsync$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:if (
+          loaded[fontFamily]) {_context6.next = 4;break;}return _context6.abrupt("return");case 4:
+
+
+
+          delete loaded[fontFamily];case 5:
+
+
+
+
+
+          nativeFontName = (0, _FontLoader.getNativeFontName)(fontFamily);if (
+          nativeFontName) {_context6.next = 8;break;}throw (
+            new _core.CodedError("ERR_FONT_FAMILY", "Cannot unload an empty name"));case 8:_context6.next = 10;return _regenerator.default.awrap(
+
+          _ExpoFontLoader.default.unloadAsync(nativeFontName, options));case 10:case "end":return _context6.stop();}}}, null, null, null, Promise);}
