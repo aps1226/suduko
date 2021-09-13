@@ -17,25 +17,21 @@ export default function TextStroke(props:Props){
   const createClones = (w: number, h: number, color?: string) => {
     const { children } = props;
     return Children.map(children, child => {
-      if (isValidElement(child)) {
-        const currentProps = child.props as any;
-        const currentStyle = currentProps ? (currentProps.style || {}) : {};
-
-        const newProps = {
-          ...currentProps,
-          style: {
-            ...currentStyle,
-            textShadowOffset: {
-              width: w,
-              height: h
-            },
-            textShadowColor: color,
-            textShadowRadius: 1
-          }
+      const currentProps = child.props as any;
+      const currentStyle = (currentProps.style || {});
+      const newProps = {
+        ...currentProps,
+        style: {
+          ...currentStyle,
+          textShadowOffset: {
+            width: w,
+            height: h
+          },
+          textShadowColor: color,
+          textShadowRadius: 1
         }
-        return cloneElement(child, newProps)
       }
-      return child;
+      return cloneElement(child, newProps)
     });
   }
 

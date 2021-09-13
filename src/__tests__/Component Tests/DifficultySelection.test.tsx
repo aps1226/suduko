@@ -72,7 +72,6 @@ describe('DifficultySelection',() =>{
           if(num !== null) valueCount += 1;
         })
       })
-      console.log('easy:',valueCount)
       //Board should be initialized with (37,46) non-null values.
       expect(valueCount >= 37 && valueCount <= 46).toBeTruthy();
     })
@@ -98,7 +97,6 @@ describe('DifficultySelection',() =>{
           if(num !== null) valueCount += 1;
         })
       })
-      console.log('medium:',valueCount)
       //Board should be initialized with (27,36) non-null values.
       expect(valueCount >= 27 && valueCount <= 36).toBeTruthy();
     })
@@ -124,7 +122,6 @@ describe('DifficultySelection',() =>{
           if(num !== null) valueCount += 1;
         })
       })
-      console.log('hard:',valueCount)
       //Board should be initialized with (19,26) non-null values.
       expect(valueCount >= 19 && valueCount <= 26).toBeTruthy();
     })
@@ -150,7 +147,6 @@ describe('DifficultySelection',() =>{
           if(num !== null) valueCount += 1;
         })
       })
-      console.log('extremeButton:',valueCount)
       //Board should be initialized with 18 non-null values.
       expect(valueCount).toBe(18);
     })

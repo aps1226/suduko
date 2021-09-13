@@ -104,6 +104,117 @@ describe('GameDisplay',() =>{
     expect(gameDisplayComponent.toJSON()).toMatchSnapshot();
   })
 
+  //Test that board will allow for valid value entry to the board.
+  it(`should allow for a square with a null value to be updated with a valid value`, ()=>{
+    const {getByTestId,store,queryByTestId} = gameDisplayComponent;
+    const selectionSquare5 = getByTestId('selectionSquare_5');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    //Select selection square for 5 value.
+    fireEvent.press(selectionSquare5);
+    //Input a 5 for the grid square at location row 6, column 7.
+    fireEvent.press(gridSquare67);
+    //Board should have updated with a 5 at location row 6, column 7.
+    expect(store.getState().board[6][7]).toBe(5);
+  })
+
+  //Test that board will not allow for invalid entry to the board.
+  it(`should not allow for an invalid entry to the board`, ()=>{
+    const {getByTestId,store,queryByTestId} = gameDisplayComponent;
+    const selectionSquare4 = getByTestId('selectionSquare_4');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    //Select selection square for 4 value.
+    fireEvent.press(selectionSquare4);
+    //Input a 5 for the grid square at location row 6, column 7.
+    fireEvent.press(gridSquare67);
+    //Board should not have updated.
+    expect(store.getState().board[6][7]).toBe(null);
+  })
+
+  //Test that board will not allow for a square that already contains a value to be overridden with another value.
+  it(`should not allow for a square with an existing value to be overridden with another value`, ()=>{
+    const {getByTestId,store,queryByTestId} = gameDisplayComponent;
+    const selectionSquare6 = getByTestId('selectionSquare_6');
+    const gridSquare00 = getByTestId('gridSquare_00');
+    //Select selection square for 6 value.
+    fireEvent.press(selectionSquare6);
+    //Attempt to input a 6 for the grid square at location row 0, column 0.
+    fireEvent.press(gridSquare00);
+    //Value should remain the initial value of 3.
+    expect(store.getState().board[0][0]).toBe(3);
+  })
+
+  //Test that note entry works.
+  it(`should allow for note entry for squares that do not have an inputted value`, ()=>{
+    const {getByTestId,store} = gameDisplayComponent;
+    //Square with a null value.
+    const entryModeToggle = getByTestId('entryModeToggle');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    //Change entry mode to 'Notes' by pressing the toggle switch.
+    fireEvent(entryModeToggle,'valueChange',false);
+    [1,2,3,5,6,7,8,9].forEach((num,index) =>{
+      let selection = getByTestId(`selectionSquare_${num}`);
+      //Press selection value.
+      fireEvent.press(selection);
+      //Press square with null value to enter note.
+      fireEvent.press(gridSquare67);
+      //Assert that note state value was updated.
+      expect(store.getState().notes['67'][index]).toBe(num);
+    })
+  })
+
+  //Test that a square will not allow for a repeated note entry.
+  it(`should not allow for a repeated note entry for a given square`, ()=>{
+    const {getByTestId,store} = gameDisplayComponent;
+    //Square with a null value.
+    const entryModeToggle = getByTestId('entryModeToggle');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    const selection1 = getByTestId(`selectionSquare_1`);
+    //Change entry mode to 'Notes' by pressing the toggle switch.
+    fireEvent(entryModeToggle,'valueChange',false);
+    //Press selection value for '1'.
+    fireEvent.press(selection1);
+    //Press square with null value to enter note.
+    fireEvent.press(gridSquare67);
+    //Assert that length of note state for this square is 1.
+    expect(store.getState().notes['67'].length).toBe(1);
+    //Attempt to re-enter note in null square where note for '1' already exists.
+    fireEvent.press(gridSquare67);
+    //Assert that length of note state for this square is 1.
+    expect(store.getState().notes['67'].length).toBe(1);
+  })
+
+  //Test that a note cannot be entered in a square containing a valid value.
+  it(`should not allow for a note to be entered in a square already containing a valid value`, ()=>{
+    const {getByTestId,store} = gameDisplayComponent;
+    const entryModeToggle = getByTestId('entryModeToggle');
+    const gridSquare00 = getByTestId('gridSquare_00');
+    const selection2 = getByTestId(`selectionSquare_2`);
+    //Change entry mode to 'Notes' by pressing the toggle switch.
+    fireEvent(entryModeToggle,'valueChange',false);
+    //Press selection value for '2'.
+    fireEvent.press(selection2);
+    //Attempt to enter '2' note in a square with an existing value.
+    fireEvent.press(gridSquare00);
+    //Assert that a note was not inputted.
+    expect(store.getState().notes['00']).toBeFalsy();
+  })
+
+  //Test that nothing will happen if there is no selection value.
+  it(`should not change the board state if there is no selection value upon entry attempt`, ()=>{
+    const {getByTestId,store} = gameDisplayComponent;
+    const entryModeToggle = getByTestId('entryModeToggle');
+    const gridSquare00 = getByTestId('gridSquare_00');
+    const selection2 = getByTestId(`selectionSquare_2`);
+    //Change entry mode to 'Notes' by pressing the toggle switch.
+    fireEvent(entryModeToggle,'valueChange',false);
+    //Press selection value for '2'.
+    fireEvent.press(selection2);
+    //Attempt to enter '2' note in a square with an existing value.
+    fireEvent.press(gridSquare00);
+    //Assert that a note was not inputted.
+    expect(store.getState().notes['00']).toBeFalsy();
+  })
+
   //If board is not complete, winner animation should not be rendered.
   it(`should not render the Winner component if the board is not complete`, async ()=>{
     //Simulate a value being inputted on the board.
@@ -142,7 +253,7 @@ describe('GameDisplay',() =>{
 
   //If board is completed, pressing the screen should route to the main menu.
   it(`should route to the main menu if the board is completed and the screen is, then, pressed`, async ()=>{
-    const {getByTestId} = gameDisplayComponent;
+    const {getByTestId,store} = gameDisplayComponent;
     const selectionSquare5 = getByTestId('selectionSquare_5');
     const selectionSquare3 = getByTestId('selectionSquare_3');
     const gridSquare67 = getByTestId('gridSquare_67');
@@ -181,25 +292,6 @@ describe('GameDisplay',() =>{
       expect(store.getState().colors['3'][0] === '#008000' && store.getState().colors['3'][1] === '#008000').toBeTruthy();
       gridSquareView3Arr.map((comp:JSX.Element) => expect(comp.props.style.backgroundColor).toBe('#008000'))
       gridSquareText3Arr.map((comp:JSX.Element) => expect(comp.props.style.color).toBe('#008000'))
-    })
-  })
-
-  //Test that note entry works.
-  it(`should allow for note entry for square thats do not have an inputted value`, async ()=>{
-    const {getByTestId,store} = gameDisplayComponent;
-    //Square with a null value.
-    const entryModeToggle = getByTestId('entryModeToggle');
-    const gridSquare67 = getByTestId('gridSquare_67');
-    //Change entry mode to 'Notes' by pressing the toggle switch.
-    fireEvent(entryModeToggle,'valueChange',false);
-    [1,2,3,5,6,7,8,9].forEach((num,index) =>{
-      let selection = getByTestId(`selectionSquare_${num}`);
-      //Press selection value.
-      fireEvent.press(selection);
-      //Press square with null value to enter note.
-      fireEvent.press(gridSquare67);
-      //Assert that note state value was updated.
-      expect(store.getState().notes['67'][index]).toBe(num);
     })
   })
 
