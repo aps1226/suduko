@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
 import {IProps,Notes} from '../types';
 import {RootState} from '../src/state/reducers/index';
-import {tID} from '../src/getTestID';
 import TextStroke from './TextStroke';
 export default function Winner() {
   //Redux-state.

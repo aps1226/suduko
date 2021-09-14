@@ -15,3 +15,5 @@ web-build/
 .jest/
 #jest testing coverage
 coverage/
+#jest snapshots
+__snapshots__/

@@ -1,12 +1,10 @@
 import React from 'react';
-import renderWithRedux from './renderWithRedux';
+import renderWithRedux from '../renderWithRedux';
 import { createMemoryHistory, createLocation } from 'history';
 import { match } from 'react-router'; 
-import { act, fireEvent, render, waitFor} from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
-import {GameState} from '../../../types';
+import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
+import {RenderReduxAPI} from '../../../types';
 import {RootState} from '../../state/reducers/index';
-
 import Home from '../../../components/Home';
 
 //Mock props for routing.
@@ -25,8 +23,7 @@ describe('Home', () =>{
   //Mock store object for state management.
   const mockStore:RootState = {};
   //Render Home component with routing and redux.
-  let homeComponent:any;
-
+  let homeComponent:RenderReduxAPI;
   beforeEach(() =>{
     homeComponent = renderWithRedux(
       <Home
@@ -39,6 +36,8 @@ describe('Home', () =>{
       }
     );
   })
+
+  afterEach(cleanup);
 
   //Home component should match current screenshot.
   it('renders without crashing', () => {
@@ -86,16 +85,6 @@ describe('Home', () =>{
     fireEvent.press(loadGameButton);
     //Popup should no longer be visible.
     expect(loadGamePopUp.props.visible).toBeTruthy();
-    
-    //Secondary test to ensure that the 'Play New Game' popup does not appear given current state.
-    const newGameButton = getByTestId('newGameButton');
-    const newGamePopUp = getByTestId('newGamePopUp');
-    //Popup should initially not be visible.
-    expect(newGamePopUp.props.visible).toBeFalsy();
-    //Press 'Play New Game' button.
-    fireEvent.press(newGameButton);
-    //Popup should remain not visible.
-    expect(newGamePopUp.props.visible).toBeFalsy();
   });
   
   //Load game prompt should disappear after the screen is pressed.
@@ -170,16 +159,6 @@ describe('Home', () =>{
     fireEvent.press(newGameButton);
     //Prompt should be visible.
     expect(newGamePopUp.props.visible).toBeTruthy();
-    
-    //Secondary test to ensure that the 'Play New Game' popup does not appear given current state.
-    const loadGameButton = getByTestId('loadGameButton');
-    const loadGamePopUp = getByTestId('loadGamePopUp');
-    //Prompt should initially not be visible.
-    expect(loadGamePopUp.props.visible).toBeFalsy();
-    //Press 'Load Game' button.
-    fireEvent.press(loadGameButton);
-    //Prompt should remain not visible.
-    expect(loadGamePopUp.props.visible).toBeFalsy();
   });
 
   //Home component should route to difficulty selection menu when the 'yes' button is selected within the prompt.
@@ -217,7 +196,7 @@ describe('Home', () =>{
     fireEvent.press(newGameButton);
     //Wait for component to update after press event.
     //'Play New Game' prompt should be visible.
-    waitFor(() =>{
+    await waitFor(() =>{
       expect(getByTestId('newGamePopUp').props.visible).toBeTruthy();
     })
     //Press 'No' button.

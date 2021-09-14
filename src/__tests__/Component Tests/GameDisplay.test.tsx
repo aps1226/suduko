@@ -1,18 +1,17 @@
 import React from 'react';
 import { Text,View } from 'react-native';
-import renderWithRedux from './renderWithRedux';
-import { createMemoryHistory, createLocation } from 'history';
+import renderWithRedux from '../renderWithRedux';
+import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'history';
 import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
-import {Colors,GameState} from '../../../types';
+import {Colors, GameState, RenderReduxAPI} from '../../../types';
 import {RootState} from '../../state/reducers/index';
-
 import GameDisplay from '../../../components/GameDisplay';
+import { ToggleButton } from 'react-native-paper';
 
 //Mock props for routing.
 const history = createMemoryHistory();
-const path = `/route/:id`;
+const path:string = `/route/:id`;
 const match: match<{ id: string }> = {
     isExact: false,
     path,
@@ -62,6 +61,11 @@ const colors:Colors = {
   ]
 }
 
+const gameState: GameState = {
+  'isCompleted':false,
+  'gameExists':true
+}
+
 //GameDisplay component test.
 describe('GameDisplay',() =>{
 
@@ -70,7 +74,8 @@ describe('GameDisplay',() =>{
     //snapshot comparison.
   const mockStore:RootState = {
     'board':board,
-    'colors':colors
+    'colors':colors,
+    'gameState':gameState
   };
 
   //Mock switch component.
@@ -80,7 +85,7 @@ describe('GameDisplay',() =>{
   })
 
   //Render GameDisplay component with routing and redux.
-  let gameDisplayComponent:any;
+  let gameDisplayComponent:RenderReduxAPI;
   beforeEach(async() =>{
     await waitFor(() =>{
       gameDisplayComponent = renderWithRedux(
@@ -96,7 +101,6 @@ describe('GameDisplay',() =>{
     })
   })
 
-  //Cleanup after each test.
   afterEach(cleanup);
 
   //Component renders without crashing.
@@ -151,6 +155,7 @@ describe('GameDisplay',() =>{
     const gridSquare67 = getByTestId('gridSquare_67');
     //Change entry mode to 'Notes' by pressing the toggle switch.
     fireEvent(entryModeToggle,'valueChange',false);
+    //Values to input as notes.
     [1,2,3,5,6,7,8,9].forEach((num,index) =>{
       let selection = getByTestId(`selectionSquare_${num}`);
       //Press selection value.
@@ -179,7 +184,7 @@ describe('GameDisplay',() =>{
     expect(store.getState().notes['67'].length).toBe(1);
     //Attempt to re-enter note in null square where note for '1' already exists.
     fireEvent.press(gridSquare67);
-    //Assert that length of note state for this square is 1.
+    //Assert that length of note state for this square is still 1.
     expect(store.getState().notes['67'].length).toBe(1);
   })
 
@@ -199,35 +204,19 @@ describe('GameDisplay',() =>{
     expect(store.getState().notes['00']).toBeFalsy();
   })
 
-  //Test that nothing will happen if there is no selection value.
-  it(`should not change the board state if there is no selection value upon entry attempt`, ()=>{
-    const {getByTestId,store} = gameDisplayComponent;
-    const entryModeToggle = getByTestId('entryModeToggle');
-    const gridSquare00 = getByTestId('gridSquare_00');
-    const selection2 = getByTestId(`selectionSquare_2`);
-    //Change entry mode to 'Notes' by pressing the toggle switch.
-    fireEvent(entryModeToggle,'valueChange',false);
-    //Press selection value for '2'.
-    fireEvent.press(selection2);
-    //Attempt to enter '2' note in a square with an existing value.
-    fireEvent.press(gridSquare00);
-    //Assert that a note was not inputted.
-    expect(store.getState().notes['00']).toBeFalsy();
-  })
-
   //If board is not complete, winner animation should not be rendered.
   it(`should not render the Winner component if the board is not complete`, async ()=>{
-    //Simulate a value being inputted on the board.
     const {getByTestId,store,queryByTestId} = gameDisplayComponent;
     const selectionSquare5 = getByTestId('selectionSquare_5');
     const gridSquare67 = getByTestId('gridSquare_67');
-    const winnerAnimation = queryByTestId('winnerAnimation');
     //Select selection square for 5 value.
     fireEvent.press(selectionSquare5);
     //Input a 5 for the grid square at location row 6, column 7.
     fireEvent.press(gridSquare67);
     //Winner animation should not be found.
-    expect(winnerAnimation).toEqual(null);
+    await waitFor(() =>{
+      expect(queryByTestId('winnerAnimation')).toBeFalsy();
+    })
   })
 
   //If board is complete, winner animation should be rendered.
@@ -269,8 +258,8 @@ describe('GameDisplay',() =>{
     fireEvent.press(gridSquare45);
     //Winner animation should not be found.
     await waitFor(()=>{
-      const winnerAnimationPressable = getByTestId('winnerAnimationPressable');
-      fireEvent.press(winnerAnimationPressable);
+      //Simulate screen press.
+      fireEvent.press(getByTestId('winnerAnimationPressable'));
       //History length should increase by 1.
       expect(history.length).toBe(curHistory + 1);
       //Location pathname should be '/'.
@@ -289,10 +278,22 @@ describe('GameDisplay',() =>{
     fireEvent.press(gridSquare00);
     await waitFor(()=>{
       //Test that grid squares with values of 3 have been correctly highlighted.
-      expect(store.getState().colors['3'][0] === '#008000' && store.getState().colors['3'][1] === '#008000').toBeTruthy();
-      gridSquareView3Arr.map((comp:JSX.Element) => expect(comp.props.style.backgroundColor).toBe('#008000'))
-      gridSquareText3Arr.map((comp:JSX.Element) => expect(comp.props.style.color).toBe('#008000'))
+      expect(store.getState().colors['3'][0] === '#008000' && store.getState().colors['3'][1] === '#008000').toBe(true);
+      //All view elements containing a value of 3 should have a background color of '#008000'.
+      gridSquareView3Arr.map((comp) => expect(comp.props.style.backgroundColor).toBe('#008000'))
+      //All text elements containing a value of 3 should have a color of '#008000'.
+      gridSquareText3Arr.map((comp) => expect(comp.props.style.color).toBe('#008000'))
     })
+  })
+
+  //Test timer.
+  it.skip(`should allow for timer value to increment once every second`, async ()=>{
+    const {getByTestId,store} = await gameDisplayComponent;
+    //Current time.
+    const curTime = store.getState().timer.time;
+    //Wait 1 second.
+      //Assert that time has increased by 1.
+    setTimeout(expect(store.getState().timer.time).toBe(curTime+1),2000);
   })
 
   //Test main menu button.
