@@ -1,4 +1,0 @@
-a8c8ba2a7b38bdf240f3d8552a75977c
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _core = require("@unimodules/core");
-var NativeLinearGradient = (0, _core.requireNativeViewManager)('ExpoLinearGradient');var _default =
-NativeLinearGradient;exports.default = _default;

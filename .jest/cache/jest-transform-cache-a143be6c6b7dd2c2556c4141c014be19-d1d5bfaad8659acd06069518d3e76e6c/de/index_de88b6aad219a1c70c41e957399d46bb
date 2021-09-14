@@ -1,2 +1,0 @@
-4625f10abc9ec36387ea22e2501c6b76
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _SplashScreen = require("./SplashScreen");Object.keys(_SplashScreen).forEach(function (key) {if (key === "default" || key === "__esModule") return;if (key in exports && exports[key] === _SplashScreen[key]) return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _SplashScreen[key];} });});

@@ -1,2 +1,0 @@
-d7166b27123cc3d460863b51476b6e10
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _AssetRegistry = require("react-native/Libraries/Image/AssetRegistry");Object.keys(_AssetRegistry).forEach(function (key) {if (key === "default" || key === "__esModule") return;if (key in exports && exports[key] === _AssetRegistry[key]) return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _AssetRegistry[key];} });});

@@ -1,3 +1,0 @@
-37c86f552430e75fe5ea73451e76ddc7
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _core = require("@unimodules/core");var _default =
-_core.NativeModulesProxy.ExpoSplashScreen || {};exports.default = _default;
