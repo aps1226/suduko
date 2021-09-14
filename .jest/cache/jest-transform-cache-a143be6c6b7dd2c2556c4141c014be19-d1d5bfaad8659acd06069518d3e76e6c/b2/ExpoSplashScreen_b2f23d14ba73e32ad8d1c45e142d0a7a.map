@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/ExpoSplashScreen.ts"],"names":[],"mappings":";;;;;AAAA;;eAEe,yBAAmB,gBAAnB,IAAuC,E","sourcesContent":["import { NativeModulesProxy } from '@unimodules/core';\n\nexport default NativeModulesProxy.ExpoSplashScreen || {};\n"],"sourceRoot":""}

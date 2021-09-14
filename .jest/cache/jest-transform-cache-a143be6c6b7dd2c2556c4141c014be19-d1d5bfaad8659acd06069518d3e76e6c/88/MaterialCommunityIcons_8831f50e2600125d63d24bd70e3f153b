@@ -1,5 +1,0 @@
-858839094ce46897dfdffb79fae117eb
-"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _createIconSet = _interopRequireDefault(require("./createIconSet"));
-var _MaterialCommunityIcons = _interopRequireDefault(require("./vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"));
-var _MaterialCommunityIcons2 = _interopRequireDefault(require("./vendor/react-native-vector-icons/glyphmaps/MaterialCommunityIcons.json"));var _default =
-(0, _createIconSet.default)(_MaterialCommunityIcons2.default, 'material-community', _MaterialCommunityIcons.default);exports.default = _default;

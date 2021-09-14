@@ -1,4 +1,0 @@
-7ebd8265f6e537330675c5e047379afb
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "ReactNativeModal", { enumerable: true, get: function get() {return _modal.ReactNativeModal;} });exports.default = void 0;var _modal = require("./modal");var _default =
-
-_modal.ReactNativeModal;exports.default = _default;

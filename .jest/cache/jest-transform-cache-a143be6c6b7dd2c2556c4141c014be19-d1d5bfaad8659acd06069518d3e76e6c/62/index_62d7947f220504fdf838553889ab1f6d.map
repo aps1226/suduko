@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":["ReactNativeModal"],"mappings":";;;;;;;;;;;AAAA;;eAEeA,uB","sourcesContent":["import { ReactNativeModal } from './modal';\nexport { ReactNativeModal } from './modal';\nexport default ReactNativeModal;\n"]}
