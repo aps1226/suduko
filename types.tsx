@@ -1,7 +1,5 @@
-/**
- * Learn more about using TypeScript with React Navigation:
- * https://reactnavigation.org/docs/typescript/
- */
+import { RenderAPI } from '@testing-library/react-native';
+import { RootState } from './src/state/reducers/index';
 
 export type RootStackParamList = {
   Root: undefined;
@@ -43,4 +41,6 @@ export interface Timer {
 export interface GameState {
   [key: string]: boolean
 }
+
+export interface RenderReduxAPI extends RenderAPI,RootState {};
 

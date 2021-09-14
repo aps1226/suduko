@@ -128,6 +128,7 @@ exports[`GameDisplay renders without crashing 1`] = `
                 "lineHeight": 21,
               }
             }
+            testID="timer"
           >
             00:00:00
           </Text>

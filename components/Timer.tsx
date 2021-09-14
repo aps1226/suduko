@@ -52,7 +52,10 @@ export default function Timer() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
+      <Text 
+        style={styles.text}
+        testID = 'timer'
+      >
         {onRender()}
       </Text>
     </View>
