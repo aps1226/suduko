@@ -8,11 +8,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-#jest cache
 .jest/
-#jest testing coverage
 coverage/
-#jest snapshots
 __snapshots__/
 # macOS
 .DS_Store
