@@ -1,3 +1,0 @@
-e6492b00a07fa01b1c7e0b2bc1ae57e7
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _core = require("@unimodules/core");var _default =
-_core.NativeModulesProxy.ExpoFontLoader;exports.default = _default;
