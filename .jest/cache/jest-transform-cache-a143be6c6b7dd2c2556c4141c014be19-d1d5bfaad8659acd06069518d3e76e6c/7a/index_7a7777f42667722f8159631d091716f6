@@ -1,3 +1,0 @@
-0da96e38f7e35128ede0c269d1fee902
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _exportNames = { useFonts: true };Object.defineProperty(exports, "useFonts", { enumerable: true, get: function get() {return _FontHooks.useFonts;} });var _Font = require("./Font");Object.keys(_Font).forEach(function (key) {if (key === "default" || key === "__esModule") return;if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;if (key in exports && exports[key] === _Font[key]) return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _Font[key];} });});
-var _FontHooks = require("./FontHooks");
