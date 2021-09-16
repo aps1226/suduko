@@ -2,10 +2,13 @@ import { RenderAPI } from '@testing-library/react-native';
 import { RootState } from './src/state/reducers/index' 
 import { Store } from './src/state/store';
 
+<<<<<<< HEAD
 //Expands object types one level deep.
 export type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
 //Expands object types one level deep with optional flag.
 export type ExpandOptional<T> = T extends infer O ? { [K in keyof O]?: O[K] } : never;
+=======
+>>>>>>> 5bfc99a (Merge commit.)
 //State property types.
 export type IProps ={
   key?:string;
