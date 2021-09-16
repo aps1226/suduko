@@ -1,16 +1,11 @@
 import React from 'react';
 import { Text,View } from "react-native";
-import { fireEvent, render, waitFor} from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
-import {GameState} from '../../../types';
-import {RootState} from '../../state/reducers/index';
-
+import { render } from '@testing-library/react-native';
 import TextStroke from '../../../components/TextStroke';
 
 //TextStroke component test.
 describe('TextStroke', () =>{
-
-  //Test that the component renders.
+  //Component renders without crashing.
   it('renders without crashing', () =>{
     const titleComponent = render(
       <TextStroke
@@ -24,5 +19,5 @@ describe('TextStroke', () =>{
     ).toJSON();
     expect(titleComponent).toMatchSnapshot();
   })
-
+  
 })

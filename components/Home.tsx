@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
 import Modal from "react-native-modal";
 import {RootState} from '../src/state/reducers/index';
-import {tID} from '../src/getTestID';
 import Title from './Title';
 
 export default function Home({history}:RouteComponentProps) {

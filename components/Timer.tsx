@@ -11,7 +11,7 @@ export default function Timer() {
 
   //Redux state.
   const {gameState, timer} = useSelector((state:RootState) => state);
-  const {time, decrementor} = timer;
+  const {time, incrementor} = timer;
   const {isCompleted, gameExists} = gameState;
   const dispatch = useDispatch();
   const { setTimer } = bindActionCreators(actionCreators,dispatch);
@@ -36,13 +36,13 @@ export default function Timer() {
 
   //Update timer state property every second.
   useEffect(() => {
-    //Pause timer if game is over.
+    //If game is not over increment time by 1.
     if(!isCompleted){
       const countDown = setTimeout(() => {
-        const newTime:number = time + decrementor;
+        const newTime:number = time + incrementor;
         const newTimer:TimerType = {
           'time':newTime,
-          'decrementor':1
+          'incrementor':1
         }
         setTimer(newTimer);
       }, 1000);
@@ -52,7 +52,10 @@ export default function Timer() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
+      <Text 
+        style={styles.text}
+        testID = 'timer'
+      >
         {onRender()}
       </Text>
     </View>

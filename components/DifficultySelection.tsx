@@ -44,7 +44,7 @@ export default function DifficultySelection({history}:RouteComponentProps) {
     setBoard(gameBoard);
     //Revert other properties of state to default.
       //Default timer state prop.
-    const newTimerState:Timer = {'time':0,'decrementor':1};
+    const newTimerState:Timer = {'time':0,'incrementor':1};
     setTimer(newTimerState);
       //Default colors state prop.
     defaultColors();

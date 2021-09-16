@@ -2,8 +2,8 @@ import { SET_TIMER } from '../actions/types';
 import {Timer} from '../../../types'
 
 const initTimer:Timer = {
-  'time':0,
-  'decrementor':1
+  'time':1,
+  'incrementor':1
 }
 const timeReducer = (state = initTimer, action: any) =>{
   switch(action.type){

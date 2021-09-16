@@ -1,18 +1,15 @@
 import React from 'react';
-import { Text,View } from 'react-native';
-import renderWithRedux from './renderWithRedux';
-import { createMemoryHistory, createLocation } from 'history';
+import renderWithRedux from '../renderWithRedux';
+import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'history';
 import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
-import {GameState} from '../../../types';
+import {RenderReduxAPI} from '../../../types';
 import {RootState} from '../../state/reducers/index';
-
 import DifficultySelection from '../../../components/DifficultySelection';
 
 //Mock props for routing.
 const history = createMemoryHistory();
-const path = `/route/:id`;
+const path:string = `/route/:id`;
 const match: match<{ id: string }> = {
     isExact: false,
     path,
@@ -23,12 +20,10 @@ const location = createLocation(match.url);
 
 //DifficultySelection component test.
 describe('DifficultySelection',() =>{
-
   //Mock store object for state management.
   const mockStore:RootState = {};
-
   //Render DifficultySelection component with routing and redux.
-  let difficultySelection:any;
+  let difficultySelection:RenderReduxAPI;
   beforeEach(async() =>{
     await waitFor(() =>{
       difficultySelection = renderWithRedux(
@@ -44,11 +39,10 @@ describe('DifficultySelection',() =>{
     })
   })
 
-  //Cleanup after each test.
   afterEach(cleanup);
 
   //Component renders without crashing.
-  it('renders without crashing',async()=>{
+  it('renders without crashing',()=>{
     expect(difficultySelection.toJSON()).toMatchSnapshot();
   })
 
@@ -56,7 +50,7 @@ describe('DifficultySelection',() =>{
   it(`correctly initializes board when the easy button is selected`, async ()=>{
     const {getByTestId, store} = difficultySelection;
     const easyButton = getByTestId('easyButton');
-    const curHistory = history.length;
+    const curHistory:number = history.length;
     //Press easy button
     fireEvent.press(easyButton);
     await waitFor(()=>{
@@ -81,7 +75,7 @@ describe('DifficultySelection',() =>{
   it(`correctly initializes board when the medium button is selected`, async ()=>{
     const {getByTestId, store} = difficultySelection;
     const mediumButton = getByTestId('mediumButton');
-    const curHistory = history.length;
+    const curHistory:number = history.length;
     //Press medium button.
     fireEvent.press(mediumButton);
     await waitFor(()=>{
@@ -131,7 +125,7 @@ describe('DifficultySelection',() =>{
   it(`correctly initializes board when the extreme button is selected`, async ()=>{
     const {getByTestId, store} = difficultySelection;
     const extremeButton = getByTestId('extremeButton');
-    const curHistory = history.length;
+    const curHistory:number = history.length;
     //Press hard button
     fireEvent.press(extremeButton);
     await waitFor(()=>{
