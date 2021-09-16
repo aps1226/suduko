@@ -3,7 +3,7 @@ import boardReducer from './boardReducer';
 import colorReducer from './colorReducer';
 import difficultyReducer from './difficultyReducer';
 import selectionReducer from './selectionReducer';
-import timeReducer from './timeReducer';
+import timerReducer from './timerReducer';
 import entryModeReducer from './entryModeReducer';
 import notesReducer from './notesReducer';
 import gameStateReducer from './gameStateReducer';
@@ -13,7 +13,7 @@ const reducers = combineReducers({
   colors: colorReducer,
   selection:selectionReducer,
   difficulty:difficultyReducer,
-  timer:timeReducer,
+  timer:timerReducer,
   entryMode: entryModeReducer,
   notes:notesReducer,
   gameState: gameStateReducer

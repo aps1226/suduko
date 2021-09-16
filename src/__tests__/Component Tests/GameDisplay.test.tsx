@@ -104,7 +104,7 @@ describe('GameDisplay',() =>{
   afterEach(cleanup);
 
   //Component renders without crashing.
-  it('renders without crashing',async()=>{
+  it('renders without crashing',()=>{
     expect(gameDisplayComponent.toJSON()).toMatchSnapshot();
   })
 
@@ -150,8 +150,8 @@ describe('GameDisplay',() =>{
   //Test that note entry works.
   it(`should allow for note entry for squares that do not have an inputted value`, ()=>{
     const {getByTestId,store} = gameDisplayComponent;
-    //Square with a null value.
     const entryModeToggle = getByTestId('entryModeToggle');
+    //Square with a null value.
     const gridSquare67 = getByTestId('gridSquare_67');
     //Change entry mode to 'Notes' by pressing the toggle switch.
     fireEvent(entryModeToggle,'valueChange',false);
@@ -170,8 +170,8 @@ describe('GameDisplay',() =>{
   //Test that a square will not allow for a repeated note entry.
   it(`should not allow for a repeated note entry for a given square`, ()=>{
     const {getByTestId,store} = gameDisplayComponent;
-    //Square with a null value.
     const entryModeToggle = getByTestId('entryModeToggle');
+    //Square with a null value.
     const gridSquare67 = getByTestId('gridSquare_67');
     const selection1 = getByTestId(`selectionSquare_1`);
     //Change entry mode to 'Notes' by pressing the toggle switch.
@@ -206,7 +206,7 @@ describe('GameDisplay',() =>{
 
   //If board is not complete, winner animation should not be rendered.
   it(`should not render the Winner component if the board is not complete`, async ()=>{
-    const {getByTestId,store,queryByTestId} = gameDisplayComponent;
+    const {getByTestId,queryByTestId} = gameDisplayComponent;
     const selectionSquare5 = getByTestId('selectionSquare_5');
     const gridSquare67 = getByTestId('gridSquare_67');
     //Select selection square for 5 value.
@@ -221,7 +221,7 @@ describe('GameDisplay',() =>{
 
   //If board is complete, winner animation should be rendered.
   it(`should render the Winner component if the board is complete`, async ()=>{
-    const {getByTestId,store,queryByTestId} = gameDisplayComponent;
+    const {getByTestId,queryByTestId} = gameDisplayComponent;
     const selectionSquare5 = getByTestId('selectionSquare_5');
     const selectionSquare3 = getByTestId('selectionSquare_3');
     const gridSquare67 = getByTestId('gridSquare_67');
@@ -287,13 +287,20 @@ describe('GameDisplay',() =>{
   })
 
   //Test timer.
-  it.skip(`should allow for timer value to increment once every second`, async ()=>{
-    const {getByTestId,store} = await gameDisplayComponent;
-    //Current time.
-    const curTime = store.getState().timer.time;
+  it(`should allow for timer value to increment once every second`, async ()=>{
+    const {getByTestId,store} = gameDisplayComponent;
     //Wait 1 second.
-      //Assert that time has increased by 1.
-    setTimeout(expect(store.getState().timer.time).toBe(curTime+1),2000);
+    await act(()=> new Promise((r) => setTimeout(r, 1000)));
+    //Assert that time has increased from 1->2.
+    expect(store.getState().timer.time).toBe(2);
+    //Wait 1 second.
+    await act(()=>new Promise((r) => setTimeout(r, 1000)));
+    //Assert that time has increased from 2->3.
+    expect(store.getState().timer.time).toBe(3);
+    //Wait 1 second.
+    await act(()=>new Promise((r) => setTimeout(r, 1000)));
+    //Assert that time has increased from 3->4.
+    expect(store.getState().timer.time).toBe(4);
   })
 
   //Test main menu button.

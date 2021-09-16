@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text,View } from 'react-native';
 import renderWithRedux from '../renderWithRedux';
 import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'history';
 import { match } from 'react-router';
@@ -43,7 +42,7 @@ describe('DifficultySelection',() =>{
   afterEach(cleanup);
 
   //Component renders without crashing.
-  it('renders without crashing',async()=>{
+  it('renders without crashing',()=>{
     expect(difficultySelection.toJSON()).toMatchSnapshot();
   })
 
