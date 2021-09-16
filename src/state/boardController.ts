@@ -7,12 +7,10 @@ export function shuffle(array: number[]):number[] {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
   return array;
 }
-
 //Helper function for generateBoard function to determine if respective row and column are valid inputs.
 export function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   //Determine if the current value k exists with in the respective positions:
@@ -29,7 +27,6 @@ export function isValid(board:(number|null)[][], row:number, col:number, k:numbe
   }
   return true;
 }
-
 //Function to generate game board.
 export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   //Iterate through each row of board.
@@ -60,7 +57,6 @@ export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   }
   return data;
 }
-
 //Function determines if the current game board is valid.
 export function isValidSudoku(board:(number|null)[][]):boolean {
   for (let i = 0; i < 9; i++) {
@@ -121,7 +117,6 @@ export function isValidSudoku(board:(number|null)[][]):boolean {
 //   }
 //   return true;
 // }
-
 //Function initializes game board based on difficulty input.
 export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number = Math.floor(37 * Math.random());
@@ -147,7 +142,7 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
       blank = 63;
       break;
   }
-
+  //Remove amount respective of difficulty selection from the generated game board.
   for(let i = 0; i < blank; i++){
     let row:number = Math.floor(9*Math.random());
     let col:number = Math.floor(9*Math.random());
@@ -165,7 +160,6 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
   }
   return curBoard;
 }
-
 //Function determines if the board has been solved.
 export function isCompleted(board:(number|null)[][]):boolean{
   for(let i = 0; i < board.length; i++){

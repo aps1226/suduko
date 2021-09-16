@@ -1,11 +1,11 @@
-import React, {useEffect} from "react";
-import { Alert, ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
-import {isValidSudoku,isCompleted} from '../src/state/boardController'
-import {IProps,Notes} from '../types';
-import {RootState} from '../src/state/reducers/index';
+import { isValidSudoku,isCompleted } from '../src/state/boardController'
+import { IProps,Notes } from '../types';
+import  {RootState } from '../src/state/reducers/index';
 
 export default function GridSquare(props:IProps) {
   //Redux-state.

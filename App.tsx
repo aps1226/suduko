@@ -1,13 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { NativeRouter, Switch, Route  } from "react-router-native";
-
+import { Provider } from 'react-redux'
+import { store } from './src/state/store';
 import Home from './components/Home';
 import GameDisplay from './components/GameDisplay';
 import DifficultySelection from "./components/DifficultySelection";
-
-import { Provider } from 'react-redux'
-import { store } from './src/state/store';
 export default function App() {
 
   return (

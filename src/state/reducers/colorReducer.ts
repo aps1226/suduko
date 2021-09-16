@@ -1,6 +1,6 @@
-import {CHANGE_COLOR,DEFAULT_COLORS} from '../actions/types';
-import {Platform, PlatformIOSStatic,PlatformAndroidStatic} from "react-native";
-import {Colors} from '../../../types'
+import { AnyAction } from 'redux';
+import { CHANGE_COLOR,DEFAULT_COLORS } from '../actions/types';
+import { Colors } from '../../../types'
 
 const initGradient = ():string[] =>{
   const woodPalate:string[] = ["#a37e5c", "#b89372","#c8a484","#dcb999", "#d3af8f","#d9b696","#ceaa89","#d2ae8d","#b38e6d","#aa8563"];
@@ -10,9 +10,7 @@ const initGradient = ():string[] =>{
   }
   return gradient;
 }
-
 const initializedGradient:string[] = initGradient();
-
 const initialState:Colors = {
   1:['transparent','black'],
   2:['transparent','black'],
@@ -34,7 +32,7 @@ const initialState:Colors = {
   'Selection_9':'transparent',
   'gradient': initializedGradient
 }
-const colorReducer = (state = initialState, action:any) =>{
+const colorReducer = (state = initialState, action:AnyAction):Colors =>{
 
   const initialState:Colors = {
     1:['transparent','black'],
