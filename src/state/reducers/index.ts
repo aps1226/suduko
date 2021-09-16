@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import boardReducer from './boardReducer';
 import colorReducer from './colorReducer';
 import difficultyReducer from './difficultyReducer';
