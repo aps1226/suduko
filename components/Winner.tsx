@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
-import { Alert, ImageBackground, Pressable, StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Pressable, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
-import {IProps,Notes} from '../types';
-import {RootState} from '../src/state/reducers/index';
+import { IProps,Notes } from '../types';
+import { RootState } from '../src/state/reducers/index';
 import TextStroke from './TextStroke';
+
 export default function Winner() {
   //Redux-state.
   const {board,colors,selection, entryMode,notes} = useSelector((state:RootState) => state);

@@ -3,19 +3,16 @@ import { StyleSheet, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
-
-import {IProps,Timer as TimerType} from '../types';
-import {RootState} from '../src/state/reducers/index';
+import { IProps,Timer as TimerType } from '../types';
+import { RootState } from '../src/state/reducers/index';
 
 export default function Timer() {
-
   //Redux state.
   const {gameState, timer} = useSelector((state:RootState) => state);
   const {time, incrementor} = timer;
   const {isCompleted, gameExists} = gameState;
   const dispatch = useDispatch();
   const { setTimer } = bindActionCreators(actionCreators,dispatch);
-
   //Method to configure current time display.
   const onRender = ():string =>{
     let remainder:number = time;
@@ -33,7 +30,6 @@ export default function Timer() {
     let curTime:string = `${tensHours}${onesHours}:${tensMinutes}${onesMinutes}:${tensSeconds}${onesSeconds}`;
     return curTime;
   }
-
   //Update timer state property every second.
   useEffect(() => {
     //If game is not over increment time by 1.

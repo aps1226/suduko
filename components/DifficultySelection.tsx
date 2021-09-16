@@ -7,10 +7,9 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index'; 
 import {RootState} from '../src/state/reducers/index';
 import {generateBoard,initBoard} from '../src/state/boardController';
-
 import {Colors,Timer,GameState} from '../types';
+
 export default function DifficultySelection({history}:RouteComponentProps) {
-  
   //Redux state.
   const {
     board,
@@ -31,7 +30,6 @@ export default function DifficultySelection({history}:RouteComponentProps) {
     defaultNotes, 
     setGameState
   } = bindActionCreators(actionCreators,dispatch);
-  
   //Handle selection of difficulty.
     //Set difficulty level based on selection.
     //Route to new game.

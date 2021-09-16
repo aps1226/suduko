@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
-
 import Board from './Board';
 import SelectionSquare from './SelectionSquare';
 import Toggle from './Toggle'
 import { useSelector, useDispatch } from "react-redux";
-import {IProps} from '../types';
-import {RootState} from '../src/state/reducers/index';
+import { IProps } from '../types';
+import { RootState } from '../src/state/reducers/index';
 
 export default function SelectionBar() {
-
   //Redux-state.
     //Get color gradient for selection bar container.
   const {colors} = useSelector((state:RootState) => state);

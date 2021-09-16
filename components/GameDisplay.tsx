@@ -1,12 +1,9 @@
-import React,{useEffect} from "react";
+import React,{ useEffect } from "react";
 import { Button, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import { useSelector, useDispatch } from "react-redux"; 
-import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index'; 
-import {IProps,Notes,Timer as TimerType} from '../types';
-import {RootState} from '../src/state/reducers/index';
-
+import { IProps,Notes,Timer as TimerType } from '../types';
+import { RootState } from '../src/state/reducers/index';
 import Board from './Board';
 import SelectionBar from './SelectionBar';
 import Timer from './Timer';
@@ -18,6 +15,7 @@ export default function GameDisplay({history}:RouteComponentProps) {
   const {gameState} = useSelector((state:RootState) => state);
   const {isCompleted,gameExists} = gameState;
   const dispatch = useDispatch();
+  
   //Function checks gameState state prop to determine if the board
   //has been completed.
     //If it has, render Winner component.

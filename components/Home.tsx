@@ -1,25 +1,22 @@
-import React,{useState} from "react";
-import { Alert, Button, Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import React,{ useState } from "react";
+import { Button, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { RouteComponentProps } from 'react-router-native';
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
 import Modal from "react-native-modal";
-import {RootState} from '../src/state/reducers/index';
+import { RootState } from '../src/state/reducers/index';
 import Title from './Title';
 
 export default function Home({history}:RouteComponentProps) {
-  
   //React state for load game pop-up menu (use case is for when a game does not exist).
   const [loadGamePopUp, setLoadGamePopUp] = useState(false);
   //React state for new game pop-up menu (use case is for when a game does not exist).
   const [newGamePopUp, setNewGamePopUp] = useState(false);
-
   //Redux-state.
   const {gameState} = useSelector((state:RootState) => state);
   const {isCompleted,gameExists} = gameState;
   const dispatch = useDispatch();
-
   //Function to route to a different component.
   const handlePress = (route:string):void =>{
     history.push(route);

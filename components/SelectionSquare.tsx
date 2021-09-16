@@ -1,33 +1,34 @@
 import React, {useEffect} from "react";
-import { Alert, ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
-
 import AppLoading from 'expo-app-loading';
 import { useFonts } from '@use-expo/font';
-
-import {IProps} from '../types';
-import {RootState} from '../src/state/reducers/index';
+import { IProps } from '../types';
+import { RootState } from '../src/state/reducers/index';
         
 export default function SelectionSquare(props:IProps) {
-  
+  //Passed props for respective selection square value.
   const {number} = props;
-
+  //Redux-state.
   const {selection,colors,entryMode} = useSelector((state:RootState) => state);
   const color:string = colors[`Selection_${number}`];
   const dispatch = useDispatch();
+  //Redux actions.
   const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
-
+  //Function highlights current square and changes selection value to current
+  //square value.
   const handleOnPress = ():void =>{
     setSelection(number);
     changeColor(`Selection_${number}`);
   }
+  //Load fonts.
   const [isLoaded] = useFonts({
     "JustAnotherHand":require("../assets/fonts/JustAnotherHand-Regular.ttf"),
     "SpaceMono":require("../assets/fonts/SpaceMono-Regular.ttf")
   })
-  
+  //Wait for fonts to load.
   if(!isLoaded){
     return(<AppLoading/>);
   }else{
