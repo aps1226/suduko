@@ -39,17 +39,17 @@ describe('Home', () =>{
 
   afterEach(cleanup);
 
-  //Home component should match current screenshot.
+  //Component renders without crashing.
   it('renders without crashing', () => {
     expect(homeComponent.toJSON()).toMatchSnapshot();
   });
 
-  //Home component should route to the difficulty selection menu when the 'Play New Game' button is selected.
-  it(`routes to difficulty selection menu when pressing 'Play New Game'.`, () => {
+  //Home component should route to the difficulty selection menu when the 'Play New Game' button is selected
+  //if a game does not currently exist.
+  it(`routes to difficulty selection menu when pressing 'Play New Game' if a game does not currently exist.`, () => {
     const {getByTestId} = homeComponent;
     const newGameButton = getByTestId('newGameButton');
     const curHistory = history.length;
-    expect(history.length).toBe(curHistory);
     //Press 'Play New Game' button.
     fireEvent.press(newGameButton);
     //History length should increase by 1.
@@ -63,9 +63,6 @@ describe('Home', () =>{
     const {getByTestId} = homeComponent;
     const loadGameButton = getByTestId('loadGameButton');
     const curHistory = history.length;
-    expect(history.length).toBe(curHistory);
-    //Location pathname should initially be '/DifficultySelection'.
-    expect(history.location.pathname).toBe('/DifficultySelection')
     //Press 'Load Game Button'.
     fireEvent.press(loadGameButton);
     //History length should not change.
@@ -83,7 +80,7 @@ describe('Home', () =>{
     expect(loadGamePopUp.props.visible).toBeFalsy();
     //Press 'Load Game' button.
     fireEvent.press(loadGameButton);
-    //Popup should no longer be visible.
+    //Popup should be visible.
     expect(loadGamePopUp.props.visible).toBeTruthy();
   });
   
@@ -115,10 +112,9 @@ describe('Home', () =>{
 
   })
 
-  
-  //Home component should route to GameDisplay component if a current game exists.
+  //Home component should route to GameDisplay component when pressing the 'Load Game' button if a current game exists.
   it(`routes to GameDisplay when pressing 'Load Game' if a game does exist.`, () => {
-    const {getByTestId, store} = homeComponent;
+    const {getByTestId} = homeComponent;
     const loadGameButton = getByTestId('loadGameButton');
     const curHistory = history.length;
     expect(history.length).toBe(curHistory);
@@ -175,40 +171,32 @@ describe('Home', () =>{
     fireEvent.press(newGameButton);
     //Press 'Yes' button.
     fireEvent.press(yesButton);
-    //History length should initially be 6.
+    //History length should increase by 1.
     expect(history.length).toBe(curHistory + 1);
     //Location pathname should be 'DifficultySelection'.
     expect(history.location.pathname).toBe('/DifficultySelection');
   })
 
-  //When the 'No' button is selected on the prompt it should disappear
-  //and not route to another component.
-  it(`prompt should disappear and not route to any other component when the 'No' button is selected on the prompt.`, async()=>{
+  //When the 'No' button is selected on the prompt it should disappear and not route to another component.
+  it(`prompt should disappear and not route to any other component when the 'No' button is selected on the prompt.`, async ()=>{
     const {getByTestId} = homeComponent;
     const newGameButton = getByTestId('newGameButton');
     const newGamePopUp = getByTestId('newGamePopUp');
     const noButton = getByTestId('newGamePopUpNo');
     const curHistory = history.length;
-    expect(history.length).toBe(curHistory);
-    //Location pathname should initially be 'DifficultySelection'.
-    expect(history.location.pathname).toBe('/DifficultySelection');
     //Press 'Play New Game' button.
     fireEvent.press(newGameButton);
-    //Wait for component to update after press event.
-    //'Play New Game' prompt should be visible.
-    await waitFor(() =>{
-      expect(getByTestId('newGamePopUp').props.visible).toBeTruthy();
-    })
-    //Press 'No' button.
+    //Press 'No' button on the 'Play New Game'.
     fireEvent.press(noButton);
     //Wait for component to update after press event.
-    //'Play New Game' prompt should not be visible.
     await waitFor(() =>{
+      //'Play New Game' prompt should not be visible.
       expect(getByTestId('newGamePopUp').props.visible).toBeFalsy();
+      //History length should remain the same.
+      expect(history.length).toBe(curHistory);
+      //Location pathname should initially be 'DifficultySelection'.
+      expect(history.location.pathname).toBe('/DifficultySelection');
     })
-    //History length should remain the same.
-    expect(history.length).toBe(curHistory);
-    //Location pathname should initially be 'DifficultySelection'.
-    expect(history.location.pathname).toBe('/DifficultySelection');
   })
+  
 });

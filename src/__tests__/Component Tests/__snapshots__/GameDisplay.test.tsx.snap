@@ -130,7 +130,7 @@ exports[`GameDisplay renders without crashing 1`] = `
             }
             testID="timer"
           >
-            00:00:00
+            00:00:01
           </Text>
         </View>
       </View>

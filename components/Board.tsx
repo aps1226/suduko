@@ -1,6 +1,5 @@
 import React,{ useEffect } from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
-
 import SubBox from "./SubBox";
 
 export default function Board() {
