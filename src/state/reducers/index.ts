@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { Expand } from '../../../types'
 import boardReducer from './boardReducer';
 import colorReducer from './colorReducer';
 import difficultyReducer from './difficultyReducer';
@@ -19,6 +20,6 @@ const reducers = combineReducers({
   gameState: gameStateReducer
 });
 
-export type RootState = ReturnType<typeof reducers>;
+export type RootState = Expand<ReturnType<typeof reducers>>;
 
 export default reducers;

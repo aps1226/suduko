@@ -3,7 +3,7 @@ import renderWithRedux from '../renderWithRedux';
 import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'history';
 import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
-import {RenderReduxAPI} from '../../../types';
+import { RenderReduxAPI, MockStore } from '../../../types';
 import {RootState} from '../../state/reducers/index';
 import DifficultySelection from '../../../components/DifficultySelection';
 
@@ -21,7 +21,7 @@ const location = createLocation(match.url);
 //DifficultySelection component test.
 describe('DifficultySelection',() =>{
   //Mock store object for state management.
-  const mockStore:RootState = {};
+  const mockStore:MockStore = {};
   //Render DifficultySelection component with routing and redux.
   let difficultySelection:RenderReduxAPI;
   beforeEach(async() =>{

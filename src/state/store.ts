@@ -7,3 +7,5 @@ export const store = createStore(
   {},
   applyMiddleware(thunk)
 )
+
+export type Store = typeof store;

@@ -1,6 +1,11 @@
 import { RenderAPI } from '@testing-library/react-native';
-import { RootState } from './src/state/reducers/index';
+import { RootState } from './src/state/reducers/index' 
+import { Store } from './src/state/store';
 
+//Expands object types one level deep.
+export type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
+//Expands object types one level deep with optional flag.
+export type ExpandOptional<T> = T extends infer O ? { [K in keyof O]?: O[K] } : never;
 //State property types.
 export type IProps ={
   key?:string;
@@ -24,6 +29,14 @@ export interface Timer {
 export interface GameState {
   [key: string]: boolean
 }
+//Type for MockStore (used for testing).
+export type MockStore = ExpandOptional<RootState>
 //Type for return type of renderWithRedux function (used for testing).
-export interface RenderReduxAPI extends RenderAPI,RootState {};
-
+export interface RenderReduxAPI extends RenderAPI {
+  store:Store
+};
+//Type for store argument of renderWithRedux function (used for testing).
+export interface IStore {
+  initialState?:MockStore;
+  store?:Store;
+};
