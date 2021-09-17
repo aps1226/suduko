@@ -17,7 +17,7 @@ export default function GridSquare(props:IProps) {
   const {row,col} = props;
   //Color for respective square based on current value.
   const colorIndex:string = String(board[row][col]);
-  const color:string[] = colors[colorIndex] ? colors[colorIndex]: ['transparent','black'];
+  const color:string[] = (colors[colorIndex] ? colors[colorIndex]: ['transparent','black']) as string[];
   
   const handleOnPress = ():void =>{
     //If value of board selection is not null
@@ -26,7 +26,7 @@ export default function GridSquare(props:IProps) {
       //Set selection prop equal to value.
     if(board[row][col]){
       changeColor(String(board[row][col]));
-      setSelection(board[row][col]);
+      setSelection(Number(board[row][col]));
     //Else, determine if current selection placed at the respective
     //location creates a valid board.
     }else if(selection && entryMode){
