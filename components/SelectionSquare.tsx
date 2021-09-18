@@ -5,7 +5,6 @@ import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-// import { useFonts } from '@use-expo/font';
 import { IProps } from '../types';
 import { RootState } from '../src/state/reducers/index';
         
@@ -32,7 +31,7 @@ export default function SelectionSquare(props:IProps) {
   //Wait for fonts to load.
   if(!isLoaded){
     return(<AppLoading/>);
-  }else{
+  } else {
     let fontFamily:string = entryMode ? "SpaceMono":"JustAnotherHand";
     let marginTop:number = entryMode ? 0:5;
     return (

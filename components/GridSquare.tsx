@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, TouchableHighlight, Platform, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../src/state/index';
-import { isValidSudoku,isCompleted } from '../src/state/boardController'
+import { isCompleted, isSolvable, isValidSudoku } from '../src/state/boardController'
 import { IProps,Notes } from '../types';
 import  {RootState } from '../src/state/reducers/index';
 
@@ -32,8 +32,12 @@ export default function GridSquare(props:IProps) {
     }else if(selection && entryMode){
       const newBoard:(number|null)[][] = board.map((arr:(number|null)[])=> [...arr]);
       newBoard[row][col] = Number(selection);
-      //If board would be valid, modify board state.
-      if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))){
+      //If board would be valid && solvable, modify board state.
+      if(
+        isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr])) &&
+        isSolvable(newBoard.map((arr:(number|null)[])=> [...arr]))
+        )
+      {
         setBoard(newBoard);
         //Check if board is completed.
           //If complete, modify gameState property to where 'isComplete' index is true.
@@ -52,6 +56,11 @@ export default function GridSquare(props:IProps) {
         //If note object at current square index does not include the current selection,
         //add the selection to the array at the index.
         if(!newNotes[newNotesIndex].includes(selection)) newNotes[newNotesIndex].push(selection)
+        //Erase the existing note.
+        else{
+          const index:number = newNotes[newNotesIndex].indexOf(selection);
+          newNotes[newNotesIndex] = [...newNotes[newNotesIndex].slice(0,index),...newNotes[newNotesIndex].slice(index+1)];
+        }
       //Else, create the index within the note object initialized to current selection.
       } else newNotes[newNotesIndex] = [selection];
       //Set new notes state.
@@ -176,7 +185,14 @@ const styles = StyleSheet.create({
     alignItems:'flex-start'
   },
   noteText:{
-    fontSize:9,
+    ...Platform.select({
+      ios:{
+        fontSize:9,
+      },
+      android:{
+        fontSize:10.75
+      }
+    }),
     fontFamily:'JustAnotherHand',
   },
   backgroundImage:{

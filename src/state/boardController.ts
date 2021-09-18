@@ -86,37 +86,37 @@ export function isValidSudoku(board:(number|null)[][]):boolean {
   }
   return true
 };
-////*Not needed.
-////Function determines if the current game board is solvable.
-// export function isSolvable(data:(number|null)[][]):boolean {
-//   //Iterate through each row of board.
-//   for (let i = 0; i < 9; i++) {
-//     //Iterate through column of respective row.
-//     for (let j = 0; j < 9; j++) {
-//       //If current value needs an entry.
-//       if (data[i][j] == null) {
-//         //Iterate through possible values.
-//         for (let k = 1; k <= 9; k++) {
-//           //Determine if current value if valid for the board
-//           //at the current position.
-//           if (isValid(data, i, j, k)) {
-//             data[i][j] = k;
-//             //If the value is valid, recurse with the given value
-//             //entered on the board.
-//             if (isSolvable(data)) {
-//               return true;
-//             //If false is returned, iterate to the next value.
-//             } else {
-//               data[i][j] = null;
-//             }
-//           }
-//         }
-//         return false;
-//       }
-//     }
-//   }
-//   return true;
-// }
+
+//Function determines if the current game board is solvable.
+export function isSolvable(data:(number|null)[][]):boolean {
+  //Iterate through each row of board.
+  for (let i = 0; i < 9; i++) {
+    //Iterate through column of respective row.
+    for (let j = 0; j < 9; j++) {
+      //If current value needs an entry.
+      if (data[i][j] == null) {
+        //Iterate through possible values.
+        for (let k = 1; k <= 9; k++) {
+          //Determine if current value if valid for the board
+          //at the current position.
+          if (isValid(data, i, j, k)) {
+            data[i][j] = k;
+            //If the value is valid, recurse with the given value
+            //entered on the board.
+            if (isSolvable(data)) {
+              return true;
+            //If false is returned, iterate to the next value.
+            } else {
+              data[i][j] = null;
+            }
+          }
+        }
+        return false;
+      }
+    }
+  }
+  return true;
+}
 //Function initializes game board based on difficulty input.
 export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number = Math.floor(37 * Math.random());
