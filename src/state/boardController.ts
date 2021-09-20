@@ -148,14 +148,6 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
     let col:number = Math.floor(9*Math.random());
     while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
     const clonedBoard = curBoard.map(arr => [...arr])
-    ////*Not needed.
-    // while(!isSolvable(clonedBoard)){
-    //   clonedBoard[row][col] = curBoard[row][col];
-    //   row = Math.floor(9*Math.random());
-    //   col = Math.floor(9*Math.random());
-    //   while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
-    //   clonedBoard[row][col] = null;
-    // }
     curBoard[row][col] = null;
   }
   return curBoard;

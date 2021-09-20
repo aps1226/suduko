@@ -302,6 +302,33 @@ describe('GameDisplay',() =>{
     expect(store.getState().timer.time).toBe(4);
   })
 
+  //Test that game timer stops after board completion.
+  it(`should cause timer to stop incrementing when the game board is solved`, async () => {
+    const {getByTestId,queryByTestId,store} = gameDisplayComponent;
+    const selectionSquare5 = getByTestId('selectionSquare_5');
+    const selectionSquare3 = getByTestId('selectionSquare_3');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    const gridSquare45 = getByTestId('gridSquare_45');
+    //Select selection square for 5 value.
+    fireEvent.press(selectionSquare5);
+    //Input a 5 for the grid square at location row 6, column 7.
+    fireEvent.press(gridSquare67);
+    //Select selection square for 3 value.
+    fireEvent.press(selectionSquare3);
+    //Input a 3 for the grid square at location row 4, column 5.
+    fireEvent.press(gridSquare45);
+    await waitFor( async () => {
+      //Wait 1 second.
+      await act(()=> new Promise((r) => setTimeout(r, 1000)));
+      //Determine current time.
+      const curTime  = store.getState().timer.time;
+      //Wait 2 second.
+      await act(()=> new Promise((r) => setTimeout(r, 2000)));
+      //Assert that time has not increased.
+      expect(store.getState().timer.time).toBe(curTime);
+    })
+  })
+
   //Test main menu button.
   it(`should route to the main menu when the 'Main Menu' button is selected`,() =>{
     const {getByTestId} = gameDisplayComponent;
