@@ -3,9 +3,9 @@ Mobile Suduko application.
 
 # Game Play
 <p align="center">
-  <img src='assets/Readme_Images/Main_Menu.png' height="12.5%" width="12.5%" hspace="50"/>
-  <img src='assets/Readme_Images/Difficulty_Selection.png' height="12.5%" width="12.5%" marginLeft="20%" hspace="50"/>
-  <img src='assets/Readme_Images/Game_Play.png' height="12.5%" width="12.5%" hspace="50"/>
+  <img src='assets/Readme_Images/Main_Menu.png' height="25%" width="25%" hspace="50"/>
+  <img src='assets/Readme_Images/Difficulty_Selection.png' height="25%" width="25%" hspace="50"/>
+  <img src='assets/Readme_Images/Game_Play.png' height="25%" width="25%" hspace="50"/>
 </p>
 
 # Tech/framework used
