@@ -5,7 +5,6 @@ Mobile Suduko application.
 
 ![Game Play](assets/Readme_Images/Suduko_Gif.mp4)
 
-
 # Tech/frameworks used
 - [Expo](https://expo.dev/)
 - [React Native](https://reactnative.dev/)
