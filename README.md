@@ -2,9 +2,9 @@
 Mobile Suduko application.
 
 # Game Play
-<p align="center">
-  <video src='assets/Readme_Images/Suduko_Gif.mp4'/>
-</p>
+
+![Game Play](assets/Readme_Images/Suduko_Gif.mp4)
+
 
 # Tech/frameworks used
 - [Expo](https://expo.dev/)
