@@ -3,7 +3,7 @@ Mobile Suduko application.
 
 # Game Play
 
-![Game Play](assets/Readme_Images/Suduko_Gif.mp4)
+![Game Play](assets/Readme_Images/Suduko.mov)
 
 # Tech/frameworks used
 - [Expo](https://expo.dev/)
