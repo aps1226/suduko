@@ -2,9 +2,7 @@
 Mobile Suduko application.
 
 # Game Play
-<p align = 'center'>
-  <video src ='https://github.com/aps1226/suduko/blob/dev/assets/Readme/Suduko.mp4' height ='25%' width ='25%'>
-</p>
+<video src ='https://github.com/aps1226/suduko/blob/dev/assets/Readme/Suduko.mp4' height ='25%' width ='25%'>
 
 # Tech/frameworks used
 - [Expo](https://expo.dev/)
