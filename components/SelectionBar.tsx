@@ -35,7 +35,7 @@ export default function SelectionBar() {
   return (
       <View style = {styles.container}>
         <LinearGradient
-          colors={colors['gradient']}
+          colors={colors['gradient'] as string[]}
           start={[0, 0.5]}
           end = {[1,0.5]}
           style = {styles.linearGradient}

@@ -160,7 +160,7 @@ function isCompleted(board:(number|null)[][]):boolean{
   return true;
 }
 
-module.exports = {
+export {
   shuffle,
   isValid,
   generateBoard,

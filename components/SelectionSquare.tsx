@@ -13,7 +13,7 @@ export default function SelectionSquare(props:IProps) {
   const {number} = props;
   //Redux-state.
   const {selection,colors,entryMode} = useSelector((state:RootState) => state);
-  const color:string = String(colors[`Selection_${number}`]);
+  const color:string = colors[`Selection_${number}`] as string;
   const dispatch = useDispatch();
   //Redux actions.
   const { setSelection, changeColor } = bindActionCreators(actionCreators,dispatch);
