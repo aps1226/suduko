@@ -2,8 +2,9 @@
 Mobile Suduko application.
 
 # Game Play
-
-https://user-images.githubusercontent.com/79802526/134729566-5c04aeb2-de09-41c5-9e18-25a14ed969a4.mp4
+<p align = 'center'>
+  <video src='https://user-images.githubusercontent.com/79802526/134729566-5c04aeb2-de09-41c5-9e18-25a14ed969a4.mp4'>
+</p>
 
 # Tech/frameworks used
 - [Expo](https://expo.dev/)
