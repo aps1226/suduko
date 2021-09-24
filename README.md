@@ -3,13 +3,7 @@ Mobile Suduko application.
 
 # Game Play
 <div align ="center">
-   <video 
-      controls
-      autoplay
-      width ='100%' 
-      height='100%'
-      src='https://user-images.githubusercontent.com/79802526/134729566-5c04aeb2-de09-41c5-9e18-25a14ed969a4.mp4'
-    >
+   <video src="https://user-images.githubusercontent.com/79802526/134729566-5c04aeb2-de09-41c5-9e18-25a14ed969a4.mp4"/>
 </div>
 
 # Tech/frameworks used
