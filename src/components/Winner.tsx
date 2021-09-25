@@ -3,9 +3,9 @@ import { Pressable, StyleSheet, TouchableHighlight, Text, View } from "react-nat
 import ConfettiCannon from 'react-native-confetti-cannon';
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index';
-import { IProps,Notes } from '../types';
-import { RootState } from '../src/state/reducers/index';
+import * as actionCreators from '../state/index';
+import { IProps,Notes } from '../../types';
+import { RootState } from '../state/reducers/index';
 import TextStroke from './TextStroke';
 
 export default function Winner() {

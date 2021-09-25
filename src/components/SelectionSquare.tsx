@@ -2,11 +2,11 @@ import React, {useEffect} from "react";
 import { ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index';
+import * as actionCreators from '../state/index';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-import { IProps } from '../types';
-import { RootState } from '../src/state/reducers/index';
+import { IProps } from '../../types';
+import { RootState } from '../state/reducers/index';
         
 export default function SelectionSquare(props:IProps) {
   //Passed props for respective selection square value.
@@ -25,8 +25,8 @@ export default function SelectionSquare(props:IProps) {
   }
   //Load fonts.
   const [isLoaded] = useFonts({
-    "JustAnotherHand":require("../assets/fonts/JustAnotherHand-Regular.ttf"),
-    "SpaceMono":require("../assets/fonts/SpaceMono-Regular.ttf")
+    "JustAnotherHand":require("../../assets/fonts/JustAnotherHand-Regular.ttf"),
+    "SpaceMono":require("../../assets/fonts/SpaceMono-Regular.ttf")
   })
   //Wait for fonts to load.
   if(!isLoaded){
@@ -40,7 +40,7 @@ export default function SelectionSquare(props:IProps) {
       >
         {color === 'transparent' || !color ?
           <ImageBackground
-            source = {require('../assets/images/square.jpg')}
+            source = {require('../../assets/images/square.jpg')}
             style = {{
               width:'100%',
             }}

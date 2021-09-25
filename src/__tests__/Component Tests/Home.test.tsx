@@ -4,7 +4,7 @@ import { createMemoryHistory, createLocation } from 'history';
 import { match } from 'react-router'; 
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
 import {RenderReduxAPI,MockStore} from '../../../types';
-import Home from '../../../components/Home';
+import Home from '../../components/Home';
 
 //Mock props for routing.
 const history = createMemoryHistory();

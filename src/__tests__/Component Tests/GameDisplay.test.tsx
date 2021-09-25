@@ -5,7 +5,7 @@ import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'his
 import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
 import {Colors, GameState, MockStore, RenderReduxAPI} from '../../../types';
-import GameDisplay from '../../../components/GameDisplay';
+import GameDisplay from '../../components/GameDisplay';
 import { ToggleButton } from 'react-native-paper';
 
 //Mock props for routing.

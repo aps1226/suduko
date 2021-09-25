@@ -5,8 +5,8 @@ import Board from './Board';
 import SelectionSquare from './SelectionSquare';
 import Toggle from './Toggle'
 import { useSelector, useDispatch } from "react-redux";
-import { IProps } from '../types';
-import { RootState } from '../src/state/reducers/index';
+import { IProps } from '../../types';
+import { RootState } from '../state/reducers/index';
 
 export default function SelectionBar() {
   //Redux-state.

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import GridSquare from "./GridSquare";
-import { IProps } from '../types';
+import { IProps } from '../../types';
 
 export default function SubBox(props:IProps) {
   //Passed props for respective row value and column value.

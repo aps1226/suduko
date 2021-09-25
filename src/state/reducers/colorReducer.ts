@@ -34,7 +34,7 @@ const initialState:Colors = {
 }
 const colorReducer = (state = initialState, action:AnyAction):Colors =>{
 
-  const initialState:Colors = {
+  const defaultState:Colors = {
     1:['transparent','black'],
     2:['transparent','black'],
     3:['transparent','black'],
@@ -59,13 +59,13 @@ const colorReducer = (state = initialState, action:AnyAction):Colors =>{
   switch(action.type){
     case CHANGE_COLOR:
       if(!action.payload.includes('Selection')){
-        initialState[action.payload] = ['#008000','#008000'];
-        initialState[`Selection_${action.payload}`] = '#3297FD';
-      }else initialState[action.payload] = '#3297FD';
-      return initialState;
+        defaultState[action.payload] = ['#008000','#008000'];
+        defaultState[`Selection_${action.payload}`] = '#3297FD';
+      }else defaultState[action.payload] = '#3297FD';
+      return defaultState;
     case DEFAULT_COLORS:
-      initialState['Selection_1'] = '#3297FD';
-      return initialState;
+      defaultState['Selection_1'] = '#3297FD';
+      return defaultState;
     default:
       return state;
   }

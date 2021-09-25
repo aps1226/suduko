@@ -4,10 +4,10 @@ import { RouteComponentProps } from 'react-router-native';
 import SubBox from "./SubBox";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index'; 
-import {RootState} from '../src/state/reducers/index';
-import {generateBoard,initBoard} from '../src/state/boardController';
-import {Colors,Timer,GameState} from '../types';
+import * as actionCreators from '../state/index'; 
+import {RootState} from '../state/reducers/index';
+import {generateBoard,initBoard} from '../state/boardController';
+import {Colors,Timer,GameState} from '../../types';
 
 export default function DifficultySelection({history}:RouteComponentProps) {
   //Redux state.
