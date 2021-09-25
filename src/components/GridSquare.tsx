@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { ImageBackground, StyleSheet, TouchableHighlight, Platform, Text, View } from "react-native";
+import { ImageBackground, Image, StyleSheet, TouchableHighlight, Platform, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
 import * as actionCreators from '../state/index';
 import { isCompleted, isSolvable, isValidSudoku } from '../state/boardController'
 import { IProps,Notes } from '../../types';
 import  {RootState } from '../state/reducers/index';
-
-export default function GridSquare(props:IProps) {
+function GridSquare(props:IProps){
   //Redux-state.
   const {board,colors,selection, entryMode,notes} = useSelector((state:RootState) => state);
   const dispatch = useDispatch();
@@ -145,7 +144,7 @@ export default function GridSquare(props:IProps) {
           testID = {`gridSquareView_${board[row][col]}`}
         >
           <ImageBackground
-            source = {require('../../assets/images/square.jpg')}
+            source = {require('../../assets/images/square.webp')}
             style = {styles.backgroundImage}
           >
             {/* Render values based on ternary conditional respective of 
@@ -200,3 +199,5 @@ const styles = StyleSheet.create({
     height:'100%'
   }
 });
+
+export default GridSquare;

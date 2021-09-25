@@ -13,7 +13,7 @@ export default function App() {
       <NativeRouter>
         <View style={styles.container}>
           <ImageBackground 
-            source = {require('./assets/images/desk.png')}
+            source = {require('./assets/images/desk.webp')}
             style={styles.backgroundImage}
           >
             <Switch>

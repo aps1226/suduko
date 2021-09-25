@@ -40,7 +40,7 @@ export default function SelectionSquare(props:IProps) {
       >
         {color === 'transparent' || !color ?
           <ImageBackground
-            source = {require('../../assets/images/square.jpg')}
+            source = {require('../../assets/images/square.webp')}
             style = {{
               width:'100%',
             }}
