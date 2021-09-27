@@ -29,7 +29,12 @@
       }
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "build": {
+        "babel": {
+          "include": ["react-router-native"]
+        }
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
 import { RenderReduxAPI, MockStore } from '../../../types';
 import {RootState} from '../../state/reducers/index';
-import DifficultySelection from '../../../components/DifficultySelection';
+import DifficultySelection from '../../components/DifficultySelection';
 
 //Mock props for routing.
 const history = createMemoryHistory();

@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { ImageBackground, StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { ImageBackground, Image, StyleSheet, TouchableHighlight, Platform, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index';
-import { isValidSudoku,isCompleted } from '../src/state/boardController'
-import { IProps,Notes } from '../types';
-import  {RootState } from '../src/state/reducers/index';
-
-export default function GridSquare(props:IProps) {
+import * as actionCreators from '../state/index';
+import { isCompleted, isSolvable, isValidSudoku } from '../state/boardController'
+import { IProps,Notes } from '../../types';
+import  {RootState } from '../state/reducers/index';
+function GridSquare(props:IProps){
   //Redux-state.
   const {board,colors,selection, entryMode,notes} = useSelector((state:RootState) => state);
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ export default function GridSquare(props:IProps) {
   const {row,col} = props;
   //Color for respective square based on current value.
   const colorIndex:string = String(board[row][col]);
-  const color:string[] = colors[colorIndex] ? colors[colorIndex]: ['transparent','black'];
+  const color:string[] = (colors[colorIndex] ? colors[colorIndex]: ['transparent','black']) as string[];
   
   const handleOnPress = ():void =>{
     //If value of board selection is not null
@@ -26,14 +25,18 @@ export default function GridSquare(props:IProps) {
       //Set selection prop equal to value.
     if(board[row][col]){
       changeColor(String(board[row][col]));
-      setSelection(board[row][col]);
+      setSelection(Number(board[row][col]));
     //Else, determine if current selection placed at the respective
     //location creates a valid board.
     }else if(selection && entryMode){
       const newBoard:(number|null)[][] = board.map((arr:(number|null)[])=> [...arr]);
       newBoard[row][col] = Number(selection);
-      //If board would be valid, modify board state.
-      if(isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr]))){
+      //If board would be valid && solvable, modify board state.
+      if(
+        isValidSudoku(newBoard.map((arr:(number|null)[])=> [...arr])) &&
+        isSolvable(newBoard.map((arr:(number|null)[])=> [...arr]))
+        )
+      {
         setBoard(newBoard);
         //Check if board is completed.
           //If complete, modify gameState property to where 'isComplete' index is true.
@@ -52,6 +55,11 @@ export default function GridSquare(props:IProps) {
         //If note object at current square index does not include the current selection,
         //add the selection to the array at the index.
         if(!newNotes[newNotesIndex].includes(selection)) newNotes[newNotesIndex].push(selection)
+        //Erase the existing note.
+        else{
+          const index:number = newNotes[newNotesIndex].indexOf(selection);
+          newNotes[newNotesIndex] = [...newNotes[newNotesIndex].slice(0,index),...newNotes[newNotesIndex].slice(index+1)];
+        }
       //Else, create the index within the note object initialized to current selection.
       } else newNotes[newNotesIndex] = [selection];
       //Set new notes state.
@@ -136,7 +144,7 @@ export default function GridSquare(props:IProps) {
           testID = {`gridSquareView_${board[row][col]}`}
         >
           <ImageBackground
-            source = {require('../assets/images/square.jpg')}
+            source = {require('../../assets/images/square.webp')}
             style = {styles.backgroundImage}
           >
             {/* Render values based on ternary conditional respective of 
@@ -176,7 +184,14 @@ const styles = StyleSheet.create({
     alignItems:'flex-start'
   },
   noteText:{
-    fontSize:9,
+    ...Platform.select({
+      ios:{
+        fontSize:9,
+      },
+      android:{
+        fontSize:10.75
+      }
+    }),
     fontFamily:'JustAnotherHand',
   },
   backgroundImage:{
@@ -184,3 +199,5 @@ const styles = StyleSheet.create({
     height:'100%'
   }
 });
+
+export default GridSquare;

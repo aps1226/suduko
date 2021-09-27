@@ -1,5 +1,5 @@
 //Function shuffles array.
-export function shuffle(array: number[]):number[] {
+function shuffle(array: number[]):number[] {
   var currentIndex:number = array.length,  randomIndex:number;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -12,7 +12,7 @@ export function shuffle(array: number[]):number[] {
   return array;
 }
 //Helper function for generateBoard function to determine if respective row and column are valid inputs.
-export function isValid(board:(number|null)[][], row:number, col:number, k:number) {
+function isValid(board:(number|null)[][], row:number, col:number, k:number) {
   //Determine if the current value k exists with in the respective positions:
     //row
     //column
@@ -28,7 +28,7 @@ export function isValid(board:(number|null)[][], row:number, col:number, k:numbe
   return true;
 }
 //Function to generate game board.
-export function generateBoard(data:(number|null)[][]):(number|null)[][] {
+function generateBoard(data:(number|null)[][]):(number|null)[][] {
   //Iterate through each row of board.
   for (let i = 0; i < 9; i++) {
     //Iterate through column of respective row.
@@ -58,7 +58,7 @@ export function generateBoard(data:(number|null)[][]):(number|null)[][] {
   return data;
 }
 //Function determines if the current game board is valid.
-export function isValidSudoku(board:(number|null)[][]):boolean {
+function isValidSudoku(board:(number|null)[][]):boolean {
   for (let i = 0; i < 9; i++) {
     let row = new Set(),
         col = new Set(),
@@ -86,39 +86,39 @@ export function isValidSudoku(board:(number|null)[][]):boolean {
   }
   return true
 };
-////*Not needed.
-////Function determines if the current game board is solvable.
-// export function isSolvable(data:(number|null)[][]):boolean {
-//   //Iterate through each row of board.
-//   for (let i = 0; i < 9; i++) {
-//     //Iterate through column of respective row.
-//     for (let j = 0; j < 9; j++) {
-//       //If current value needs an entry.
-//       if (data[i][j] == null) {
-//         //Iterate through possible values.
-//         for (let k = 1; k <= 9; k++) {
-//           //Determine if current value if valid for the board
-//           //at the current position.
-//           if (isValid(data, i, j, k)) {
-//             data[i][j] = k;
-//             //If the value is valid, recurse with the given value
-//             //entered on the board.
-//             if (isSolvable(data)) {
-//               return true;
-//             //If false is returned, iterate to the next value.
-//             } else {
-//               data[i][j] = null;
-//             }
-//           }
-//         }
-//         return false;
-//       }
-//     }
-//   }
-//   return true;
-// }
+
+//Function determines if the current game board is solvable.
+function isSolvable(data:(number|null)[][]):boolean {
+  //Iterate through each row of board.
+  for (let i = 0; i < 9; i++) {
+    //Iterate through column of respective row.
+    for (let j = 0; j < 9; j++) {
+      //If current value needs an entry.
+      if (data[i][j] == null) {
+        //Iterate through possible values.
+        for (let k = 1; k <= 9; k++) {
+          //Determine if current value if valid for the board
+          //at the current position.
+          if (isValid(data, i, j, k)) {
+            data[i][j] = k;
+            //If the value is valid, recurse with the given value
+            //entered on the board.
+            if (isSolvable(data)) {
+              return true;
+            //If false is returned, iterate to the next value.
+            } else {
+              data[i][j] = null;
+            }
+          }
+        }
+        return false;
+      }
+    }
+  }
+  return true;
+}
 //Function initializes game board based on difficulty input.
-export function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
+function initBoard(curBoard: (number|null)[][], difficulty:number):(number|null)[][]{
   let blank:number = Math.floor(37 * Math.random());
   switch(difficulty){
     //Easy selection.
@@ -148,22 +148,24 @@ export function initBoard(curBoard: (number|null)[][], difficulty:number):(numbe
     let col:number = Math.floor(9*Math.random());
     while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
     const clonedBoard = curBoard.map(arr => [...arr])
-    ////*Not needed.
-    // while(!isSolvable(clonedBoard)){
-    //   clonedBoard[row][col] = curBoard[row][col];
-    //   row = Math.floor(9*Math.random());
-    //   col = Math.floor(9*Math.random());
-    //   while(!curBoard[row][col]) row = Math.floor(9*Math.random()),col = Math.floor(9*Math.random());
-    //   clonedBoard[row][col] = null;
-    // }
     curBoard[row][col] = null;
   }
   return curBoard;
 }
 //Function determines if the board has been solved.
-export function isCompleted(board:(number|null)[][]):boolean{
+function isCompleted(board:(number|null)[][]):boolean{
   for(let i = 0; i < board.length; i++){
     if(board[i].includes(null)) return false;
   }
   return true;
+}
+
+export {
+  shuffle,
+  isValid,
+  generateBoard,
+  isValidSudoku,
+  isSolvable,
+  initBoard,
+  isCompleted
 }

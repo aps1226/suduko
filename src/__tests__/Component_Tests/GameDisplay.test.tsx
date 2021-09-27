@@ -4,9 +4,8 @@ import renderWithRedux from '../renderWithRedux';
 import { createMemoryHistory, createLocation, MemoryHistory, Location} from 'history';
 import { match } from 'react-router';
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
-import {Colors, GameState, RenderReduxAPI} from '../../../types';
-import {RootState} from '../../state/reducers/index';
-import GameDisplay from '../../../components/GameDisplay';
+import {Colors, GameState, MockStore, RenderReduxAPI} from '../../../types';
+import GameDisplay from '../../components/GameDisplay';
 import { ToggleButton } from 'react-native-paper';
 
 //Mock props for routing.
@@ -72,7 +71,7 @@ describe('GameDisplay',() =>{
   //Mock store object for state management.
     //Hard code properties that are initialized randomly for
     //snapshot comparison.
-  const mockStore:RootState = {
+  const mockStore:MockStore = {
     'board':board,
     'colors':colors,
     'gameState':gameState
@@ -167,8 +166,8 @@ describe('GameDisplay',() =>{
     })
   })
 
-  //Test that a square will not allow for a repeated note entry.
-  it(`should not allow for a repeated note entry for a given square`, ()=>{
+  //Test note deletion.
+  it(`should allow for a note to be removed from a square`, ()=>{
     const {getByTestId,store} = gameDisplayComponent;
     const entryModeToggle = getByTestId('entryModeToggle');
     //Square with a null value.
@@ -182,10 +181,10 @@ describe('GameDisplay',() =>{
     fireEvent.press(gridSquare67);
     //Assert that length of note state for this square is 1.
     expect(store.getState().notes['67'].length).toBe(1);
-    //Attempt to re-enter note in null square where note for '1' already exists.
+    //Erase note.
     fireEvent.press(gridSquare67);
-    //Assert that length of note state for this square is still 1.
-    expect(store.getState().notes['67'].length).toBe(1);
+    //Assert that length of note state for this square is 0.
+    expect(store.getState().notes['67'].length).toBe(0);
   })
 
   //Test that a note cannot be entered in a square containing a valid value.
@@ -301,6 +300,33 @@ describe('GameDisplay',() =>{
     await act(()=>new Promise((r) => setTimeout(r, 1000)));
     //Assert that time has increased from 3->4.
     expect(store.getState().timer.time).toBe(4);
+  })
+
+  //Test that game timer stops after board completion.
+  it(`should cause timer to stop incrementing when the game board is solved`, async () => {
+    const {getByTestId,queryByTestId,store} = gameDisplayComponent;
+    const selectionSquare5 = getByTestId('selectionSquare_5');
+    const selectionSquare3 = getByTestId('selectionSquare_3');
+    const gridSquare67 = getByTestId('gridSquare_67');
+    const gridSquare45 = getByTestId('gridSquare_45');
+    //Select selection square for 5 value.
+    fireEvent.press(selectionSquare5);
+    //Input a 5 for the grid square at location row 6, column 7.
+    fireEvent.press(gridSquare67);
+    //Select selection square for 3 value.
+    fireEvent.press(selectionSquare3);
+    //Input a 3 for the grid square at location row 4, column 5.
+    fireEvent.press(gridSquare45);
+    await waitFor( async () => {
+      //Wait 1 second.
+      await act(()=> new Promise((r) => setTimeout(r, 1000)));
+      //Determine current time.
+      const curTime  = store.getState().timer.time;
+      //Wait 2 second.
+      await act(()=> new Promise((r) => setTimeout(r, 2000)));
+      //Assert that time has not increased.
+      expect(store.getState().timer.time).toBe(curTime);
+    })
   })
 
   //Test main menu button.

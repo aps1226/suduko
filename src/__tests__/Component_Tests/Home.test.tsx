@@ -3,9 +3,8 @@ import renderWithRedux from '../renderWithRedux';
 import { createMemoryHistory, createLocation } from 'history';
 import { match } from 'react-router'; 
 import { act, cleanup, fireEvent, render, waitFor} from '@testing-library/react-native';
-import {RenderReduxAPI} from '../../../types';
-import {RootState} from '../../state/reducers/index';
-import Home from '../../../components/Home';
+import {RenderReduxAPI,MockStore} from '../../../types';
+import Home from '../../components/Home';
 
 //Mock props for routing.
 const history = createMemoryHistory();
@@ -21,7 +20,7 @@ const location = createLocation(match.url);
 //Home component testing.
 describe('Home', () =>{
   //Mock store object for state management.
-  const mockStore:RootState = {};
+  const mockStore:MockStore = {};
   //Render Home component with routing and redux.
   let homeComponent:RenderReduxAPI;
   beforeEach(() =>{

@@ -1,9 +1,15 @@
 {
-  "allowSyntheticDefaultImports": true,
   "compilerOptions": {
-    "strict": true,
-    "jsx":"react"
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ]
   },
-  "extends": "expo/tsconfig.base",
-  "noErrorTruncation":true
+  "extends": "expo/tsconfig.base"
 }

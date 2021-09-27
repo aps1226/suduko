@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { NativeRouter, Switch, Route  } from "react-router-native";
 import { Provider } from 'react-redux'
 import { store } from './src/state/store';
-import Home from './components/Home';
-import GameDisplay from './components/GameDisplay';
-import DifficultySelection from "./components/DifficultySelection";
+import Home from './src/components/Home';
+import GameDisplay from './src/components/GameDisplay';
+import DifficultySelection from "./src/components/DifficultySelection";
 export default function App() {
 
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <NativeRouter>
         <View style={styles.container}>
           <ImageBackground 
-            source = {require('./assets/images/desk.png')}
+            source = {require('./assets/images/desk.webp')}
             style={styles.backgroundImage}
           >
             <Switch>

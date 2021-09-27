@@ -2,9 +2,9 @@ import React,{useEffect} from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux"; 
 import { bindActionCreators } from "redux";
-import * as actionCreators from '../src/state/index';
-import { IProps,Timer as TimerType } from '../types';
-import { RootState } from '../src/state/reducers/index';
+import * as actionCreators from '../state/index';
+import { IProps,Timer as TimerType } from '../../types';
+import { RootState } from '../state/reducers/index';
 
 export default function Timer() {
   //Redux state.

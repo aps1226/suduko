@@ -5,8 +5,8 @@ import Board from './Board';
 import SelectionSquare from './SelectionSquare';
 import Toggle from './Toggle'
 import { useSelector, useDispatch } from "react-redux";
-import { IProps } from '../types';
-import { RootState } from '../src/state/reducers/index';
+import { IProps } from '../../types';
+import { RootState } from '../state/reducers/index';
 
 export default function SelectionBar() {
   //Redux-state.
@@ -35,7 +35,7 @@ export default function SelectionBar() {
   return (
       <View style = {styles.container}>
         <LinearGradient
-          colors={colors['gradient']}
+          colors={colors['gradient'] as string[]}
           start={[0, 0.5]}
           end = {[1,0.5]}
           style = {styles.linearGradient}
