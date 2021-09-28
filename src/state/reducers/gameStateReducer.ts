@@ -6,6 +6,7 @@ const initGameState:GameState = {
   'isCompleted':false,
   'gameExists':false
 }
+
 const gameStateReducer = (state = initGameState, action: AnyAction):GameState =>{
   switch(action.type){
     case SET_GAME_STATE:

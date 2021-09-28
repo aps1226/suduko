@@ -10,6 +10,7 @@ const initGradient = ():string[] =>{
   }
   return gradient;
 }
+
 const initializedGradient:string[] = initGradient();
 const initialState:Colors = {
   1:['transparent','black'],
@@ -32,6 +33,7 @@ const initialState:Colors = {
   'Selection_9':'transparent',
   'gradient': initializedGradient
 }
+
 const colorReducer = (state = initialState, action:AnyAction):Colors =>{
 
   const defaultState:Colors = {

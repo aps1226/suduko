@@ -6,6 +6,7 @@ import * as actionCreators from '../state/index';
 import { isCompleted, isSolvable, isValidSudoku } from '../state/boardController'
 import { IProps,Notes } from '../../types';
 import  {RootState } from '../state/reducers/index';
+
 function GridSquare(props:IProps){
   //Redux-state.
   const {board,colors,selection, entryMode,notes} = useSelector((state:RootState) => state);

@@ -6,6 +6,7 @@ import { store } from './src/state/store';
 import Home from './src/components/Home';
 import GameDisplay from './src/components/GameDisplay';
 import DifficultySelection from "./src/components/DifficultySelection";
+
 export default function App() {
 
   return (
