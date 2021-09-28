@@ -1,6 +1,7 @@
 import React,{ useEffect } from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import TextStroke from './TextStroke';
+
 export default function Title() {
 
   return (

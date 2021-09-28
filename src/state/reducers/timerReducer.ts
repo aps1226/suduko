@@ -6,6 +6,7 @@ const initTimer:Timer = {
   'time':1,
   'incrementor':1
 }
+
 const timeReducer = (state = initTimer, action: AnyAction):Timer =>{
   switch(action.type){
     case SET_TIMER:

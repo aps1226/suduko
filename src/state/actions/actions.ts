@@ -8,6 +8,7 @@ export const setBoard = (board:(number|null)[][]) =>{
     })
   }
 }
+
 export const changeColor = (number:string) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -24,6 +25,7 @@ export const defaultColors = () =>{
     })
   }
 }
+
 export const setSelection = (number?:number) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -32,6 +34,7 @@ export const setSelection = (number?:number) =>{
     })
   }
 }
+
 export const setDifficulty = (difficulty?:number) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -40,6 +43,7 @@ export const setDifficulty = (difficulty?:number) =>{
     })
   }
 }
+
 export const setTimer = (timer:Timer) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -48,6 +52,7 @@ export const setTimer = (timer:Timer) =>{
     })
   }
 }
+
 export const setEntryMode = (entryMode:boolean) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -56,6 +61,7 @@ export const setEntryMode = (entryMode:boolean) =>{
     })
   }
 }
+
 export const setNotes = (notes:Notes) =>{
   return (dispatch:any) =>{
     dispatch({
@@ -64,6 +70,7 @@ export const setNotes = (notes:Notes) =>{
     })
   }
 }
+
 export const defaultNotes = () =>{
   return (dispatch:any) =>{
     dispatch({

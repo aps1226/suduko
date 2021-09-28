@@ -113,7 +113,7 @@ Mobile Suduko application. The motivation for this project is that I have always
           - [store.ts](src/state/store.ts)
 
         </details>
-   
+
 - [app.json](app.json)
 - [App.tsx](App.tsx)
 - [babel.config.js](babel.config.js)
