@@ -51,16 +51,6 @@ Mobile Suduko application. The motivation for this project is that I have always
       *  <details>
          <summary><b>Component_Tests/</b></summary>
    
-         *   <details>
-             <summary><b>__snapshots__/</b></summary>
-
-               - [DifficultySelection.test.tsx.snap](src/__tests__/Component_Tests/__snapshots__/DifficultySelection.test.tsx.snap)
-               - [GameDisplay.test.tsx.snap](src/__tests__/Component_Tests/__snapshots__/GameDisplay.test.tsx.snap)
-               - [Home.test.tsx.snap](src/__tests__/Component_Tests/__snapshots__/Home.test.tsx.snap)
-               - [TextStroke.test.jsx.snap](src/__tests__/Component_Tests/__snapshots__/TextStroke.test.jsx.snap)
-
-              </details>
-   
          - [DifficultySelection.test.tsx](src/__tests__/Component_Tests/DifficultySelection.test.tsx)
          - [GameDisplay.test.tsx](src/__tests__/Component_Tests/GameDisplay.test.tsx)
          - [Home.test.tsx](src/__tests__/Component_Tests/Home.test.tsx)
